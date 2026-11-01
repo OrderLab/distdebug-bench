@@ -39,8 +39,8 @@ def _run_dirs(bug_dir: Path) -> list[Path]:
     return sorted(runs, key=lambda d: int(d.name.split("-")[1]))
 
 
-def score_run(bug, run_dir: Path) -> dict | None:
-    """Score one run and write its ``diagnosis_scores.json``; None if it has no valid diagnosis."""
+def score_run(bug, run_dir: Path, write: bool = True) -> dict | None:
+    """Score one run (writing ``diagnosis_scores.json`` if ``write``); None if it has no valid diagnosis."""
     path = run_dir / "diagnosis.json"
     if not path.exists():
         return None
@@ -60,13 +60,14 @@ def score_run(bug, run_dir: Path) -> dict | None:
         "diagnosis": diagnosis,
         "scores": scores,
     }
-    (run_dir / "diagnosis_scores.json").write_text(json.dumps(record, indent=2))
+    if write:
+        (run_dir / "diagnosis_scores.json").write_text(json.dumps(record, indent=2))
     stats_path = run_dir / "session_stats.json"
     stats = json.loads(stats_path.read_text()) if stats_path.exists() else {}
     return {**scores, **{k: stats.get(k) for k in EFFORT}}
 
 
-def summarize(results: Path, benchmark: Path, subset: str, attempts: int) -> dict:
+def summarize(results: Path, benchmark: Path, subset: str, attempts: int, write: bool = True) -> dict:
     bench = load_benchmark(benchmark)
     per_bug, incomplete = {}, {}
     for bug in bench.iter_bugs(subset):
@@ -74,7 +75,7 @@ def summarize(results: Path, benchmark: Path, subset: str, attempts: int) -> dic
         for run_dir in _run_dirs(results / bug.name):
             if len(selected) == attempts:
                 break
-            if (scored := score_run(bug, run_dir)) is not None:
+            if (scored := score_run(bug, run_dir, write)) is not None:
                 selected.append(scored)
         if len(selected) < attempts:
             incomplete[bug.name] = len(selected)

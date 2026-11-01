@@ -1,0 +1,14 @@
+# Copy this file, fill in every field, and pass it to
+# `python -m distdebug_bench.submit package`.
+agent_name: Mini-SWE-Agent                 # display name of the agent or harness
+agent_url: https://github.com/SWE-agent/mini-swe-agent
+open_source: true                          # whether the agent's code is public
+models:                                    # every model the agent calls
+  - gpt-5.4
+model_settings: reasoning effort medium; $3 cost limit per attempt   # anything that affects results
+subset: all                                # all (120 bugs) or lite (34 bugs)
+date: 2026-01-01                           # date the runs finished
+organization: Your lab or company
+report_url: https://...                    # paper, technical report, or blog post describing the system
+trajectories_url: https://...              # public link to the trajectories archive (see README)
+contact: Your Name <you@example.com>

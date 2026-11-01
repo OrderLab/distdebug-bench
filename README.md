@@ -35,6 +35,7 @@ and resource leaks.
 │
 ├── distdebug_bench/                       # Loader, evaluator, and agent runner
 ├── configs/mini-swe-agent/                # The paper's model configurations
+├── submissions/                           # Leaderboard submissions
 ├── release/                               # Hugging Face export and Croissant metadata
 ├── tests/
 ├── collection-pipeline/                   # Pipeline used to construct the benchmark
@@ -87,6 +88,43 @@ The protocol, as in the paper:
 Each attempt is saved under `results/<config>/<bug>/run-NN/` as
 `trajectory.json`, `diagnosis.json`, `session_stats.json` (API calls, tokens,
 cost), and, after scoring, `diagnosis_scores.json`.
+
+## Submitting results to the leaderboard
+
+1. Run every bug in the full benchmark (or in Lite) until it has three valid
+   attempts. Use `distdebug_bench.run`, or your own agent writing the same layout:
+   `<bug>/run-NN/diagnosis.json` (checked by `distdebug_bench/validate_diagnosis.py`)
+   and a human-readable `<bug>/run-NN/trajectory.json`.
+2. Run `python -m distdebug_bench.leakage <results> --quarantine` and rerun the
+   flagged attempts.
+3. Copy `submissions/metadata.template.yaml`, fill it in, and package the run:
+
+   ```bash
+   python -m distdebug_bench.submit package results/<run> --metadata metadata.yaml
+   ```
+
+   This scores the run and writes `submissions/<date>_<agent>__<model>/` (metadata,
+   scores, and diagnoses) plus a trajectories archive.
+4. Upload the archive anywhere public (Google Drive, Hugging Face, Zenodo, ...),
+   set `trajectories_url` in the submission's `metadata.yaml`, and check it:
+
+   ```bash
+   python -m distdebug_bench.submit check submissions/<date>_<agent>__<model>
+   ```
+
+5. Open a pull request adding the submission directory, or email
+   jyuxuan@umich.edu with the subject `[DistDebug-Bench-Submit] <agent> + <model>`
+   and links to the submission directory and the trajectories.
+
+Rules:
+
+- Every bug in the chosen subset needs three valid attempts; scores are
+  aggregated by `distdebug_bench.score`. Lite results are listed separately.
+- The agent must not access the original issues, their fixes, or this
+  benchmark's repository or website. We rerun the leakage guard and review
+  trajectories.
+- Describe the system in a paper, technical report, or blog post (`report_url`).
+- We rescore every submission from its diagnoses before listing it.
 
 ## Per-bug file layout under `benchmark/bugs/`
 
