@@ -1,9 +1,12 @@
-"""Bubblewrap sandbox for agent commands, with selected commands disabled.
+"""Bubblewrap sandbox for agent commands: no network, selected commands disabled.
 
-Same as mini-swe-agent's ``BubblewrapEnvironment``, plus ``blocked_commands``:
-each listed command is shadowed inside the sandbox by a stub that fails with
-exit code 127. The paper blocks ``chafa`` (crashes runs) and ``img2txt`` (hangs
-them). Commands can also be listed in ``MSWEA_BLOCKED_COMMANDS`` (comma-separated).
+Same as mini-swe-agent's ``BubblewrapEnvironment``, plus:
+
+- ``allow_network`` (default false): commands run in their own network namespace
+  with only loopback, so the agent cannot reach the internet.
+- ``blocked_commands``: each listed command is shadowed by a stub that fails with
+  exit code 127. The paper blocks ``chafa`` (crashes runs) and ``img2txt`` (hangs
+  them). Commands can also be listed in ``MSWEA_BLOCKED_COMMANDS`` (comma-separated).
 """
 
 from __future__ import annotations
@@ -17,6 +20,8 @@ DEFAULT_PATH = "/usr/local/bin:/usr/sbin:/usr/bin:/bin"
 
 
 class SandboxEnvironmentConfig(BubblewrapEnvironmentConfig):
+    allow_network: bool = False
+    """Whether commands may use the host's network."""
     blocked_commands: list[str] = []
     """Commands to shadow with fast-failing stubs inside the sandbox."""
 
@@ -24,6 +29,8 @@ class SandboxEnvironmentConfig(BubblewrapEnvironmentConfig):
 class SandboxEnvironment(BubblewrapEnvironment):
     def __init__(self, **kwargs):
         super().__init__(config_class=SandboxEnvironmentConfig, **kwargs)
+        if not self.config.allow_network:
+            self.config.wrapper_args = [*self.config.wrapper_args, "--unshare-net"]
         commands = self._blocked_commands()
         if not commands:
             return

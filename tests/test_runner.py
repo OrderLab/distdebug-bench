@@ -196,3 +196,14 @@ def test_sandbox_blocks_commands(tmp_path):
     assert "chafa is disabled in this evaluation sandbox." in out["output"]
     assert "rc=127" in out["output"] and "ok" in out["output"]
     assert (tmp_path / "f.txt").read_text() == "ok\n"
+
+
+@pytest.mark.skipif(not _bwrap_works(), reason="bubblewrap is unavailable")
+def test_sandbox_has_no_network(tmp_path):
+    pytest.importorskip("minisweagent")
+    from distdebug_bench.sandbox import SandboxEnvironment
+
+    probe = "python3 -c \"import socket; socket.create_connection(('1.1.1.1', 53), timeout=3)\"; echo rc=$?"
+    out = SandboxEnvironment(cwd=str(tmp_path), timeout=20).execute({"command": probe})
+    assert "rc=0" not in out["output"]
+    assert "unreachable" in out["output"].lower()
