@@ -11,6 +11,7 @@ dependencies = []
 agent = ["mini-swe-agent==2.2.8", "pyyaml>=6"]
 test = ["pytest>=7.0", "pyyaml>=6"]
 release = ["mlcroissant[image,git]>=1.1"]
+paper = ["numpy>=1.22", "matplotlib>=3.5", "huggingface_hub>=0.34"]
 
 [build-system]
 requires = ["hatchling"]

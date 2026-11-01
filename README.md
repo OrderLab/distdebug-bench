@@ -35,6 +35,7 @@ and resource leaks.
 │
 ├── distdebug_bench/                       # Loader, evaluator, and agent runner
 ├── configs/mini-swe-agent/                # The paper's model configurations
+├── paper/                                 # Rebuilds the paper's Table 1 and Figures 2-3 from the traces
 ├── submissions/                           # Leaderboard submissions
 ├── release/                               # Hugging Face export and Croissant metadata
 ├── tests/
@@ -88,6 +89,26 @@ The protocol, as in the paper:
 Each attempt is saved under `results/<config>/<bug>/run-NN/` as
 `trajectory.json`, `diagnosis.json`, `session_stats.json` (API calls, tokens,
 cost), and, after scoring, `diagnosis_scores.json`.
+
+## Reproducing the paper's results
+
+The traces behind the paper's Table 1 are on Hugging Face at
+[OrderLab/distdebug-bench-traces](https://huggingface.co/datasets/OrderLab/distdebug-bench-traces):
+17 configurations, 120 bugs, and the three scored attempts per bug, for 6,120
+attempts. `paper/reproduce.py` rescores every diagnosis with
+`distdebug_bench.score` and aggregates the scores with the paper's scripts. It
+rebuilds Table 1 and Figures 2 and 3 in `paper/out/` and checks them against
+`paper/reference/`:
+
+```bash
+pip install -e ".[paper]"
+hf download OrderLab/distdebug-bench-traces --repo-type dataset --local-dir traces
+python paper/reproduce.py traces
+```
+
+It prints whether each configuration's scores, token use, and confidence
+intervals match the paper. Pass `--use-released-scores` to aggregate the
+stored `diagnosis_scores.json` files instead of rescoring.
 
 ## Submitting results to the leaderboard
 

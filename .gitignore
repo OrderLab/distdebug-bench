@@ -207,3 +207,7 @@ __marimo__/
 
 # Agent runs
 results/
+
+# Paper reproduction
+traces/
+paper/out/
