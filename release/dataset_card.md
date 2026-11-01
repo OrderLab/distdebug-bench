@@ -41,6 +41,7 @@ blocks.
 - Paper: *DistDebug-Bench: Can LLM Agents Diagnose Bugs in Distributed Systems?* (NeurIPS 2026, Evaluations and Datasets Track)
 - Code, harness, and evaluator: {{GITHUB_URL}}
 - Website and leaderboard: {{WEBSITE_URL}}
+- Agent traces behind the paper's Table 1: https://huggingface.co/datasets/OrderLab/distdebug-bench-traces
 - Version: {{VERSION}}
 
 ## Contents
