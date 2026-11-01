@@ -1,0 +1,20 @@
+{
+    "id": "93542",
+    "system": "elasticsearch",
+    "issue_creation_date": "2023-02-07",
+    "issue_link": "https://github.com/elastic/elasticsearch/issues/93542",
+    "fix_link": "https://github.com/elastic/elasticsearch/pull/93551",
+    "branch": "052a4f15b92713e422560ddee70050744f94555a",
+    "title": "Peer recovery may time out during recoverLocallyUpToGlobalCheckpoint",
+    "description": "The recoverLocallyUpToGlobalCheckpoint step of peer recovery may take an extended period of time, but today we do not disable the recovery monitor during this step so if it takes more than 30 minutes (by default) then the recovery will time out, fail, and retry repeatedly. We should disable the recovery monitor during this step.\n\n",
+    "severity": "Major",
+    "root_cause_type": "Performance",
+    "bug_complexity": "Hard",
+    "distributed": "No",
+    "contains_analysis": "No",
+    "analysis_removed": "No",
+    "contains_logs": "No",
+    "contains_stack_traces": "No",
+    "bug_cause_description": "",
+    "artifact_dir": "artifact_dir"
+}

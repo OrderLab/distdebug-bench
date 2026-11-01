@@ -1,0 +1,20 @@
+{
+    "id": "134925",
+    "system": "elasticsearch",
+    "issue_creation_date": "2025-09-17",
+    "issue_link": "https://github.com/elastic/elasticsearch/issues/134925",
+    "fix_link": "https://github.com/elastic/elasticsearch/pull/134955",
+    "branch": "1904abbb730ec6bfc47a58425a3949664013ed55",
+    "title": "Transforms will infinitely queue PIT closures causing a \"PIT storm\"",
+    "description": "Transforms when using point-in-time (PIT) search will create multiple PITs over the lifetime of a single transform pivot page.\n\nIf there is any failure, or a new search is initiated, or the scheduled pivot completes, it will request the PITs to be deleted.\n\nHowever, it will not wait for these PITs to be deleted before scheduling again or continuing with another set of searches. Consequently, its possible for many transforms, in quick succession, could create MANY PITs and cause a significant queue of close pit requests which can cause pressure on the system.\n\nTransforms should wait for all its close-pit requests to complete before continuing its execution paths. Since close-pit \"should\" be fast, this should be OK. However, if close pit is slow, we want transforms to be naturally throttled to prevent a PIT storm.",
+    "severity": "Critical",
+    "root_cause_type": "Logic",
+    "bug_complexity": "Medium",
+    "distributed": "Yes",
+    "contains_analysis": "Yes",
+    "analysis_removed": "No",
+    "contains_logs": "No",
+    "contains_stack_traces": "No",
+    "bug_cause_description": "",
+    "artifact_dir": "artifact_dir"
+}

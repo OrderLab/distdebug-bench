@@ -1,0 +1,20 @@
+{
+  "id": "16614",
+  "system": "Ray",
+  "issue_creation_date": "2021-05-27",
+  "issue_link": "https://github.com/ray-project/ray/issues/16614",
+  "fix_link": "https://github.com/ray-project/ray/pull/17318",
+  "branch": "e1cd8580a0b4aee1fc47671b0fdfe9ea1b1a3c02",
+  "title": "[Core] GPU assignment via CUDA_VISIBLE_DEVICES is broken when using placement groups with \"ray start --head\"",
+  "description": "What is the problem?\nGPU assignment via CUDA_VISIBLE_DEVICES is broken when using placement groups.\n\nRay version and other system information (Python version, TensorFlow version, OS):\nRay 1.3.0\nTensorflow: 1.15.0\nPyTorch: 1.7.1\nOS: Linux (in docker container)\n\nReproduction (REQUIRED)\nimport ray\nfrom ray.util.placement_group import placement_group\nimport time\n\nray.init()\n\n# Create placement group with 4 bundles using 1 GPU each.\nnum_gpus = 4\nbundles = [{\"GPU\": 1, \"CPU\": 1} for _ in range(num_gpus)]\npg = placement_group(bundles)\nray.get(pg.ready())\n\n# Actor using 1 GPU that has a method to print $CUDA_VISIBLE_DEVICES env variable\n@ray.remote(num_gpus=1, num_cpus=1)\nclass Foo:\n\n    def bar(self):\n        import os\n        print(f'CUDA_VISIBLE_DEVICES={os.environ.get(\"CUDA_VISIBLE_DEVICES\", \"<none>\")}')\n\n# Necessary to prevent SystemErrors to occur.\ntime.sleep(5)\n\n# Create one actor per GPU and print the corresponding #CUDA_VISIBLE_DEVICES env variable.\nactors = []\nfor gpu_idx in range(num_gpus):\n    ray_options = {\"placement_group\": pg, \"placement_group_bundle_index\": gpu_idx}\n    actors.append(Foo.options(**ray_options).remote())\n    actors[-1].bar.remote()\n\n# Necessary to prevent SystemErrors to occur.\ntime.sleep(5)\n\n# Cleanup\ndel actors\nray.util.remove_placement_group(pg)\nWhen running the above snippet on e.g. a p3.8xlarge AWS instance the GPU device assignments fail ~1 out of 5 runs and the output looks e.g. like this:\n\nCUDA_VISIBLE_DEVICES=0\nCUDA_VISIBLE_DEVICES=1,3\nCUDA_VISIBLE_DEVICES=2\nCUDA_VISIBLE_DEVICES=1,3\nI could also reproduce this with the nightly build from 22nd of June 2021.", 
+  "severity": "Critical",
+  "root_cause_type": "Concurrency",
+  "bug_complexity": "Medium",
+  "distributed": "Yes",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "Yes",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": ""
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "file": "pkg/kubelet/allocation/allocation_manager.go",
+    "function": "RemovePod",
+    "start_line": 573,
+    "end_line": 580
+  }
+]

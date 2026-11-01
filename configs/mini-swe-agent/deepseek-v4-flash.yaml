@@ -1,0 +1,10 @@
+# Mini-SWE-Agent 2.2.8 with DeepSeek V4 Flash (paper Table 1).
+# The paper served this model through an Azure endpoint; this config uses OpenRouter.
+name: mini-swe-agent-deepseek-v4-flash
+model_name: deepseek/deepseek-v4-flash
+model_class: openrouter
+model_kwargs:
+  drop_params: true
+cost_limit: 3.0
+env:
+  MSWEA_COST_TRACKING: ignore_errors

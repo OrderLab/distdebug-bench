@@ -1,0 +1,14 @@
+[
+  {
+    "file": "server/src/main/java/org/elasticsearch/repositories/RepositoriesService.java",
+    "function": "RepositoriesService",
+    "start_line": "89",
+    "end_line": "90"
+  },
+  {
+    "file": "server/src/main/java/org/elasticsearch/repositories/VerifyNodeRepositoryAction.java",
+    "function": "verify",
+    "start_line": "78",
+    "end_line": "79"
+  }
+]

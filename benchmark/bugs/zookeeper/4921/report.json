@@ -1,0 +1,20 @@
+{
+  "id": "4921",
+  "system": "zookeeper",
+  "issue_creation_date": "2025-04-23",
+  "issue_link": "[ZOOKEEPER-4921] Zookeeper Client 3.9.3 Fails to Reconnect After Network Failures - ASF JIRA",
+  "fix_link": "ZOOKEEPER-4921: Retry endlessly to establish a brand-new session by kezhuw \u00b7 Pull Request #2252 \u00b7 apache/zookeeper",
+  "branch": "release-3.9.3",
+  "title": "Zookeeper Client 3.9.3 Fails to Reconnect After Network Failures",
+  "description": "After upgrading the Java Zookeeper client to version 3.9.3, we observed that it is not resilient to brief network disruptions, such as a short VPN blip. In such cases, the client attempts to reconnect only once, and if unsuccessful, the session expires.\n\nApr 23, 2025 10:19:23 AM com.twitter.finagle.common.zookeeper.ZooKeeperClient$3 process\nINFO: Zookeeper session expired. Event: WatchedEvent state:Expired type:None path:null zxid: -1\n\nIn contrast, the previous version (3.9.2) would continuously retry until the network connection was restored, maintaining the session more reliably.\n\nI believe it's a new issue with this change: https://issues.apache.org/jira/browse/ZOOKEEPER-4508\n\n \n\nStep to repro:\n\nOpen VPN.\nStart the application which connects to the Zookeeper server with the VPN.\nDisable VPN for a couple of minutes.\nObserve the application.\nEnable the VPN again.\n3.9.3:\n\"message\" : \"Session 0x0 for server XXX, Closing socket connection. Attempting reconnect except it is a SessionExpiredException or SessionTimeoutException.\",\n  \"stackTrace\" : \"o.a.z.ClientCnxn$SessionTimeoutException: Client session timed out, have not heard from server in 5590ms for session id 0x0\n        at o.a.z.ClientCnxn$SendThread.run(ClientCnxn.java:1253)\n\n3.9.2: Application will be reconnected successfully.",
+  "severity": "Critical",
+  "root_cause_type": "Error handling",
+  "bug_complexity": "Easy",
+  "distributed": "Yes",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "Yes",
+  "contains_stack_traces": "Yes",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

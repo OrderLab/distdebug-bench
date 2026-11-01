@@ -1,0 +1,408 @@
+2020-05-14 17:51:16,987 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):Follower@69] - FOLLOWING - LEADER ELECTION TOOK - 10 MS
+2020-05-14 17:51:17,204 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):Learner@391] - Getting a diff from the leader 0x2500000983
+2020-05-14 17:51:17,206 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):Learner@546] - Learner received NEWLEADER message
+2020-05-14 17:51:17,220 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):Learner@529] - Learner received UPTODATE message
+2020-05-14 17:51:17,223 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):CommitProcessor@256] - Configuring CommitProcessor with 24 worker threads.
+2020-05-14 17:51:18,565 [myid:4] - WARN  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):Follower@125] - Got zxid 0x2600000001 expected 0x1
+2020-05-14 17:51:18,565 [myid:4] - INFO  [SyncThread:4:FileTxnLog@216] - Creating new log file: log.2600000001
+2020-05-14 17:51:39,158 [myid:4] - INFO  [NIOWorkerThread-8:FourLetterCommands@234] - The list of known four letter word commands is : [{1936881266=srvr, 1937006964=stat, 2003003491=wchc, 1685417328=dump, 1668445044=crst, 1936880500=srst, 1701738089=envi, 1668247142=conf, -720899=telnet close, 2003003507=wchs, 2003003504=wchp, 1684632179=dirs, 1668247155=cons, 1835955314=mntr, 1769173615=isro, 1920298859=ruok, 1735683435=gtmk, 1937010027=stmk}]
+2020-05-14 17:51:39,158 [myid:4] - INFO  [NIOWorkerThread-8:FourLetterCommands@235] - The list of enabled four letter word commands is : [[wchs, stat, wchp, dirs, stmk, conf, ruok, mntr, srvr, wchc, envi, srst, isro, dump, gtmk, telnet close, crst, cons]]
+--
+2020-05-14 17:54:52,194 [myid:4] - INFO  [LearnerHandler-/146.196.79.231:43032:LearnerHandler@708] - Synchronizing with Follower sid: 2 maxCommittedLog=0x260000003a minCommittedLog=0x25000007c9 lastProcessedZxid=0x260000003a peerLastZxid=0x260000003a
+2020-05-14 17:54:52,194 [myid:4] - INFO  [LearnerHandler-/146.196.79.232:51108:LearnerHandler@752] - Sending DIFF zxid=0x260000003a for peer sid: 3
+2020-05-14 17:54:52,194 [myid:4] - INFO  [LearnerHandler-/146.196.79.231:43032:LearnerHandler@752] - Sending DIFF zxid=0x260000003a for peer sid: 2
+2020-05-14 17:54:52,203 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):Leader@1296] - Have quorum of supporters, sids: [ [4, 2, 3],[4, 2, 3] ]; starting up and setting last processed zxid: 0x2700000000
+2020-05-14 17:54:52,208 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):CommitProcessor@256] - Configuring CommitProcessor with 24 worker threads.
+2020-05-14 17:54:52,214 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):ContainerManager@64] - Using checkIntervalMs=60000 maxPerMinute=10000
+2020-05-14 17:54:53,111 [myid:4] - INFO  [/139.5.108.11:3890:QuorumCnxManager$Listener@918] - Received connection request 146.196.79.230:55326
+2020-05-14 17:54:53,114 [myid:4] - INFO  [WorkerReceiver[myid=4]:FastLeaderElection@679] - Notification: 2 (message format version), 1 (n.leader), 0x260000003a (n.zxid), 0x1 (n.round), LOOKING (n.state), 1 (n.sid), 0x26 (n.peerEPoch), LEADING (my state)0 (n.config version)
+2020-05-14 17:54:53,115 [myid:4] - INFO  [WorkerReceiver[myid=4]:FastLeaderElection@679] - Notification: 2 (message format version), 4 (n.leader), 0x260000003a (n.zxid), 0x1 (n.round), LOOKING (n.state), 1 (n.sid), 0x26 (n.peerEPoch), LEADING (my state)0 (n.config version)
+--
+2020-05-14 17:58:32,257 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):LeaderRequestProcessor@77] - Shutting down
+2020-05-14 17:58:32,257 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):PrepRequestProcessor@1007] - Shutting down
+2020-05-14 17:58:32,257 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):ProposalRequestProcessor@88] - Shutting down
+2020-05-14 17:58:32,257 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@155] - PrepRequestProcessor exited loop!
+2020-05-14 17:58:32,257 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):CommitProcessor@362] - Shutting down
+2020-05-14 17:58:32,258 [myid:4] - INFO  [CommitProcessor:4:CommitProcessor@195] - CommitProcessor exited loop!
+2020-05-14 17:58:32,258 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):Leader$ToBeAppliedRequestProcessor@976] - Shutting down
+2020-05-14 17:58:32,259 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):FinalRequestProcessor@514] - shutdown of request processor complete
+2020-05-14 17:58:32,259 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):SyncRequestProcessor@191] - Shutting down
+2020-05-14 17:58:32,259 [myid:4] - INFO  [SyncThread:4:SyncRequestProcessor@169] - SyncRequestProcessor exited!
+--
+2020-05-14 17:58:50,327 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:LearnerHandler@513] - Received NEWLEADER-ACK message from 1
+2020-05-14 17:58:50,327 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):Leader@1296] - Have quorum of supporters, sids: [ [4, 1, 3],[4, 1, 3] ]; starting up and setting last processed zxid: 0x2800000000
+2020-05-14 17:58:50,328 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):QuorumPeer@1934] - Reconfig feature is disabled, skip reconfig processing.
+2020-05-14 17:58:50,330 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):SessionTrackerImpl@274] - Adding session 0x3082f4a14b90000
+2020-05-14 17:58:50,334 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):CommitProcessor@256] - Configuring CommitProcessor with 24 worker threads.
+2020-05-14 17:58:50,339 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):ContainerManager@64] - Using checkIntervalMs=60000 maxPerMinute=10000
+2020-05-14 17:58:50,341 [myid:4] - DEBUG [LearnerHandler-/146.196.79.232:57582:LearnerHandler@534] - Sending UPTODATE message to 3
+2020-05-14 17:58:50,341 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:LearnerHandler@534] - Sending UPTODATE message to 1
+2020-05-14 17:58:50,639 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@274] - Adding session 0x3082f4db6e40000
+2020-05-14 17:58:50,639 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:createSession cxid:0x0 zxid:0x2800000001 txntype:-10 reqpath:n/a
+2020-05-14 17:58:50,640 [myid:4] - INFO  [SyncThread:4:FileTxnLog@216] - Creating new log file: log.2800000001
+2020-05-14 17:58:50,685 [myid:4] - DEBUG [SyncThread:4:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:createSession cxid:0x0 zxid:0x2800000001 txntype:-10 reqpath:n/a
+2020-05-14 17:58:50,685 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:createSession cxid:0x0 zxid:0x2800000001 txntype:-10 reqpath:n/a
+2020-05-14 17:58:50,716 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x3082f4db6e40000
+2020-05-14 17:58:50,717 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@298] - Permission requested: 8 
+2020-05-14 17:58:50,718 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 17:58:50,719 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@300] - Client credentials: ['ip,'169.136.88.248
+]
+2020-05-14 17:58:50,719 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:delete cxid:0x8 zxid:0x2800000002 txntype:2 reqpath:n/a
+2020-05-14 17:58:50,719 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x3082f4db6e40000
+2020-05-14 17:58:50,719 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@298] - Permission requested: 8 
+2020-05-14 17:58:50,719 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 17:58:50,719 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@300] - Client credentials: ['ip,'169.136.88.248
+]
+2020-05-14 17:58:50,720 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:delete cxid:0x9 zxid:0x2800000003 txntype:2 reqpath:n/a
+2020-05-14 17:58:50,720 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:delete cxid:0x8 zxid:0x2800000002 txntype:2 reqpath:n/a
+2020-05-14 17:58:50,720 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:delete cxid:0x8 zxid:0x2800000002 txntype:2 reqpath:n/a
+2020-05-14 17:58:50,720 [myid:4] - DEBUG [LearnerHandler-/146.196.79.232:57582:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:delete cxid:0x9 zxid:0x2800000003 txntype:2 reqpath:n/a
+2020-05-14 17:58:50,721 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:delete cxid:0x9 zxid:0x2800000003 txntype:2 reqpath:n/a
+2020-05-14 17:58:50,725 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x3082f4db6e40000
+2020-05-14 17:58:50,725 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@963] - Processing ACL: 31,s{'world,'anyone}
+
+2020-05-14 17:58:50,725 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@298] - Permission requested: 4 
+--
+2020-05-14 17:58:50,727 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 17:58:50,727 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@300] - Client credentials: ['ip,'169.136.88.248
+]
+2020-05-14 17:58:50,727 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:multi cxid:0xb zxid:0x2800000004 txntype:14 reqpath:n/a
+2020-05-14 17:58:50,727 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x3082f4db6e40000
+2020-05-14 17:58:50,727 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@963] - Processing ACL: 31,s{'world,'anyone}
+
+--
+2020-05-14 17:58:50,728 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x3082f4db6e40000
+2020-05-14 17:58:50,728 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@298] - Permission requested: 2 
+2020-05-14 17:58:50,728 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 17:58:50,728 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0xb zxid:0x2800000004 txntype:14 reqpath:n/a
+2020-05-14 17:58:50,728 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@300] - Client credentials: ['ip,'169.136.88.248
+]
+2020-05-14 17:58:50,728 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0xb zxid:0x2800000004 txntype:14 reqpath:n/a
+2020-05-14 17:58:50,728 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:multi cxid:0xc zxid:0x2800000005 txntype:14 reqpath:n/a
+2020-05-14 17:58:50,729 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0xc zxid:0x2800000005 txntype:14 reqpath:n/a
+2020-05-14 17:58:50,729 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0xc zxid:0x2800000005 txntype:14 reqpath:n/a
+2020-05-14 17:58:50,745 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x3082f4db6e40000
+2020-05-14 17:58:50,746 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@963] - Processing ACL: 31,s{'world,'anyone}
+
+2020-05-14 17:58:50,746 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@298] - Permission requested: 4 
+2020-05-14 17:58:50,746 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 17:58:50,746 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@300] - Client credentials: ['ip,'169.136.88.248
+]
+2020-05-14 17:58:50,749 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:create cxid:0x21 zxid:0x2800000006 txntype:1 reqpath:n/a
+2020-05-14 17:58:50,749 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x3082f4db6e40000
+2020-05-14 17:58:50,749 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@963] - Processing ACL: 31,s{'world,'anyone}
+
+2020-05-14 17:58:50,750 [myid:4] - DEBUG [SyncThread:4:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:create cxid:0x21 zxid:0x2800000006 txntype:1 reqpath:n/a
+2020-05-14 17:58:50,875 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@298] - Permission requested: 4 
+2020-05-14 17:58:50,875 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:create cxid:0x21 zxid:0x2800000006 txntype:1 reqpath:n/a
+2020-05-14 17:58:50,875 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 17:58:50,875 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@300] - Client credentials: ['ip,'169.136.88.248
+]
+2020-05-14 17:58:50,876 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:create cxid:0x22 zxid:0x2800000007 txntype:1 reqpath:n/a
+2020-05-14 17:58:50,877 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:create cxid:0x22 zxid:0x2800000007 txntype:1 reqpath:n/a
+2020-05-14 17:58:50,877 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:create cxid:0x22 zxid:0x2800000007 txntype:1 reqpath:n/a
+2020-05-14 17:58:51,101 [myid:4] - INFO  [/139.5.108.11:3890:QuorumCnxManager$Listener@918] - Received connection request 146.196.79.231:47254
+2020-05-14 17:58:51,101 [myid:4] - DEBUG [/139.5.108.11:3890:QuorumCnxManager@564] - Create new connection to server: 2
+2020-05-14 17:58:51,102 [myid:4] - DEBUG [/139.5.108.11:3890:QuorumCnxManager@639] - Opening channel to server 2
+2020-05-14 17:58:51,102 [myid:4] - DEBUG [/139.5.108.11:3890:QuorumCnxManager@653] - Connected to server 2
+--
+2020-05-14 17:58:51,214 [myid:4] - DEBUG [LearnerHandler-/146.196.79.231:50662:Leader@870] - outstanding is 0
+2020-05-14 17:58:51,214 [myid:4] - DEBUG [LearnerHandler-/146.196.79.231:50662:Leader@870] - outstanding is 0
+2020-05-14 17:59:20,834 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x3082f4a14b90000, timeout of 30000ms exceeded
+2020-05-14 17:59:20,834 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x3082f4a14b90000
+2020-05-14 17:59:20,835 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4a14b90000 type:closeSession cxid:0x0 zxid:0x2800000008 txntype:-11 reqpath:n/a
+2020-05-14 17:59:20,836 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:CommitProcessor@330] - Committing request:: sessionid:0x3082f4a14b90000 type:closeSession cxid:0x0 zxid:0x2800000008 txntype:-11 reqpath:n/a
+2020-05-14 17:59:20,836 [myid:4] - DEBUG [LearnerHandler-/146.196.79.231:50662:Leader@870] - outstanding is 0
+2020-05-14 17:59:20,837 [myid:4] - DEBUG [CommitProcWorkThread-17:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4a14b90000 type:closeSession cxid:0x0 zxid:0x2800000008 txntype:-11 reqpath:n/a
+2020-05-14 17:59:20,837 [myid:4] - DEBUG [CommitProcWorkThread-17:DataTree@1052] - Deleting ephemeral node /clickhouse_zk/tables/ck_cluster_zktest-shard02/default/abc/leader_election/leader_election-0000000055 for session 0x3082f4a14b90000
+2020-05-14 17:59:20,837 [myid:4] - DEBUG [CommitProcWorkThread-17:DataTree@1052] - Deleting ephemeral node /clickhouse/tables/ck_cluster_zktest-shard02/test/test/leader_election/leader_election-0000000055 for session 0x3082f4a14b90000
+2020-05-14 17:59:20,837 [myid:4] - DEBUG [CommitProcWorkThread-17:SessionTrackerImpl@223] - Removing session 0x3082f4a14b90000
+2020-05-14 17:59:35,348 [myid:4] - DEBUG [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2183:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /127.0.0.1:44318
+2020-05-14 17:59:35,354 [myid:4] - INFO  [NIOWorkerThread-1:FourLetterCommands@234] - The list of known four letter word commands is : [{1936881266=srvr, 1937006964=stat, 2003003491=wchc, 1685417328=dump, 1668445044=crst, 1936880500=srst, 1701738089=envi, 1668247142=conf, -720899=telnet close, 2003003507=wchs, 2003003504=wchp, 1684632179=dirs, 1668247155=cons, 1835955314=mntr, 1769173615=isro, 1920298859=ruok, 1735683435=gtmk, 1937010027=stmk}]
+2020-05-14 17:59:35,355 [myid:4] - INFO  [NIOWorkerThread-1:FourLetterCommands@235] - The list of enabled four letter word commands is : [[wchs, stat, wchp, dirs, stmk, conf, ruok, mntr, srvr, wchc, envi, srst, isro, dump, gtmk, telnet close, crst, cons]]
+2020-05-14 17:59:35,355 [myid:4] - INFO  [NIOWorkerThread-1:NIOServerCnxn@518] - Processing mntr command from /127.0.0.1:44318
+--
+2020-05-14 18:00:01,381 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 18:00:01,382 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@300] - Client credentials: ['ip,'169.136.88.248
+]
+2020-05-14 18:00:01,382 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:multi cxid:0x95 zxid:0x2800000009 txntype:14 reqpath:n/a
+2020-05-14 18:00:01,382 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x3082f4db6e40000
+2020-05-14 18:00:01,382 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@298] - Permission requested: 8 
+2020-05-14 18:00:01,382 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 18:00:01,383 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@300] - Client credentials: ['ip,'169.136.88.248
+]
+2020-05-14 18:00:01,383 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:multi cxid:0x96 zxid:0x280000000a txntype:14 reqpath:n/a
+2020-05-14 18:00:01,383 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x3082f4db6e40000
+2020-05-14 18:00:01,383 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0x95 zxid:0x2800000009 txntype:14 reqpath:n/a
+2020-05-14 18:00:01,383 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@298] - Permission requested: 8 
+2020-05-14 18:00:01,383 [myid:4] - DEBUG [LearnerHandler-/146.196.79.232:57582:Leader@876] - proposal has already been committed, pzxid: 0x2800000009 zxid: 0x2800000009
+2020-05-14 18:00:01,383 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 18:00:01,383 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0x95 zxid:0x2800000009 txntype:14 reqpath:n/a
+2020-05-14 18:00:01,384 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@300] - Client credentials: ['ip,'169.136.88.248
+]
+2020-05-14 18:00:01,384 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0x96 zxid:0x280000000a txntype:14 reqpath:n/a
+2020-05-14 18:00:01,384 [myid:4] - DEBUG [LearnerHandler-/146.196.79.232:57582:Leader@870] - outstanding is 0
+2020-05-14 18:00:01,384 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0x96 zxid:0x280000000a txntype:14 reqpath:n/a
+2020-05-14 18:00:01,384 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:multi cxid:0x97 zxid:0x280000000b txntype:14 reqpath:n/a
+2020-05-14 18:00:01,384 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x3082f4db6e40000
+2020-05-14 18:00:01,384 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@298] - Permission requested: 8 
+2020-05-14 18:00:01,385 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 18:00:01,385 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@300] - Client credentials: ['ip,'169.136.88.248
+]
+2020-05-14 18:00:01,385 [myid:4] - DEBUG [LearnerHandler-/146.196.79.232:57582:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0x97 zxid:0x280000000b txntype:14 reqpath:n/a
+2020-05-14 18:00:01,385 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:multi cxid:0x98 zxid:0x280000000c txntype:14 reqpath:n/a
+2020-05-14 18:00:01,385 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0x97 zxid:0x280000000b txntype:14 reqpath:n/a
+2020-05-14 18:00:01,385 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:Leader@876] - proposal has already been committed, pzxid: 0x280000000b zxid: 0x280000000b
+2020-05-14 18:00:01,386 [myid:4] - DEBUG [LearnerHandler-/146.196.79.232:57582:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0x98 zxid:0x280000000c txntype:14 reqpath:n/a
+2020-05-14 18:00:01,387 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:Leader@870] - outstanding is 0
+2020-05-14 18:00:01,387 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0x98 zxid:0x280000000c txntype:14 reqpath:n/a
+2020-05-14 18:00:03,678 [myid:4] - DEBUG [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2183:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /127.0.0.1:44422
+2020-05-14 18:00:03,684 [myid:4] - DEBUG [NIOWorkerThread-4:ZooKeeperServer@1001] - Session establishment request from client /127.0.0.1:44422 client's lastZxid is 0x0
+2020-05-14 18:00:03,684 [myid:4] - DEBUG [NIOWorkerThread-4:SessionTrackerImpl@274] - Adding session 0x40a33f48b980000
+2020-05-14 18:00:03,685 [myid:4] - DEBUG [NIOWorkerThread-4:ZooKeeperServer@1052] - Client attempting to establish new session: session = 0x40a33f48b980000, zxid = 0x0, timeout = 30000, address = /127.0.0.1:44422
+2020-05-14 18:00:03,685 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x40a33f48b980000 type:createSession cxid:0x0 zxid:0x280000000d txntype:-10 reqpath:n/a
+2020-05-14 18:00:03,686 [myid:4] - DEBUG [LearnerHandler-/146.196.79.231:50662:CommitProcessor@330] - Committing request:: sessionid:0x40a33f48b980000 type:createSession cxid:0x0 zxid:0x280000000d txntype:-10 reqpath:n/a
+2020-05-14 18:00:03,686 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:Leader@870] - outstanding is 0
+2020-05-14 18:00:03,687 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f48b980000 type:createSession cxid:0x0 zxid:0x280000000d txntype:-10 reqpath:n/a
+2020-05-14 18:00:03,687 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@186] - sessionid:0x40a33f48b980000 type:createSession cxid:0x0 zxid:0x280000000d txntype:-10 reqpath:n/a
+2020-05-14 18:00:03,690 [myid:4] - DEBUG [CommitProcWorkThread-1:ZooKeeperServer@754] - Established session 0x40a33f48b980000 with negotiated timeout 30000 for client /127.0.0.1:44422
+2020-05-14 18:00:07,767 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x40a33f48b980000
+2020-05-14 18:00:07,768 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f48b980000 type:getChildren cxid:0x1 zxid:0xfffffffffffffffe txntype:unknown reqpath:/clickhouse
+2020-05-14 18:00:07,768 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@186] - sessionid:0x40a33f48b980000 type:getChildren cxid:0x1 zxid:0xfffffffffffffffe txntype:unknown reqpath:/clickhouse
+2020-05-14 18:00:07,769 [myid:4] - DEBUG [CommitProcWorkThread-1:PrepRequestProcessor@298] - Permission requested: 1 
+2020-05-14 18:00:07,769 [myid:4] - DEBUG [CommitProcWorkThread-1:PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 18:00:07,769 [myid:4] - DEBUG [CommitProcWorkThread-1:PrepRequestProcessor@300] - Client credentials: ['ip,'127.0.0.1
+]
+2020-05-14 18:00:17,778 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x40a33f48b980000
+2020-05-14 18:00:17,778 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f48b980000 type:ping cxid:0xfffffffffffffffe zxid:0xfffffffffffffffe txntype:unknown reqpath:n/a
+2020-05-14 18:00:17,779 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@186] - sessionid:0x40a33f48b980000 type:ping cxid:0xfffffffffffffffe zxid:0xfffffffffffffffe txntype:unknown reqpath:n/a
+2020-05-14 18:00:27,789 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x40a33f48b980000
+2020-05-14 18:00:27,789 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f48b980000 type:ping cxid:0xfffffffffffffffe zxid:0xfffffffffffffffe txntype:unknown reqpath:n/a
+2020-05-14 18:00:27,789 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@186] - sessionid:0x40a33f48b980000 type:ping cxid:0xfffffffffffffffe zxid:0xfffffffffffffffe txntype:unknown reqpath:n/a
+2020-05-14 18:00:35,862 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x3082f4db6e40000
+2020-05-14 18:00:35,862 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@298] - Permission requested: 8 
+2020-05-14 18:00:35,863 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 18:00:35,863 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@300] - Client credentials: ['ip,'169.136.88.248
+]
+2020-05-14 18:00:35,863 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:multi cxid:0xdb zxid:0x280000000e txntype:14 reqpath:n/a
+2020-05-14 18:00:35,863 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x3082f4db6e40000
+2020-05-14 18:00:35,863 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@298] - Permission requested: 8 
+2020-05-14 18:00:35,863 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 18:00:35,864 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@300] - Client credentials: ['ip,'169.136.88.248
+]
+2020-05-14 18:00:35,864 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:48350:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0xdb zxid:0x280000000e txntype:14 reqpath:n/a
+2020-05-14 18:00:35,864 [myid:4] - DEBUG [LearnerHandler-/146.196.79.231:50662:Leader@870] - outstanding is 0
+2020-05-14 18:00:35,864 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0xdb zxid:0x280000000e txntype:14 reqpath:n/a
+2020-05-14 18:00:35,864 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f4db6e40000 type:multi cxid:0xdc zxid:0x280000000f txntype:14 reqpath:n/a
+2020-05-14 18:00:35,865 [myid:4] - DEBUG [LearnerHandler-/146.196.79.231:50662:CommitProcessor@330] - Committing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0xdc zxid:0x280000000f txntype:14 reqpath:n/a
+2020-05-14 18:00:35,866 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x3082f4db6e40000 type:multi cxid:0xdc zxid:0x280000000f txntype:14 reqpath:n/a
+2020-05-14 18:00:35,902 [myid:4] - DEBUG [SyncThread:4:Leader@870] - outstanding is 0
+2020-05-14 18:00:37,799 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x40a33f48b980000
+2020-05-14 18:00:37,800 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f48b980000 type:ping cxid:0xfffffffffffffffe zxid:0xfffffffffffffffe txntype:unknown reqpath:n/a
+2020-05-14 18:00:37,800 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@186] - sessionid:0x40a33f48b980000 type:ping cxid:0xfffffffffffffffe zxid:0xfffffffffffffffe txntype:unknown reqpath:n/a
+2020-05-14 18:00:39,151 [myid:4] - DEBUG [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2183:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /139.5.108.11:49936
+2020-05-14 18:00:39,153 [myid:4] - INFO  [NIOWorkerThread-14:NIOServerCnxn@518] - Processing mntr command from /139.5.108.11:49936
+2020-05-14 18:00:39,156 [myid:4] - DEBUG [NIOWorkerThread-14:NIOServerCnxn@627] - Closed socket connection for client /139.5.108.11:49936 (no session established for client)
+2020-05-14 18:00:47,809 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x40a33f48b980000
+2020-05-14 18:00:47,809 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f48b980000 type:ping cxid:0xfffffffffffffffe zxid:0xfffffffffffffffe txntype:unknown reqpath:n/a
+2020-05-14 18:00:47,809 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@186] - sessionid:0x40a33f48b980000 type:ping cxid:0xfffffffffffffffe zxid:0xfffffffffffffffe txntype:unknown reqpath:n/a
+2020-05-14 18:00:57,816 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@296] - Checking session 0x40a33f48b980000
+2020-05-14 18:00:57,817 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f48b980000 type:ping cxid:0xfffffffffffffffe zxid:0xfffffffffffffffe txntype:unknown reqpath:n/a
+2020-05-14 18:00:57,817 [myid:4] - DEBUG [CommitProcWorkThread-1:FinalRequestProcessor@186] - sessionid:0x40a33f48b980000 type:ping cxid:0xfffffffffffffffe zxid:0xfffffffffffffffe txntype:unknown reqpath:n/a
+2020-05-14 18:03:38,446 [myid:] - INFO  [main:QuorumPeerConfig@133] - Reading configuration from: /data1/zookeeper/bin/../conf/zoo.cfg
+2020-05-14 18:03:38,451 [myid:] - INFO  [main:QuorumPeerConfig@385] - clientPortAddress is 0.0.0.0/0.0.0.0:2183
+2020-05-14 18:03:38,451 [myid:] - INFO  [main:QuorumPeerConfig@389] - secureClientPort is not set
+2020-05-14 18:03:38,455 [myid:] - WARN  [main:QuorumPeerConfig@655] - Non-optimial configuration, consider an odd number of servers.
+--
+2020-05-14 18:03:39,190 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):Learner@546] - Learner received NEWLEADER message
+2020-05-14 18:03:39,206 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):FileTxnSnapLog@384] - Snapshotting: 0x2a0000000a to /data1/zookeeper/version-2/snapshot.2a0000000a
+2020-05-14 18:03:39,257 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):Learner@529] - Learner received UPTODATE message
+2020-05-14 18:03:39,257 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):QuorumPeer@1934] - Reconfig feature is disabled, skip reconfig processing.
+2020-05-14 18:03:39,261 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):CommitProcessor@256] - Configuring CommitProcessor with 24 worker threads.
+2020-05-14 18:03:39,366 [myid:4] - DEBUG [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2183:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /127.0.0.1:45243
+2020-05-14 18:03:39,370 [myid:4] - DEBUG [NIOWorkerThread-2:ZooKeeperServer@1001] - Session establishment request from client /127.0.0.1:45243 client's lastZxid is 0x0
+2020-05-14 18:03:39,371 [myid:4] - DEBUG [NIOWorkerThread-2:ZooKeeperServer@1052] - Client attempting to establish new session: session = 0x40a33f8f3f40000, zxid = 0x0, timeout = 30000, address = /127.0.0.1:45243
+2020-05-14 18:03:39,373 [myid:4] - WARN  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):Follower@125] - Got zxid 0x2a0000000b expected 0x1
+2020-05-14 18:03:39,373 [myid:4] - INFO  [SyncThread:4:FileTxnLog@216] - Creating new log file: log.2a0000000b
+2020-05-14 18:03:39,373 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):CommitProcessor@330] - Committing request:: sessionid:0x40a33f8f3f40000 type:createSession cxid:0x0 zxid:0x2a0000000b txntype:-10 reqpath:n/a
+2020-05-14 18:03:39,384 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f8f3f40000 type:createSession cxid:0x0 zxid:0x2a0000000b txntype:-10 reqpath:n/a
+2020-05-14 18:03:39,385 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@186] - sessionid:0x40a33f8f3f40000 type:createSession cxid:0x0 zxid:0x2a0000000b txntype:-10 reqpath:n/a
+2020-05-14 18:03:39,388 [myid:4] - DEBUG [CommitProcWorkThread-9:ZooKeeperServer@754] - Established session 0x40a33f8f3f40000 with negotiated timeout 30000 for client /127.0.0.1:45243
+2020-05-14 18:03:39,393 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f8f3f40000 type:getChildren cxid:0x1 zxid:0xfffffffffffffffe txntype:unknown reqpath:/
+2020-05-14 18:03:39,393 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@186] - sessionid:0x40a33f8f3f40000 type:getChildren cxid:0x1 zxid:0xfffffffffffffffe txntype:unknown reqpath:/
+2020-05-14 18:03:39,396 [myid:4] - DEBUG [CommitProcWorkThread-9:PrepRequestProcessor@298] - Permission requested: 1 
+2020-05-14 18:03:39,397 [myid:4] - DEBUG [CommitProcWorkThread-9:PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 18:03:39,397 [myid:4] - DEBUG [CommitProcWorkThread-9:PrepRequestProcessor@300] - Client credentials: ['ip,'127.0.0.1
+]
+2020-05-14 18:03:42,719 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f8f3f40000 type:getChildren cxid:0x2 zxid:0xfffffffffffffffe txntype:unknown reqpath:/clickhouse
+2020-05-14 18:03:42,719 [myid:4] - DEBUG [CommitProcWorkThread-9:FinalRequestProcessor@186] - sessionid:0x40a33f8f3f40000 type:getChildren cxid:0x2 zxid:0xfffffffffffffffe txntype:unknown reqpath:/clickhouse
+2020-05-14 18:03:42,719 [myid:4] - DEBUG [CommitProcWorkThread-9:PrepRequestProcessor@298] - Permission requested: 1 
+2020-05-14 18:03:42,720 [myid:4] - DEBUG [CommitProcWorkThread-9:PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 18:03:42,720 [myid:4] - DEBUG [CommitProcWorkThread-9:PrepRequestProcessor@300] - Client credentials: ['ip,'127.0.0.1
+]
+2020-05-14 18:03:44,585 [myid:4] - WARN  [NIOWorkerThread-8:NIOServerCnxn@366] - Unable to read additional data from client sessionid 0x40a33f8f3f40000, likely client has closed socket
+2020-05-14 18:03:44,585 [myid:4] - DEBUG [NIOWorkerThread-8:MBeanRegistry@127] - Unregister MBean [org.apache.ZooKeeperService:name0=ReplicatedServer_id4,name1=replica.4,name2=Follower,name3=Connections,name4=127.0.0.1,name5=0x40a33f8f3f40000]
+2020-05-14 18:03:44,586 [myid:4] - DEBUG [NIOWorkerThread-8:NIOServerCnxn@627] - Closed socket connection for client /127.0.0.1:45243 which had sessionid 0x40a33f8f3f40000
+2020-05-14 18:04:03,542 [myid:4] - DEBUG [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2183:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /127.0.0.1:45320
+2020-05-14 18:04:03,548 [myid:4] - DEBUG [NIOWorkerThread-9:ZooKeeperServer@1001] - Session establishment request from client /127.0.0.1:45320 client's lastZxid is 0x0
+2020-05-14 18:04:03,548 [myid:4] - DEBUG [NIOWorkerThread-9:ZooKeeperServer@1052] - Client attempting to establish new session: session = 0x40a33f8f3f40001, zxid = 0x0, timeout = 30000, address = /127.0.0.1:45320
+2020-05-14 18:04:03,550 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):CommitProcessor@330] - Committing request:: sessionid:0x40a33f8f3f40001 type:createSession cxid:0x0 zxid:0x2a0000000c txntype:-10 reqpath:n/a
+2020-05-14 18:04:03,551 [myid:4] - DEBUG [CommitProcWorkThread-10:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f8f3f40001 type:createSession cxid:0x0 zxid:0x2a0000000c txntype:-10 reqpath:n/a
+2020-05-14 18:04:03,551 [myid:4] - DEBUG [CommitProcWorkThread-10:FinalRequestProcessor@186] - sessionid:0x40a33f8f3f40001 type:createSession cxid:0x0 zxid:0x2a0000000c txntype:-10 reqpath:n/a
+2020-05-14 18:04:03,551 [myid:4] - DEBUG [CommitProcWorkThread-10:ZooKeeperServer@754] - Established session 0x40a33f8f3f40001 with negotiated timeout 30000 for client /127.0.0.1:45320
+2020-05-14 18:04:05,336 [myid:4] - WARN  [NIOWorkerThread-11:NIOServerCnxn@366] - Unable to read additional data from client sessionid 0x40a33f8f3f40001, likely client has closed socket
+2020-05-14 18:04:05,336 [myid:4] - DEBUG [NIOWorkerThread-11:MBeanRegistry@127] - Unregister MBean [org.apache.ZooKeeperService:name0=ReplicatedServer_id4,name1=replica.4,name2=Follower,name3=Connections,name4=127.0.0.1,name5=0x40a33f8f3f40001]
+2020-05-14 18:04:05,337 [myid:4] - DEBUG [NIOWorkerThread-11:NIOServerCnxn@627] - Closed socket connection for client /127.0.0.1:45320 which had sessionid 0x40a33f8f3f40001
+2020-05-14 18:04:07,580 [myid:4] - DEBUG [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2183:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /127.0.0.1:45342
+2020-05-14 18:04:07,585 [myid:4] - DEBUG [NIOWorkerThread-12:ZooKeeperServer@1001] - Session establishment request from client /127.0.0.1:45342 client's lastZxid is 0x0
+2020-05-14 18:04:07,585 [myid:4] - DEBUG [NIOWorkerThread-12:ZooKeeperServer@1052] - Client attempting to establish new session: session = 0x40a33f8f3f40002, zxid = 0x0, timeout = 30000, address = /127.0.0.1:45342
+2020-05-14 18:04:07,594 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):CommitProcessor@330] - Committing request:: sessionid:0x40a33f8f3f40002 type:createSession cxid:0x0 zxid:0x2a0000000d txntype:-10 reqpath:n/a
+2020-05-14 18:04:07,594 [myid:4] - DEBUG [CommitProcWorkThread-11:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f8f3f40002 type:createSession cxid:0x0 zxid:0x2a0000000d txntype:-10 reqpath:n/a
+2020-05-14 18:04:07,594 [myid:4] - DEBUG [CommitProcWorkThread-11:FinalRequestProcessor@186] - sessionid:0x40a33f8f3f40002 type:createSession cxid:0x0 zxid:0x2a0000000d txntype:-10 reqpath:n/a
+2020-05-14 18:04:07,595 [myid:4] - DEBUG [CommitProcWorkThread-11:ZooKeeperServer@754] - Established session 0x40a33f8f3f40002 with negotiated timeout 30000 for client /127.0.0.1:45342
+2020-05-14 18:04:10,179 [myid:4] - DEBUG [CommitProcWorkThread-11:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f8f3f40002 type:getChildren cxid:0x1 zxid:0xfffffffffffffffe txntype:unknown reqpath:/clickhouse
+2020-05-14 18:04:10,179 [myid:4] - DEBUG [CommitProcWorkThread-11:FinalRequestProcessor@186] - sessionid:0x40a33f8f3f40002 type:getChildren cxid:0x1 zxid:0xfffffffffffffffe txntype:unknown reqpath:/clickhouse
+2020-05-14 18:04:10,179 [myid:4] - DEBUG [CommitProcWorkThread-11:PrepRequestProcessor@298] - Permission requested: 1 
+2020-05-14 18:04:10,179 [myid:4] - DEBUG [CommitProcWorkThread-11:PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 18:04:10,179 [myid:4] - DEBUG [CommitProcWorkThread-11:PrepRequestProcessor@300] - Client credentials: ['ip,'127.0.0.1
+]
+2020-05-14 18:04:11,012 [myid:4] - DEBUG [CommitProcWorkThread-11:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f8f3f40002 type:getChildren cxid:0x2 zxid:0xfffffffffffffffe txntype:unknown reqpath:/clickhouse
+2020-05-14 18:04:11,012 [myid:4] - DEBUG [CommitProcWorkThread-11:FinalRequestProcessor@186] - sessionid:0x40a33f8f3f40002 type:getChildren cxid:0x2 zxid:0xfffffffffffffffe txntype:unknown reqpath:/clickhouse
+2020-05-14 18:04:11,012 [myid:4] - DEBUG [CommitProcWorkThread-11:PrepRequestProcessor@298] - Permission requested: 1 
+2020-05-14 18:04:11,012 [myid:4] - DEBUG [CommitProcWorkThread-11:PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 18:04:11,012 [myid:4] - DEBUG [CommitProcWorkThread-11:PrepRequestProcessor@300] - Client credentials: ['ip,'127.0.0.1
+]
+2020-05-14 18:04:11,609 [myid:4] - DEBUG [CommitProcWorkThread-11:FinalRequestProcessor@99] - Processing request:: sessionid:0x40a33f8f3f40002 type:getChildren cxid:0x3 zxid:0xfffffffffffffffe txntype:unknown reqpath:/clickhouse
+2020-05-14 18:04:11,609 [myid:4] - DEBUG [CommitProcWorkThread-11:FinalRequestProcessor@186] - sessionid:0x40a33f8f3f40002 type:getChildren cxid:0x3 zxid:0xfffffffffffffffe txntype:unknown reqpath:/clickhouse
+2020-05-14 18:04:11,609 [myid:4] - DEBUG [CommitProcWorkThread-11:PrepRequestProcessor@298] - Permission requested: 1 
+2020-05-14 18:04:11,610 [myid:4] - DEBUG [CommitProcWorkThread-11:PrepRequestProcessor@299] - ACLs for node: [31,s{'world,'anyone}
+]
+2020-05-14 18:04:11,610 [myid:4] - DEBUG [CommitProcWorkThread-11:PrepRequestProcessor@300] - Client credentials: ['ip,'127.0.0.1
+]
+2020-05-14 18:04:12,018 [myid:4] - WARN  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):Follower@96] - Exception when following the leader
+java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+--
+2020-05-14 18:04:12,022 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):NIOServerCnxn@627] - Closed socket connection for client /127.0.0.1:45342 which had sessionid 0x40a33f8f3f40002
+2020-05-14 18:04:12,022 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):LearnerZooKeeperServer@165] - Shutting down
+2020-05-14 18:04:12,022 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):ZooKeeperServer@558] - shutting down
+2020-05-14 18:04:12,022 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):FollowerRequestProcessor@139] - Shutting down
+2020-05-14 18:04:12,022 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):CommitProcessor@362] - Shutting down
+2020-05-14 18:04:12,022 [myid:4] - INFO  [FollowerRequestProcessor:4:FollowerRequestProcessor@110] - FollowerRequestProcessor exited loop!
+2020-05-14 18:04:12,022 [myid:4] - INFO  [CommitProcessor:4:CommitProcessor@195] - CommitProcessor exited loop!
+2020-05-14 18:04:12,023 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):FinalRequestProcessor@514] - shutdown of request processor complete
+2020-05-14 18:04:12,024 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):FileTxnLog$FileTxnIterator@655] - Created new input stream /data1/zookeeper/logs/version-2/log.2a0000000b
+2020-05-14 18:04:12,024 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):FileTxnLog$FileTxnIterator@658] - Created new input archive /data1/zookeeper/logs/version-2/log.2a0000000b
+2020-05-14 18:04:12,024 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):FileTxnLog$FileTxnIterator@696] - EOF exception java.io.EOFException: Failed to read /data1/zookeeper/logs/version-2/log.2a0000000b
+--
+2020-05-14 18:04:29,000 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):SessionTrackerImpl@274] - Adding session 0x3082f5048fc0000
+2020-05-14 18:04:29,000 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):SessionTrackerImpl@274] - Adding session 0x40a33f8f3f40002
+2020-05-14 18:04:29,000 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):SessionTrackerImpl@274] - Adding session 0x40a33f8f3f40000
+2020-05-14 18:04:29,000 [myid:4] - DEBUG [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):SessionTrackerImpl@274] - Adding session 0x40a33f8f3f40001
+2020-05-14 18:04:29,000 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):CommitProcessor@256] - Configuring CommitProcessor with 24 worker threads.
+2020-05-14 18:04:29,002 [myid:4] - INFO  [QuorumPeer[myid=4](plain=/0:0:0:0:0:0:0:0:2183)(secure=disabled):ContainerManager@64] - Using checkIntervalMs=60000 maxPerMinute=10000
+2020-05-14 18:04:29,003 [myid:4] - DEBUG [LearnerHandler-/146.196.79.232:38708:LearnerHandler@534] - Sending UPTODATE message to 3
+2020-05-14 18:04:29,003 [myid:4] - DEBUG [LearnerHandler-/146.196.79.230:52138:LearnerHandler@534] - Sending UPTODATE message to 1
+2020-05-14 18:04:32,046 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@274] - Adding session 0x3082f52e1d30000
+2020-05-14 18:04:32,047 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f52e1d30000 type:createSession cxid:0x0 zxid:0x2b00000001 txntype:-10 reqpath:n/a
+2020-05-14 18:04:32,277 [myid:4] - INFO  [/139.5.108.11:3890:QuorumCnxManager$Listener@918] - Received connection request 146.196.79.231:57486
+2020-05-14 18:04:32,277 [myid:4] - DEBUG [/139.5.108.11:3890:QuorumCnxManager@564] - Create new connection to server: 2
+2020-05-14 18:04:32,277 [myid:4] - DEBUG [/139.5.108.11:3890:QuorumCnxManager@639] - Opening channel to server 2
+--
+2020-05-14 18:04:39,145 [myid:4] - DEBUG [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2183:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /139.5.108.11:50865
+2020-05-14 18:04:39,147 [myid:4] - INFO  [NIOWorkerThread-21:NIOServerCnxn@518] - Processing mntr command from /139.5.108.11:50865
+2020-05-14 18:04:39,153 [myid:4] - DEBUG [NIOWorkerThread-21:NIOServerCnxn@627] - Closed socket connection for client /139.5.108.11:50865 (no session established for client)
+2020-05-14 18:04:42,054 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@274] - Adding session 0x2082f527d920000
+2020-05-14 18:04:42,054 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x2082f527d920000 type:createSession cxid:0x0 zxid:0x2b00000002 txntype:-10 reqpath:n/a
+2020-05-14 18:04:52,057 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@274] - Adding session 0x102a8c66dc50000
+2020-05-14 18:04:52,057 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x102a8c66dc50000 type:createSession cxid:0x0 zxid:0x2b00000003 txntype:-10 reqpath:n/a
+2020-05-14 18:04:52,989 [myid:4] - DEBUG [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2183:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /127.0.0.1:45530
+2020-05-14 18:04:52,991 [myid:4] - INFO  [NIOWorkerThread-22:NIOServerCnxn@518] - Processing srvr command from /127.0.0.1:45530
+2020-05-14 18:04:52,991 [myid:4] - DEBUG [NIOWorkerThread-22:NIOServerCnxn@627] - Closed socket connection for client /127.0.0.1:45530 (no session established for client)
+2020-05-14 18:05:00,834 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x40a33f8f3f40002, timeout of 30000ms exceeded
+2020-05-14 18:05:00,834 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x40a33f8f3f40002
+2020-05-14 18:05:00,835 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x40a33f8f3f40000, timeout of 30000ms exceeded
+2020-05-14 18:05:00,835 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x40a33f8f3f40000
+2020-05-14 18:05:00,835 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x3082f5048fc0000, timeout of 30000ms exceeded
+2020-05-14 18:05:00,835 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x40a33f8f3f40002 type:closeSession cxid:0x0 zxid:0x2b00000004 txntype:-11 reqpath:n/a
+2020-05-14 18:05:00,835 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x3082f5048fc0000
+2020-05-14 18:05:00,835 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x40a33f8f3f40001, timeout of 30000ms exceeded
+2020-05-14 18:05:00,835 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x40a33f8f3f40001
+2020-05-14 18:05:00,835 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x40a33f8f3f40000 type:closeSession cxid:0x0 zxid:0x2b00000005 txntype:-11 reqpath:n/a
+2020-05-14 18:05:00,836 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f5048fc0000 type:closeSession cxid:0x0 zxid:0x2b00000006 txntype:-11 reqpath:n/a
+2020-05-14 18:05:00,837 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x40a33f8f3f40001 type:closeSession cxid:0x0 zxid:0x2b00000007 txntype:-11 reqpath:n/a
+2020-05-14 18:05:02,063 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@274] - Adding session 0x3082f52e1d30001
+2020-05-14 18:05:02,063 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f52e1d30001 type:createSession cxid:0x0 zxid:0x2b00000008 txntype:-10 reqpath:n/a
+2020-05-14 18:05:04,834 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x3082f52e1d30000, timeout of 30000ms exceeded
+2020-05-14 18:05:04,834 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x3082f52e1d30000
+2020-05-14 18:05:04,835 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f52e1d30000 type:closeSession cxid:0x0 zxid:0x2b00000009 txntype:-11 reqpath:n/a
+2020-05-14 18:05:07,630 [myid:4] - DEBUG [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2183:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /127.0.0.1:45592
+2020-05-14 18:05:07,636 [myid:4] - DEBUG [NIOWorkerThread-23:ZooKeeperServer@1001] - Session establishment request from client /127.0.0.1:45592 client's lastZxid is 0x0
+2020-05-14 18:05:07,636 [myid:4] - DEBUG [NIOWorkerThread-23:SessionTrackerImpl@274] - Adding session 0x40a33f9b6860000
+2020-05-14 18:05:07,636 [myid:4] - DEBUG [NIOWorkerThread-23:ZooKeeperServer@1052] - Client attempting to establish new session: session = 0x40a33f9b6860000, zxid = 0x0, timeout = 30000, address = /127.0.0.1:45592
+2020-05-14 18:05:07,636 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x40a33f9b6860000 type:createSession cxid:0x0 zxid:0x2b0000000a txntype:-10 reqpath:n/a
+2020-05-14 18:05:12,074 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@274] - Adding session 0x2082f527d920001
+2020-05-14 18:05:12,074 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x2082f527d920001 type:createSession cxid:0x0 zxid:0x2b0000000b txntype:-10 reqpath:n/a
+2020-05-14 18:05:14,834 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x2082f527d920000, timeout of 30000ms exceeded
+2020-05-14 18:05:14,835 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x2082f527d920000
+2020-05-14 18:05:14,835 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x2082f527d920000 type:closeSession cxid:0x0 zxid:0x2b0000000c txntype:-11 reqpath:n/a
+2020-05-14 18:05:22,099 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@274] - Adding session 0x102a8c66dc50001
+2020-05-14 18:05:22,100 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x102a8c66dc50001 type:createSession cxid:0x0 zxid:0x2b0000000d txntype:-10 reqpath:n/a
+2020-05-14 18:05:24,834 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x102a8c66dc50000, timeout of 30000ms exceeded
+2020-05-14 18:05:24,834 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x102a8c66dc50000
+2020-05-14 18:05:24,835 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x102a8c66dc50000 type:closeSession cxid:0x0 zxid:0x2b0000000e txntype:-11 reqpath:n/a
+2020-05-14 18:05:25,661 [myid:4] - DEBUG [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2183:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /127.0.0.1:45648
+2020-05-14 18:05:25,667 [myid:4] - DEBUG [NIOWorkerThread-24:ZooKeeperServer@1001] - Session establishment request from client /127.0.0.1:45648 client's lastZxid is 0x0
+2020-05-14 18:05:25,669 [myid:4] - DEBUG [NIOWorkerThread-24:SessionTrackerImpl@274] - Adding session 0x40a33f9b6860001
+2020-05-14 18:05:25,669 [myid:4] - DEBUG [NIOWorkerThread-24:ZooKeeperServer@1052] - Client attempting to establish new session: session = 0x40a33f9b6860001, zxid = 0x0, timeout = 30000, address = /127.0.0.1:45648
+2020-05-14 18:05:25,669 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x40a33f9b6860001 type:createSession cxid:0x0 zxid:0x2b0000000f txntype:-10 reqpath:n/a
+2020-05-14 18:05:32,091 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@274] - Adding session 0x3082f52e1d30002
+2020-05-14 18:05:32,092 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f52e1d30002 type:createSession cxid:0x0 zxid:0x2b00000010 txntype:-10 reqpath:n/a
+2020-05-14 18:05:34,834 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x3082f52e1d30001, timeout of 30000ms exceeded
+2020-05-14 18:05:34,834 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x3082f52e1d30001
+2020-05-14 18:05:34,835 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f52e1d30001 type:closeSession cxid:0x0 zxid:0x2b00000011 txntype:-11 reqpath:n/a
+2020-05-14 18:05:38,834 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x40a33f9b6860000, timeout of 30000ms exceeded
+2020-05-14 18:05:38,834 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x40a33f9b6860000
+2020-05-14 18:05:38,834 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x40a33f9b6860000 type:closeSession cxid:0x0 zxid:0x2b00000012 txntype:-11 reqpath:n/a
+2020-05-14 18:05:39,154 [myid:4] - DEBUG [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2183:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /139.5.108.11:51076
+2020-05-14 18:05:39,156 [myid:4] - INFO  [NIOWorkerThread-25:NIOServerCnxn@518] - Processing mntr command from /139.5.108.11:51076
+2020-05-14 18:05:39,160 [myid:4] - DEBUG [NIOWorkerThread-25:NIOServerCnxn@627] - Closed socket connection for client /139.5.108.11:51076 (no session established for client)
+2020-05-14 18:05:42,094 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@274] - Adding session 0x2082f527d920002
+2020-05-14 18:05:42,095 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x2082f527d920002 type:createSession cxid:0x0 zxid:0x2b00000013 txntype:-10 reqpath:n/a
+2020-05-14 18:05:42,834 [myid:4] - DEBUG [ConnnectionExpirer:NIOServerCnxn@627] - Closed socket connection for client /127.0.0.1:45592 which had sessionid 0x40a33f9b6860000
+2020-05-14 18:05:44,834 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x2082f527d920001, timeout of 30000ms exceeded
+2020-05-14 18:05:44,835 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x2082f527d920001
+2020-05-14 18:05:44,835 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x2082f527d920001 type:closeSession cxid:0x0 zxid:0x2b00000014 txntype:-11 reqpath:n/a
+2020-05-14 18:05:52,108 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@274] - Adding session 0x102a8c66dc50002
+2020-05-14 18:05:52,108 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x102a8c66dc50002 type:createSession cxid:0x0 zxid:0x2b00000015 txntype:-10 reqpath:n/a
+2020-05-14 18:05:54,834 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x102a8c66dc50001, timeout of 30000ms exceeded
+2020-05-14 18:05:54,835 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x102a8c66dc50001
+2020-05-14 18:05:54,835 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x102a8c66dc50001 type:closeSession cxid:0x0 zxid:0x2b00000016 txntype:-11 reqpath:n/a
+2020-05-14 18:05:56,834 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@398] - Expiring session 0x40a33f9b6860001, timeout of 30000ms exceeded
+2020-05-14 18:05:56,834 [myid:4] - INFO  [SessionTracker:QuorumZooKeeperServer@157] - Submitting global closeSession request for session 0x40a33f9b6860001
+2020-05-14 18:05:56,834 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x40a33f9b6860001 type:closeSession cxid:0x0 zxid:0x2b00000017 txntype:-11 reqpath:n/a
+2020-05-14 18:05:58,899 [myid:4] - DEBUG [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2183:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /127.0.0.1:45772
+2020-05-14 18:05:58,905 [myid:4] - DEBUG [NIOWorkerThread-26:ZooKeeperServer@1001] - Session establishment request from client /127.0.0.1:45772 client's lastZxid is 0x0
+2020-05-14 18:05:58,905 [myid:4] - DEBUG [NIOWorkerThread-26:SessionTrackerImpl@274] - Adding session 0x40a33f9b6860002
+2020-05-14 18:05:58,906 [myid:4] - DEBUG [NIOWorkerThread-26:ZooKeeperServer@1052] - Client attempting to establish new session: session = 0x40a33f9b6860002, zxid = 0x0, timeout = 30000, address = /127.0.0.1:45772
+2020-05-14 18:05:58,906 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x40a33f9b6860002 type:createSession cxid:0x0 zxid:0x2b00000018 txntype:-10 reqpath:n/a
+2020-05-14 18:06:02,131 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::SessionTrackerImpl@274] - Adding session 0x3082f52e1d30003
+2020-05-14 18:06:02,131 [myid:4] - DEBUG [ProcessThread(sid:4 cport:-1)::Leader@1114] - Proposing:: sessionid:0x3082f52e1d30003 type:createSession cxid:0x0 zxid:0x2b00000019 txntype:-10 reqpath:n/a
+2020-05-14 18:06:02,834 [myid:4] - DEBUG [ConnnectionExpirer:NIOServerCnxn@627] - Closed socket connection for client /127.0.0.1:45648 which had sessionid 0x40a33f9b6860001

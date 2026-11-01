@@ -1,0 +1,20 @@
+{
+  "id": "15596",
+  "system": "ignite3",
+  "issue_creation_date": "2021-9-24",
+  "issue_link": "https://issues.apache.org/jira/browse/IGNITE-15596",
+  "fix_link": "",
+  "branch": "ed519fb2fa2a89e11a8ab7fad3069f7e1f7d74b3",
+  "title": "",
+  "description": "Calcite. java.lang.Integer cannot be cast to java.lang.Long with JOIN and EXISTS.\nExport    \n\nstatement ok\nCREATE TABLE tbl(a TINYINT, b SMALLINT, c INTEGER, d BIGINT, e VARCHAR, f DATE, g TIMESTAMP)\n\nstatement ok\nINSERT INTO tbl VALUES (1, 2, 3, 4, '5', DATE '1992-01-01', TIMESTAMP '1992-01-01 00:00:00')\n\nquery I\nSELECT 1 FROM tbl t1 JOIN tbl t2 ON (t1.d=t2.d) WHERE EXISTS(SELECT t1.c FROM tbl t3 WHERE t1.d+t3.c<100 AND EXISTS(SELECT t2.f < DATE '2000-01-01'))\n----\n1\n\n../exists/test_complex_nested_correlated_subquery.test[_ignore]\n\nCaused by: java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.Long\n        at SC.execute(Unknown Source)\n        at org.apache.ignite.internal.processors.query.calcite.exec.exp.ExpressionFactoryImpl$BiPredicateImpl.test(ExpressionFactoryImpl.java:448)\n        at org.apache.ignite.internal.processors.query.calcite.exec.rel.NestedLoopJoinNode$InnerJoin.join(NestedLoopJoinNode.java:283)\n        at org.apache.ignite.internal.processors.query.calcite.exec.rel.NestedLoopJoinNode.endRight(NestedLoopJoinNode.java:194)\n\n",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Easy",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

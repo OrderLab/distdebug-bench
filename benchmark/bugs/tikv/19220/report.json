@@ -1,0 +1,20 @@
+{
+  "id": "19220",
+  "system": "tikv",
+  "issue_creation_date": "2025-12-18",
+  "issue_link": "https://github.com/tikv/tikv/issues/19220",
+  "fix_link": "https://github.com/tikv/tikv/pull/19223",
+  "branch": "aef91a5ee6d6747b611f78f3874babd06af2d67d",
+  "title": "load base split can not work when scan table",
+  "description": "Bug Report\nWhat did you do?\n1、create a small table\n2、run oltp_write_only\n3、table full scan\n\nWhat did you expect to see?\nregion can be splited\n\nWhat did you see instead?\nregion can not be splited\n\nWhat version of PD are you using (pd-server -V)?\n./pd-server -V\nRelease Version: v9.0.0-beta.2.pre-223-gaef91a5\nEdition: Community\nKernel Type: Classic\nGit Commit Hash: aef91a5ee6d6747b611f78f3874babd06af2d67d\nGit Branch: HEAD\nUTC Build Time: 2025-12-11 01:57:48\n2025-12-11T22:42:01.516+0800 INFO k8s/client.go:141 it should be noted that a long-running command will not be interrupted even the use case has ended. For more information, please refer to https://github.com/pingcap/test-infra/discussions/129",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Easy",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": ""
+}

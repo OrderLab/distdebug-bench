@@ -1,0 +1,14 @@
+[
+  {
+    "file": "client/v3/retry_interceptor.go",
+    "function": "Client.unaryClientInterceptor",
+    "start_line": 80,
+    "end_line": 86
+  },
+  {
+    "file": "client/v3/retry_interceptor.go",
+    "function": "serverStreamingRetryingStream.receiveMsgAndIndicateRetry",
+    "start_line": 264,
+    "end_line": 268
+  }
+]

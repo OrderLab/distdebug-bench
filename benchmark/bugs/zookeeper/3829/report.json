@@ -1,0 +1,20 @@
+{
+  "id": "3829",
+  "system": "zookeeper",
+  "issue_creation_date": "2020-05-15",
+  "issue_link": "[ZOOKEEPER-3829] Zookeeper refuses request after node expansion - ASF JIRA",
+  "fix_link": "ZOOKEEPER-3829: fix rolling restart when dynamic reconfig is disabled \u00b7 apache/zookeeper@48f037f",
+  "branch": "release-3.6.1",
+  "title": "Zookeeper refuses request after node expansion",
+  "description": "It's easy to reproduce this bug.\n\n//\u4ee3\u7801\u5360\u4f4d\u7b26\n \nStep 1. Deploy 3 nodes  A,B,C with configuration A,B,C .\nStep 2. Deploy node ` D` with configuration  `A,B,C,D` , cluster state is ok now.\nStep 3. Restart nodes A,B,C with configuration A,B,C,D, then the leader will be D, cluster hangs, but it can accept `mntr` command, other command like `ls /` will be blocked.\n\nStep 4. Restart nodes D, cluster state is back to normal now.\n \n \n\nWe have looked into the code of 3.5.6 version, and we found it may be the issue of  `workerPool` .\n\nThe `CommitProcessor` shutdown and make `workerPool` shutdown, but `workerPool` still exists. It will never work anymore, yet the cluster still thinks it's ok.\n\n \n\nI think the bug may still exist in master branch.\n\nWe have tested it in our machines by reset the `workerPool` to null. If it's ok, please assign this issue to me, and then I'll create a PR. ",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Hard",
+  "distributed": "Yes",
+  "contains_analysis": "Yes",
+  "analysis_removed": "No",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

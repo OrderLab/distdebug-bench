@@ -1,0 +1,20 @@
+[
+  {
+    "file": "server/src/main/java/org/elasticsearch/indices/recovery/PeerRecoveryTargetService.java",
+    "function": "doRecovery",
+    "start_line": "231",
+    "end_line": "232"
+  },
+  {
+    "file": "server/src/main/java/org/elasticsearch/indices/recovery/RecoveryTarget.java",
+    "function": "lastAccessTime",
+    "start_line": "188",
+    "end_line": "189"
+  },
+  {
+    "file": "server/src/main/java/org/elasticsearch/indices/recovery/RecoveryTarget.java",
+    "function": "disableRecoveryMonitor",
+    "start_line": "207",
+    "end_line": "213"
+  }
+]

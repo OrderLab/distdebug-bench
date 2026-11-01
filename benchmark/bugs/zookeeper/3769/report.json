@@ -1,0 +1,20 @@
+{
+  "id": "3769",
+  "system": "zookeeper",
+  "issue_creation_date": "2020-03-24",
+  "issue_link": "[ZOOKEEPER-3769] fast leader election does not end if leader is taken down - ASF JIRA",
+  "fix_link": "ZOOKEEPER-3769: handling malformed Leader Election notification messages \u00b7 apache/zookeeper@68466c8",
+  "branch": "release-3.5.7",
+  "title": "fast leader election does not end if leader is taken down",
+  "description": "In a cluster with three nodes, node3 is the leader and the other nodes are followers.\n\nIf I stop node3, the other two nodes do not finish the leader election.\n\nThis is happening with ZK 3.5.7,  openjdk version \"12.0.2\" 2019-07-16, and this config\n\n \n\ntickTime=2000\ninitLimit=30\nsyncLimit=3\ndataDir=/company/service/data\ndataLogDir=/company/service/log\nclientPort=2181\nsnapCount=100000\nautopurge.snapRetainCount=3\nautopurge.purgeInterval=1\nskipACL=yes\npreAllocSize=65536\nmaxClientCnxns=0\n4lw.commands.whitelist=*\nadmin.enableServer=false\n\nserver.1=companydemo1.snc4.companyinc.com:3000:4000\nserver.2=companydemo2.snc4.companyinc.com:3000:4000\nserver.3=companydemo3.snc4.companyinc.com:3000:4000\n\n \n\nCould you have a look at the logs and help me figure this out? It seems like node 1 is not getting notifications back from node2, but I don't see anything wrong with the network so I am wondering if bugs like  ZOOKEEPER-3756 could be causing it.\n\n \n\nIn the logs, node3 is killed at 11:17:14\n\nnode2 is killed at 11:17:50 2 and node 1 at 11:18:02 ",
+  "severity": "Major",
+  "root_cause_type": "Error handling",
+  "bug_complexity": "Medium",
+  "distributed": "Yes",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "Yes",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

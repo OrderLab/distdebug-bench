@@ -1,0 +1,20 @@
+{
+    "id": "90442",
+    "system": "elasticsearch",
+    "issue_creation_date": "2022-09-28",
+    "issue_link": "https://github.com/elastic/elasticsearch/issues/90442",
+    "fix_link": "https://github.com/elastic/elasticsearch/pull/90772",
+    "branch": "9e6a784aa57877fcfe0352862356d4866aabb3ab",
+    "title": "Disk indicator - Cover edge case where data node is out of space but has no indices.",
+    "description": "Current behaviour\nThe disk indicator reports the following when a data node is yellow or red but has no indices.\n\nSymptom:\n1 node with roles: [data] is out of disk or running low on disk space.\n\nImpact: None\nDiagnosis: 0 indices reside on nodes that have run or are likely to run out of space, this can temporarily disable writing on these indices. Enable autoscaling (if applicable), add disk capacity or free up disk space to resolve this. If you have already taken action please wait for the rebalancing to complete.\n\nExpected behaviour\nThe disk indicator reports the following when a data node is yellow or red but has no indices.\n\nSymptom:\n1 node with roles: [data] is out of disk or running low on disk space.\n\nImpact:\n1 node with roles: [data] has run out or is likely to run out of disk space, this node cannot be used by the cluster to store data. AREA: DEPLOYMENT_MANAGEMENT\n\nDiagnosis:\nDisk is almost full. Enable autoscaling (if applicable), add disk capacity or free up disk space to resolve this. If you have already taken action please wait for the rebalancing to complete.\n\nAs an area of impact I added DEPLOYMENT_MANAGEMENT considering that this is not a healthy deployment if one node is not usable. I am trying to avoid listing INGEST since for now we can still ingest data. Any thoughts?\n\nSee: #90305\n",
+    "severity": "Major",
+    "root_cause_type": "Error handling",
+    "bug_complexity": "Medium",
+    "distributed": "No",
+    "contains_analysis": "Yes",
+    "analysis_removed": "No",
+    "contains_logs": "No",
+    "contains_stack_traces": "No",
+    "bug_cause_description": "",
+    "artifact_dir": "artifact_dir"
+}

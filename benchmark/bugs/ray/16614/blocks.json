@@ -1,0 +1,8 @@
+[
+  {
+    "file": "python/ray/worker.py",
+    "function": "get_gpu_ids",
+    "start_line": "499",
+    "end_line": "499"
+  }
+]

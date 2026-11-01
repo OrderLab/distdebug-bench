@@ -1,0 +1,38 @@
+[
+  {
+    "file": "python/ray/data/_internal/execution/operators/actor_pool_map_operator.py",
+    "function": "_create_actor_pool",
+    "start_line": "188",
+    "end_line": "188"
+  },
+  {
+    "file": "python/ray/data/_internal/execution/operators/actor_pool_map_operator.py",
+    "function": "_try_schedule_tasks_internal",
+    "start_line": "395",
+    "end_line": "404"
+  },
+  {
+    "file": "python/ray/data/_internal/execution/operators/actor_pool_map_operator.py",
+    "function": "on_exit",
+    "start_line": "703",
+    "end_line": "711"
+  },
+  {
+    "file": "python/ray/data/_internal/execution/operators/actor_pool_map_operator.py",
+    "function": "_release_running_actors",
+    "start_line": "1100",
+    "end_line": "1108"
+  },
+  {
+    "file": "python/ray/data/_internal/execution/operators/actor_pool_map_operator.py",
+    "function": "_release_running_actor",
+    "start_line": "1142",
+    "end_line": "1147"
+  },
+  {
+    "file": "python/ray/data/context.py",
+    "function": "DataContext",
+    "start_line": "726",
+    "end_line": "731"
+  }
+]

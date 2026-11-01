@@ -1,0 +1,20 @@
+{
+  "id": "135983",
+  "system": "kubernetes",
+  "issue_creation_date": "",
+  "issue_link": "https://github.com/kubernetes/kubernetes/issues/135835",
+  "fix_link": "https://github.com/kubernetes/kubernetes/pull/135983",
+  "branch": "4e69edd0eea",
+  "title": "Slow pod scheduling when ResourceClaimTemplate is created after pod creation due to exponential backoff",
+  "description": "What happened?\nWhen a Pod references a ResourceClaimTemplate (RCT) that doesn't exist at pod creation time, and the RCT is created later, there can be significant delays before the pod gets scheduled.\n\nRoot Cause:\n\nThe ResourceClaim controller in kube-controller-manager uses AddRateLimited() when the referenced ResourceClaimTemplate is not found. This applies dual rate limiting:\n\nExponential backoff (per-item): 5ms × 2^failures, capped at 1000 seconds\nToken bucket (global): 10 QPS with 100-token burst\nThe final delay is MAX(exponential_delay, token_bucket_delay).\n\nThe Problem:\n\nWhen the ResourceClaimTemplate is eventually created, there is no mechanism to:\n\nNotify the ResourceClaim controller to immediately reprocess waiting pods\nMove affected pods from unschedulablePods queue back to activeQ in the scheduler\nThe pod must wait for its current backoff period to expire before the controller retries, which can be up to 1000 seconds if the pod has already failed multiple times.\n\nWhat did you expect to happen?\nWhen a new ResourceClaimTemplate is created, pods that were waiting due to the missing template should be processed promptly (within seconds), not after potentially long backoff delays.\n\nHow to reproduce it (as minimally and precisely as possible)?\nCreate a Pod that references a non-existent ResourceClaimTemplate:\napiVersion: v1\nkind: Pod\nmetadata:\n  name: test-pod\nspec:\n  containers:\n  - name: test\n    image: nginx\n    resources:\n      claims:\n      - name: my-claim\n  resourceClaims:\n  - name: my-claim\n    resourceClaimTemplateName: my-template  # Does not exist yet\nWait for several retry cycles (observe increasing backoff delays in controller logs)\nCreate the ResourceClaimTemplate:\napiVersion: resource.k8s.io/v1\nkind: ResourceClaimTemplate\nmetadata:\n  name: my-template\nspec:\n  spec:\n    devices:\n      requests:\n      - name: device\n        deviceClassName: example-class",
+  "severity": "Major",
+  "root_cause_type": "Communication",
+  "bug_complexity": "Medium",
+  "distributed": "Yes",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

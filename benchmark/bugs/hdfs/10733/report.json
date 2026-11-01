@@ -1,0 +1,20 @@
+{
+  "id": "10733",
+  "system": "hdfs",
+  "issue_creation_date": "2016-08-08",
+  "issue_link": "HDFS-10733",
+  "fix_link": "",
+  "branch": "9130af3f74a7923fff3f80360ba043ab2c6558a9",
+  "title": "NameNode terminated after full GC thinking QJM is unresponsive.",
+  "description": "NameNode went into full GC while in AsyncLoggerSet.waitForWriteQuorum(). After completing GC it checks if the timeout for quorum is reached. If the GC was long enough the timeout can expire, and QuorumCall.waitFor() will throw TimeoutExcpetion. Finally FSEditLog.logSync() catches the exception and terminates NameNode.",
+  "severity": "Major",
+  "root_cause_type": "Error handling",
+  "bug_complexity": "Medium",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

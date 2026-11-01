@@ -1,0 +1,8 @@
+[
+  {
+    "file": "pkg/controller/resourceclaim/controller.go",
+    "function": "Controller.syncClaim",
+    "start_line": 841,
+    "end_line": 849
+  }
+]

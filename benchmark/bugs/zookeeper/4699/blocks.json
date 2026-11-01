@@ -1,0 +1,8 @@
+[
+  {
+    "file": "zookeeper-client/zookeeper-client-c/src/zookeeper.c",
+    "function": "zookeeper_interest",
+    "start_line": 2561,
+    "end_line": 2563
+  }
+]

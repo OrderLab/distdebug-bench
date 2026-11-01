@@ -1,0 +1,12 @@
+# Mini-SWE-Agent 2.2.8 with GPT-6 Astra (paper Table 1).
+# The paper served this model through an Azure OpenAI endpoint.
+name: mini-swe-agent-gpt-6-astra
+model_name: openai/gpt-6-astra
+model_class: litellm_response
+model_kwargs:
+  drop_params: true
+  reasoning:
+    effort: medium
+cost_limit: 3.0
+env:
+  MSWEA_COST_TRACKING: ignore_errors

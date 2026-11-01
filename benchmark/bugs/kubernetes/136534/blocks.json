@@ -1,0 +1,8 @@
+[
+  {
+    "file": "staging/src/k8s.io/kubectl/pkg/util/resource/resource.go",
+    "function": "max",
+    "start_line": 152,
+    "end_line": 157
+  }
+]

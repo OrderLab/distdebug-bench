@@ -1,0 +1,8 @@
+[
+  {
+    "file": "zookeeper-server/src/main/java/org/apache/zookeeper/server/quorum/FastLeaderElection.java",
+    "function": "FastLeaderElection.lookForLeader",
+    "start_line": 895,
+    "end_line": 919
+  }
+]

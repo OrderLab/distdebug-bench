@@ -1,0 +1,8 @@
+[
+  {
+    "file": "src/ray/raylet/scheduling/local_resource_manager.cc",
+    "function": "MarkFootprintAsBusy",
+    "start_line": "128",
+    "end_line": "141"
+  }
+]

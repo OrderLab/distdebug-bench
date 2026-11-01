@@ -1,0 +1,14 @@
+[
+  {
+    "file": "src/ray/raylet/scheduling/cluster_resource_scheduler.cc",
+    "function": "ClusterResourceScheduler::AddLocalResourceInstances",
+    "start_line": 407,
+    "end_line": 435
+  },
+  {
+    "file": "src/ray/raylet/placement_group_resource_manager.cc",
+    "function": "NewPlacementGroupResourceManager::CommitBundle",
+    "start_line": 97,
+    "end_line": 99
+  }
+]

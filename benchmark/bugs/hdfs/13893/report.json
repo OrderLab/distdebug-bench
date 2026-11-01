@@ -1,0 +1,20 @@
+{
+  "id": "13893",
+  "system": "hdfs",
+  "issue_creation_date": "2018-09-04",
+  "issue_link": "HDFS-13893",
+  "fix_link": "https://issues.apache.org/jira/secure/attachment/12949642/HDFS-13893.003.patch",
+  "branch": "98d20656433cdec76c2108d24ff3b935657c1e80",
+  "title": "DiskBalancer: no validations for Disk balancer commands",
+  "description": "1 Run the Disk Balancer commands with extra arguments passing  \n \nhadoopclient> hdfs diskbalancer -plan hostname --thresholdPercentage 2 *sgfsdgfs*\n2018-08-31 14:57:35,454 INFO planner.GreedyPlanner: Starting plan for Node : hostname:50077\n2018-08-31 14:57:35,457 INFO planner.GreedyPlanner: Disk Volume set fb67f00c-e333-4f38-a3a6-846a30d4205a Type : DISK plan completed.\n2018-08-31 14:57:35,457 INFO planner.GreedyPlanner: Compute Plan for Node : hostname:50077 took 23 ms\n2018-08-31 14:57:35,457 INFO command.Command: Writing plan to:\n2018-08-31 14:57:35,457 INFO command.Command: /system/diskbalancer/2018-Aug-31-14-57-35/hostname.plan.json\nWriting plan to:\n/system/diskbalancer/2018-Aug-31-14-57-35/hostname.plan.json\nExpected Output:-\n=============\nDisk balancer commands should be fail if we pass any invalid arguments or extra arguments",
+  "severity": "Major",
+  "root_cause_type": "Error handling",
+  "bug_complexity": "Easy",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "file": "pkg/controller/resourceclaim/controller.go",
+    "function": "NewController",
+    "start_line": 170,
+    "end_line": 194
+  }
+]

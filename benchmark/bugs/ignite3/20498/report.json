@@ -1,0 +1,20 @@
+{
+  "id": "20498",
+  "system": "ignite3",
+  "issue_creation_date": "2023-9-26",
+  "issue_link": "https://issues.apache.org/jira/browse/IGNITE-20498",
+  "fix_link": "",
+  "branch": "7a1540365d89d188da1f0d22c27c96ddc21485ac",
+  "title": "",
+  "description": "\nPrevent potential catalog version order violations.\nCurrently, catalog versions are stored in an ordered structure. The activation timestamp is used as a key, which depends on the configuration property \"schemaSync.delayDuration\".\n\nChanges to \"delayDuration\" parameter in runtime may lead to a violation of the order in which catalog versions are stored. That is, the old version may be saved with a bigger timestamp than the newer one.\n\nAs a result, the manager can return incorrect (older) version of the catalog using a timestamp.\n\nreproducer:\n\npublic class CatalogDelayDurationChangeTest extends BaseIgniteAbstractTest {\n    private static final String NODE_NAME = \"node1\";\n    private static final String TABLE_NAME = \"test1\";\n    private final HybridClock clock = new HybridClockImpl();\n    private final AtomicLong delayFromConfig = new AtomicLong();\n\n    @Test\n    public void testChangeDelayDuration() {\n        CatalogManager catalogMgr = createManager();\n\n        // Prepare schema changes.\n        ColumnParams column = ColumnParams.builder().name(\"ID\").type(ColumnType.INT32).build();\n        CatalogCommand cmd1 = BaseCatalogManagerTest.createTableCommand(TABLE_NAME, List.of(column), List.of(\"ID\"), null);\n        CatalogCommand cmd2 = BaseCatalogManagerTest.createTableCommand(\"test2\", List.of(column), List.of(\"ID\"), null);\n\n        // Make first schema change with delay = 1000.\n        delayFromConfig.set(1_000);\n        CompletableFuture<Void> schemaChangeFuture0 = catalogMgr.execute(cmd1);\n\n        // Make second schema change with delay = 1.\n        delayFromConfig.set(1);\n        CompletableFuture<Void> schemaChangeFuture1 = catalogMgr.execute(cmd2);\n\n        assertThat(schemaChangeFuture0, willCompleteSuccessfully());\n        assertThat(schemaChangeFuture1, willCompleteSuccessfully());\n\n        // Make sure that we are getting the latest version of the schema using current timestamp.\n        int latestVer = catalogMgr.latestCatalogVersion();\n        int currentTsVer = catalogMgr.activeCatalogVersion(clock.now().longValue());\n        assertThat(currentTsVer, equalTo(latestVer));\n    }\n\n    private CatalogManager createManager() {\n        VaultManager vault = new VaultManager(new InMemoryVaultService());\n        MetaStorageManager metastore = StandaloneMetaStorageManager.create(vault, new SimpleInMemoryKeyValueStorage(NODE_NAME));\n        UpdateLog updateLog = spy(new UpdateLogImpl(metastore));\n        ClockWaiter clockWaiter = spy(new ClockWaiter(NODE_NAME, clock));\n        CatalogManager manager = new CatalogManagerImpl(updateLog, clockWaiter, delayFromConfig::get, () -> 10L);\n\n        vault.start();\n        metastore.start();\n        clockWaiter.start();\n        manager.start();\n\n        metastore.deployWatches().join();\n\n        return manager;\n    }\n}\n\n",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Medium",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "file": "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/namenode/EncryptionZoneManager.java",
+    "function": "EncryptionZoneManage.createEncryptionZone",
+    "start_line": 541,
+    "end_line": 547
+  },
+  {
+    "file": "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/namenode/EncryptionZoneManager.java",
+    "function": "EncryptionZoneManage.createEncryptionZone",
+    "start_line": 533,
+    "end_line": 563
+  }
+]

@@ -1,0 +1,20 @@
+{
+    "id": "147171",
+    "system": "elasticsearch",
+    "issue_creation_date": "2026-04-22",
+    "issue_link": "https://github.com/elastic/elasticsearch/issues/147171",
+    "fix_link": "https://github.com/elastic/elasticsearch/pull/147405",
+    "branch": "2a88d3a56c5afdb7a1f30e860a38c0b28ddb3f58",
+    "title": "[CI] OperatorPrivilegesIT testNonOperatorUserCanCallAnalyzeRepositoryAPI failing",
+    "description": "Reproduction Line: ./gradlew ':x-pack:plugin:security:qa:operator-privileges-tests:javaRestTest' --tests 'org.elasticsearch.xpack.security.operator.OperatorPrivilegesIT.testNonOperatorUserCanCallAnalyzeRepositoryAPI' -Dtests.seed=7604F88DC268C48D -Dtests.locale=hsb -Dtests.timezone=Europe/London -Druntime.java=26\nApplicable branches: main\nReproduces locally?: N/A\nFailure History: See dashboard\nFailure Message: org.elasticsearch.client.ResponseException: method [POST], host [http://[::1]:33965], URI [/_snapshot/testAnalysisRepo/_analyze], status line [HTTP/1.1 500 Internal Server Error] {\"error\":{\"root_cause\":[{\"type\":\"repository_verification_exception\",\"reason\":\"[testAnalysisRepo] multiple writes succeeded to overwrite-protected blob temp-analysis-4mmA0_dGQbu0hOK1Zb-j6A/test-overwrite-blob-Qkt1E-vDRhiz723tAxQPVA\",\"suppressed\":[{\"type\":\"repository_verification_exception\",\"reason\":\"[testAnalysisRepo] failure processing [blob analysis [testAnalysisRepo:temp-analysis-4mmA0_dGQbu0hOK1Zb-j6A/test-blob-98-wMWgzgtST0a3eA4RDMXH1A, length=32, seed=-1681044207315830571, readEarly=false, writeAndOverwrite=false, abortWrite=false, copyBlobName=null]]\"}]}],\"type\":\"repository_verification_exception\",\"reason\":\"[testAnalysisRepo] Elasticsearch observed the storage system underneath this repository behaved incorrectly which indicates it is not suitable for use with Elasticsearch snapshots. See [https://www.el\n[truncated]\nIssue Reasons: [main] 1 consecutive failures in test testNonOperatorUserCanCallAnalyzeRepositoryAPI [main] 1 consecutive failures in step part4 [main] 1 consecutive failures in pipeline elasticsearch-intake [main] 15 failures in test testNonOperatorUserCanCallAnalyzeRepositoryAPI (1.7% fail rate in 884 executions) [main] 10 failures in step part-4 (1.8% fail rate in 557 executions) [main] 9 failures in pipeline elasticsearch-pull-request (1.6% fail rate in 548 executions) [main] 2 failures in pipeline elasticsearch-periodic-java-ea (66.7% fail rate in 3 executions) [main] 2 failures in pipeline elasticsearch-periodic-platform-support (100.0% fail rate in 2 executions)\nNote: This issue was created using new test triage automation. Please report issues or feedback to es-delivery.\n",
+    "severity": "Major",
+    "root_cause_type": "Concurrency",
+    "bug_complexity": "Hard",
+    "distributed": "Yes",
+    "contains_analysis": "Yes",
+    "analysis_removed": "No",
+    "contains_logs": "Yes",
+    "contains_stack_traces": "No",
+    "bug_cause_description": "",
+    "artifact_dir": "artifact_dir"
+}

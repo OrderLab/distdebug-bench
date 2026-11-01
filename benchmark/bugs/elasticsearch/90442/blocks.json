@@ -1,0 +1,8 @@
+[
+  {
+    "file": "server/src/main/java/org/elasticsearch/health/node/DiskHealthIndicatorService.java",
+    "function": "getDiagnoses",
+    "start_line": "347",
+    "end_line": "368"
+  }
+]

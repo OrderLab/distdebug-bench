@@ -1,0 +1,13 @@
+# Mini-SWE-Agent 2.2.8 with Claude Opus 5.5 (paper Table 1).
+# The paper served this model through Azure AI Foundry. The pricing file lets
+# LiteLLM track cost so the cost limit applies.
+name: mini-swe-agent-claude-opus-5.5
+model_name: anthropic/claude-opus-5-5
+model_class: litellm
+model_kwargs:
+  drop_params: true
+  max_tokens: 16000
+cost_limit: 3.0
+env:
+  MSWEA_COST_TRACKING: default
+  LITELLM_MODEL_REGISTRY_PATH: claude-opus-5.5-pricing.json

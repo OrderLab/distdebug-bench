@@ -1,0 +1,20 @@
+{
+  "id": "136014",
+  "system": "kubernetes",
+  "issue_creation_date": "",
+  "issue_link": "https://github.com/kubernetes/kubeadm/issues/3269",
+  "fix_link": "https://github.com/kubernetes/kubernetes/pull/136014",
+  "branch": "1c9180cd453",
+  "title": "kubeadm should confirm that the new etcd peer has started before trying to promote it to a member, and even remove the unstarted peer",
+  "description": "What would you like to be added?\nI think kubeadm should confirm that the new etcd peer has started. If it is has not (e.g. because the etcd image is unavailable, or kubelet has stopped), then kubeadm should not try to promote it to a member, and should eventually remove the member.\n\nWhy is this needed?\nWhen kubeadm joins a control plane node with local etcd, it\n\nMakes an etcd API call to add a new etcd peer as a learner.\nCreates the etcd static pod\nMakes an API call to promote the learner to a member\nFor (3) to complete, the etcd peer must be started.\n\nIf it is not started, then (3) eventually fails, and kubeadm just returns the etcd API call error: can only promote a learner member which is in sync with leader. This error is ambiguous, because it can have other causes, like poor disk/network performance.\n\nMoreover, if the etcd peer never started, then it can safely be removed from the membership list, and kubeadm should do that.",
+  "severity": "Major",
+  "root_cause_type": "Communication",
+  "bug_complexity": "Medium",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

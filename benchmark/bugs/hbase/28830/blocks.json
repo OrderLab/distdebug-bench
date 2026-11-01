@@ -1,0 +1,14 @@
+[
+  {
+    "file": "hbase-procedure/src/main/java/org/apache/hadoop/hbase/procedure2/ProcedureExecutor.java",
+    "function": "ProcedureExecutor.executeProcedure",
+    "start_line": 2031,
+    "end_line": 2032
+  },
+  {
+    "file": "hbase-server/src/main/java/org/apache/hadoop/hbase/master/procedure/MasterProcedureScheduler.java",
+    "function": "MasterProcedureScheduler.completionCleanup",
+    "start_line": 406,
+    "end_line": 409
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "file": "components/raftstore/src/coprocessor/dispatcher.rs",
+    "function": "CoprocessorHost::new_split_checker_host",
+    "start_line": 835,
+    "end_line": 839
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "id": "11701",
+  "system": "hdfs",
+  "issue_creation_date": "2017-04-25",
+  "issue_link": "HDFS-11701",
+  "fix_link": "",
+  "branch": "456705a07c8b80658950acc99f23086244c6b20f",
+  "title": "NPE from Unresolved Host causes permanent DFSInputStream failures",
+  "description": "We recently encountered the following NPE due to the DFSInputStream storing old cached block locations from hosts which could no longer resolve.\nCaused by: java.lang.NullPointerException\nat org.apache.hadoop.hdfs.DFSClient.isLocalAddress(DFSClient.java:1122)\nat org.apache.hadoop.hdfs.shortcircuit.DomainSocketFactory.getPathInfo(DomainSocketFactory.java:148)\nat org.apache.hadoop.hdfs.BlockReaderFactory.getBlockReaderLocal(BlockReaderFactory.java:474)\nat org.apache.hadoop.hdfs.BlockReaderFactory.build(BlockReaderFactory.java:354)\nat org.apache.hadoop.hdfs.DFSInputStream.blockSeekTo(DFSInputStream.java:662)\nat org.apache.hadoop.hdfs.DFSInputStream.seekToNewSource(DFSInputStream.java:1613)\nat org.apache.hadoop.fs.FSDataInputStream.seekToNewSource(FSDataInputStream.java:127)\nHBase related stack frames trimmed\nAfter investigating, the DFSInputStream appears to have been open for upwards of 3-4 weeks and had cached block locations from decommissioned nodes that no longer resolve in DNS and had been shutdown and removed from the cluster 2 weeks prior. If the DFSInputStream had refreshed its block locations from the name node, it would have received alternative block locations which would not contain the decommissioned data nodes. As the above NPE leaves the non-resolving data node in the list of block locations the DFSInputStream never refreshes the block locations and all attempts to open a BlockReader for the given blocks will fail.\nIn our case, we resolved the NPE by closing and re-opening every DFSInputStream in the cluster to force a purge of the block locations cache. Ideally, the DFSInputStream would re-fetch all block locations for a host which can't be resolved in DNS or at least the blocks requested.",
+  "severity": "Major",
+  "root_cause_type": "Error handling",
+  "bug_complexity": "Medium",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "Yes",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "file": "zookeeper-server/src/main/java/org/apache/zookeeper/server/quorum/Leader.java",
+    "function": "Leader.startZkServer",
+    "start_line": 1512,
+    "end_line": 1519
+  },
+  {
+    "file": "zookeeper-server/src/main/java/org/apache/zookeeper/server/quorum/QuorumPeer.java",
+    "function": "QuorumPeer.setLastSeenQuorumVerifier",
+    "start_line": 1814,
+    "end_line": 1842
+  }
+]

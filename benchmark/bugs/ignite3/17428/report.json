@@ -1,0 +1,20 @@
+{
+  "id": "17428",
+  "system": "ignite3",
+  "issue_creation_date": "2022-7-27",
+  "issue_link": "https://issues.apache.org/jira/browse/IGNITE-17428",
+  "fix_link": "",
+  "branch": "2c4d07597235ef54b23c9726a755e5876b98e1a1",
+  "title": "",
+  "description": "Current version of TableManager#tableAsyncInternal can possibly not detect table that is being created while tableAsyncInternal is called. Scenario:\n\n    tableAsyncInternal checks tablesByIdVv.latest() and there is no table\n    the table creation started, table metadata appears in meta storage\n    TableEvent.CREATE is fired\n    tableAsyncInternal registers a listener for TableEvent.CREATE (after it is fired for corresponding table)\n    tableAsyncInternal checks tablesByIdVv.latest() once again and there still is no table, because the table creation is not completed\n    !isTableConfigured(id) condition returns false as the table is present in meta storage\n    if (tbl != null && getTblFut.complete(tbl) || !isTableConfigured(id) && getTblFut.complete(null)) evaluates false and the future created fot getTable never completes.\n\nPossibly we should use VersionedValue#whenComplete instead of creating listener for event. The table is present in map wrapped in versioned value only when the table creation is completed, and whenComplete allows to create a callback to check the table presence.\n\nThe same problem is presented for SchemaManager when we get schema in SchemaManager#tableSchema\n\nPossible fix for SchemaManager is to use this pattern\n\n        registriesVv.whenComplete((token, val, e) -> {\n            if (schemaVer <= val.get(tblId).lastSchemaVersion()) {\n                fut.complete(getSchemaDescriptorLocally(schemaVer, tblCfg));\n            }\n        });\n\ninstead of creating listener for CREATE event. The same approach can be used for TableManager\n",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Medium",
+  "distributed": "No",
+  "contains_analysis": "Yes",
+  "analysis_removed": "No",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

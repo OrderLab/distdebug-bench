@@ -1,0 +1,14 @@
+[
+  {
+    "file": "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/namenode/snapshot/DirectoryWithSnapshotFeature.java",
+    "function": "DirectoryWithSnapshotFeature.cleanDirectory",
+    "start_line": 742,
+    "end_line": 746
+  },
+  {
+    "file": "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/namenode/snapshot/AbstractINodeDiffList.java",
+    "function": "AbstractINodeDiffList.toString",
+    "start_line": 317,
+    "end_line": 318
+  }
+]

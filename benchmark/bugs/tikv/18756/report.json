@@ -1,0 +1,20 @@
+{
+  "id": "18756",
+  "system": "tikv",
+  "issue_creation_date": "2025-7-29",
+  "issue_link": "https://github.com/tikv/tikv/issues/18756",
+  "fix_link": "https://github.com/tikv/tikv/pull/18765",
+  "branch": "ed504baa35c36fa2f05ee1e5bb8f5e3f60da46d6",
+  "title": "tikv random memory fault in test_compaction_filter_blocked_by_clean_overlap_",
+  "description": "Bug Report\nA low-probablity random failure:\n\n(lldb) bt\n* thread #113, name = 'region-worker::test_compaction_filter_blocked_by_clean_overlap_', stop reason = EXC_BAD_ACCESS (code=1, address=0xd)\n  * frame #0: 0x00000001878058b0 libsystem_pthread.dylib`pthread_mutex_unlock + 12\n    frame #1: 0x00000001051e145c failpoints-82c0c2b744de936d`_$LT$std..sync..poison..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::h57c50fdae54a6bf6 + 56\n    frame #2: 0x00000001051ab06c failpoints-82c0c2b744de936d`core::ptr::drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$::hd863acc306193875 + 12\n    frame #3: 0x00000001049e4098 failpoints-82c0c2b744de936d`core::ptr::drop_in_place$LT$tikv_util..range_latch..RangeLatchGuard$GT$::h89f35907d4c0e6cc + 108\n    frame #4: 0x00000001049e4cfc failpoints-82c0c2b744de936d`core::ptr::drop_in_place$LT$core..option..Option$LT$tikv_util..range_latch..RangeLatchGuard$GT$$GT$::hac15ba0060781a6e + 60\n    frame #5: 0x0000000104a0a96c failpoints-82c0c2b744de936d`engine_rocks::import::_$LT$impl$u20$engine_traits..import..ImportExt$u20$for$u20$engine_rocks..engine..RocksEngine$GT$::ingest_external_file_cf::h6a04738e2235dadf + 1092\n    frame #6: 0x0000000104a0aee4 failpoints-82c0c2b744de936d`engine_rocks::misc::_$LT$impl$u20$engine_rocks..engine..RocksEngine$GT$::delete_all_in_range_cf_by_ingest::h5c8d3c1b5a66a4cb + 1140\n    frame #7: 0x0000000104a0d0a4 failpoints-82c0c2b744de936d`engine_rocks::misc::_$LT$impl$u20$engine_traits..misc..MiscExt$u20$for$u20$engine_rocks..engine..RocksEngine$GT$::delete_ranges_cf::h39764cfc68ef1810 + 488\nWhat version of TiKV are you using?\nv9.0.x\n\nWhat operating system and CPU are you using?\nMacOS\n\nSteps to reproduce\nTry running tests many times\n\nWhat did you expect?\nTest passes.\n\nWhat did happened?\nTest failure with memory fault",
+  "severity": "Major",
+  "root_cause_type": "Error handling",
+  "bug_complexity": "Easy",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "Yes",
+  "contains_stack_traces": "Yes",
+  "bug_cause_description": "",
+  "artifact_dir": ""
+}

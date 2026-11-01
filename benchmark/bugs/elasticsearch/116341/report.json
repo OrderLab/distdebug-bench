@@ -1,0 +1,20 @@
+{
+    "id": "116341",
+    "system": "elasticsearch",
+    "issue_creation_date": "2024-09-06",
+    "issue_link": "https://github.com/elastic/elasticsearch/issues/116341",
+    "fix_link": "https://github.com/elastic/elasticsearch/pull/117504",
+    "branch": "a4482d4c4c2d24418553510afa6a11a5f316983a",
+    "title": "Async search can throw NPE from onClusterResponseMinimizeRoundtrips",
+    "description": "Stack trace seen from a customer environment:\n\n`[2024-10-23T13:34:32,289][WARN ][o.e.a.s.SearchProgressListener] [data-2] [ibprod_azure] Failed to execute progress listener onResponseMinimizeRoundtrips\njava.lang.NullPointerException: Cannot invoke \"org.elasticsearch.xpack.search.MutableSearchResponse.updateResponseMinimizeRoundtrips(String, org.elasticsearch.action.search.SearchResponse)\" because the return value of \"org.apache.lucene.util.SetOnce.get()\" is null\nat org.elasticsearch.xpack.search.AsyncSearchTask$Listener.onClusterResponseMinimizeRoundtrips(AsyncSearchTask.java:512) ~[?:?]\nat org.elasticsearch.action.search.SearchProgressListener.notifyClusterResponseMinimizeRoundtrips(SearchProgressListener.java:181) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.action.search.TransportSearchAction$3.innerOnResponse(TransportSearchAction.java:781) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.action.search.TransportSearchAction$3.innerOnResponse(TransportSearchAction.java:776) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.action.search.TransportSearchAction$CCSActionListener.onResponse(TransportSearchAction.java:1487) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.action.ActionListenerResponseHandler.handleResponse(ActionListenerResponseHandler.java:48) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.transport.TransportService$UnregisterChildTransportResponseHandler.handleResponse(TransportService.java:1742) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.transport.TransportService$ContextRestoreResponseHandler.handleResponse(TransportService.java:1465) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.transport.TransportService$ContextRestoreResponseHandler.handleResponse(TransportService.java:1465) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.transport.InboundHandler.doHandleResponse(InboundHandler.java:433) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.transport.InboundHandler$2.doRun(InboundHandler.java:390) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:26) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.common.util.concurrent.TimedRunnable.doRun(TimedRunnable.java:33) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.common.util.concurrent.ThreadContext$ContextPreservingAbstractRunnable.doRun(ThreadContext.java:984) ~[elasticsearch-8.13.4.jar:?]\nat org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:26) ~[elasticsearch-8.13.4.jar:?]\nat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]\nat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]\nWe need to try to reproduce it but this will happen when AsyncSearchTask.onListShards is not called (initializing the MutableSearchResponse in that class) before AsyncSearchTask.onClusterResponseMinimizeRoundtrips is called. At a minimum we need to add some defensive programming in the latter method. Optimally we will find why onListShards is not getting called (or perhaps not succeeding) for this case and fix the underlying issue.",
+    "severity": "Major",
+    "root_cause_type": "Concurrency",
+    "bug_complexity": "Medium",
+    "distributed": "Yes",
+    "contains_analysis": "No",
+    "analysis_removed": "N/A",
+    "contains_logs": "No",
+    "contains_stack_traces": "Yes",
+    "bug_cause_description": "",
+    "artifact_dir": "artifact_dir"
+}

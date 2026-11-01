@@ -1,0 +1,8 @@
+[
+  {
+    "file": "server/src/main/java/org/elasticsearch/index/shard/StoreRecovery.java",
+    "function": "restore",
+    "start_line": "532",
+    "end_line": "547"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "file": "python/ray/includes/common.pxi",
+    "function": "from_gcs_address",
+    "start_line": "26",
+    "end_line": "27"
+  },
+  {
+    "file": "python/ray/includes/common.pxd",
+    "function": "CGcsClientOptions",
+    "start_line": "378",
+    "end_line": "379"
+  }
+]

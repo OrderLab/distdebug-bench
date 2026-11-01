@@ -1,0 +1,14 @@
+[
+  {
+    "file": "x-pack/plugin/async-search/src/main/java/org/elasticsearch/xpack/search/AsyncSearchTask.java",
+    "function": "onQueryFailure",
+    "start_line": "423",
+    "end_line": "429"
+  },
+  {
+    "file": "x-pack/plugin/async-search/src/main/java/org/elasticsearch/xpack/search/AsyncSearchTask.java",
+    "function": "onFailure",
+    "start_line": "537",
+    "end_line": "544"
+  }
+]

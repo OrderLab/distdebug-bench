@@ -1,0 +1,20 @@
+{
+  "id": "13292",
+  "system": "hdfs",
+  "issue_creation_date": "2018-03-15",
+  "issue_link": "HDFS-13292",
+  "fix_link": "",
+  "branch": "00ebec89f101347a5da44657e388b30c57ed9deb",
+  "title": "Crypto command should give proper exception when trying to set key on existing EZ directory",
+  "description": "Scenario:\nCreate a Dir\nCreate EZ for the above dir with Key1\nAgain you can try to create ZONE for same directory with Diff Key i.e Key2\nhadoopclient> hadoop key list\nListing keys for KeyProvider: org.apache.hadoop.crypto.key.kms.LoadBalancingKMSClientProvider@152aa092\nkey2\nkey1\nhadoopclient> hdfs dfs -mkdir /kms\nhadoopclient> hdfs dfs -put bigdata_env /kms/file1\nhadoopclient> hdfs crypto -createZone -keyName key1 -path /kms\nRemoteException: Attempt to create an encryption zone for a non-empty directory.\nhadoopclient> hdfs dfs -rmr /kms/file1\nrmr: DEPRECATED: Please use '-rm -r' instead.\nDeleted /kms/file1\nhadoopclient> hdfs crypto -createZone -keyName key1 -path /kms\nAdded encryption zone /kms\nhadoopclient> hdfs crypto -createZone -keyName key2 -path /kms\nRemoteException: Attempt to create an encryption zone for a non-empty directory.\nhadoopclient>\n \nActual Output:\n===========\nException should be Like Dir already having the ZONE will not allow to create new ZONE on this Dir\nExpected Output:\n=============\nRemoteException:Attempt to create an encryption zone for non-empty directory",
+  "severity": "Major",
+  "root_cause_type": "Error handling",
+  "bug_complexity": "Medium",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

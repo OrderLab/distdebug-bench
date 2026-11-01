@@ -1,0 +1,32 @@
+[
+  {
+    "file": "server/src/main/java/org/elasticsearch/action/admin/cluster/health/TransportClusterHealthAction.java",
+    "function": "onPublicationComplete",
+    "start_line": "136",
+    "end_line": "143"
+  },
+  {
+    "file": "server/src/main/java/org/elasticsearch/action/admin/cluster/health/TransportClusterHealthAction.java",
+    "function": "clusterStateProcessed",
+    "start_line": "170",
+    "end_line": "177"
+  },
+  {
+    "file": "server/src/main/java/org/elasticsearch/action/admin/cluster/health/TransportClusterHealthAction.java",
+    "function": "onFailure",
+    "start_line": "183",
+    "end_line": "184"
+  },
+  {
+    "file": "server/src/main/java/org/elasticsearch/action/admin/cluster/health/TransportClusterHealthAction.java",
+    "function": "onNewClusterState",
+    "start_line": "239",
+    "end_line": "240"
+  },
+  {
+    "file": "server/src/main/java/org/elasticsearch/action/admin/cluster/health/TransportClusterHealthAction.java",
+    "function": "onTimeout",
+    "start_line": "249",
+    "end_line": "250"
+  }
+]

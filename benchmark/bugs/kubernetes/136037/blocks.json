@@ -1,0 +1,8 @@
+[
+  {
+    "file": "pkg/kubelet/kubelet.go",
+    "function": "HandlePodUpdates",
+    "start_line": 2826,
+    "end_line": 2832
+  }
+]

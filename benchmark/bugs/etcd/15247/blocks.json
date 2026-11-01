@@ -1,0 +1,26 @@
+[
+  {
+    "file": "server/etcdserver/v3_server.go",
+    "function": "LeaseRenew",
+    "start_line": 279,
+    "end_line": 286
+  },
+  {
+    "file": "server/etcdserver/server.go",
+    "function": "revokeExpiredLeases",
+    "start_line": 845,
+    "end_line": 848
+  },
+  {
+    "file": "server/lease/lessor.go",
+    "function": "lessor.Renew",
+    "start_line": 424,
+    "end_line": 427
+  },
+  {
+    "file": "server/lease/lessor.go",
+    "function": "checkpointScheduledLeases()",
+    "start_line": 658,
+    "end_line": 660
+  }
+]

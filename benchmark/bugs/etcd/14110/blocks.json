@@ -1,0 +1,14 @@
+[
+  {
+    "file": "server/etcdserver/txn/txn.go",
+    "function": "Txn",
+    "start_line": 268,
+    "end_line": 269
+  },
+  {
+    "file": "server/etcdserver/txn/txn.go",
+    "function": "applyTxn",
+    "start_line": 329,
+    "end_line": 350
+  }
+]

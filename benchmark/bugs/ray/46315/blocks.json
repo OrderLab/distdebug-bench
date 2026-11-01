@@ -1,0 +1,26 @@
+[
+  {
+    "file": "src/ray/core_worker/transport/normal_task_submitter.cc",
+    "function": "SubmitTask",
+    "start_line": "85",
+    "end_line": "88"
+  },
+  {
+    "file": "src/ray/core_worker/transport/normal_task_submitter.cc",
+    "function": "CancelTask",
+    "start_line": "711",
+    "end_line": "712"
+  },
+  {
+    "file": "src/ray/core_worker/transport/normal_task_submitter.cc",
+    "function": "CancelTask",
+    "start_line": "738",
+    "end_line": "739"
+  },
+  {
+    "file": "src/ray/core_worker/transport/actor_task_submitter.cc",
+    "function": "CancelTask",
+    "start_line": "879",
+    "end_line": "880"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "file": "schema/src/main/java/org/apache/ignite/internal/schema/SchemaManager.java",
+    "function": "SchemaManager.tableSchema",
+    "start_line": 240,
+    "end_line": 280
+  },
+  {
+    "file": "table/src/main/java/org/apache/ignite/internal/table/distributed/TableManager.java",
+    "function": "TableManager.tableAsyncInternal",
+    "start_line": 1298,
+    "end_line": 1350
+  }
+]

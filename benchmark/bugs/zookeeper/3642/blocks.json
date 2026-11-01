@@ -1,0 +1,8 @@
+[
+  {
+    "file": "zookeeper-server/src/main/java/org/apache/zookeeper/server/quorum/Learner.java",
+    "function": "Learner.shutdown",
+    "start_line": 662,
+    "end_line": 665
+  }
+]

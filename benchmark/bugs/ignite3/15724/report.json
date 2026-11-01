@@ -1,0 +1,20 @@
+{
+  "id": "15724",
+  "system": "ignite3",
+  "issue_creation_date": "2021-10-11",
+  "issue_link": "https://issues.apache.org/jira/browse/IGNITE-15724",
+  "fix_link": "",
+  "branch": "2abd5b9f5525ac2ea9314e45cea9deb6be871418",
+  "title": "",
+  "description": "MetastorageManager uses incorrect predicate in order to create corresponding raft group service      Currently, when the MetaStorageManager is started, the metastorage raft group is reduced to online nodes that satisfies to the metaStorageNodesContainsLocPred.\n\nString[] metastorageNodes = this.locCfgMgr.configurationRegistry().getConfiguration(NodeConfiguration.KEY).metastorageNodes().value();\n\nPredicate<ClusterNode> metaStorageNodesContainsLocPred =\n    clusterNode -> Arrays.asList(metastorageNodes).contains(clusterNode.name());\n\n...\n        \nList<ClusterNode> metaStorageMembers = clusterNetSvc.topologyService().allMembers().stream()\n    .filter(metaStorageNodesContainsLocPred)\n    .collect(Collectors.toList());\n\nThat is actually a subset of required nodes. In that case, only the first node creates the metastorage raft group, and the second one will be rejected with the following messages:\n\n[WARNING][%ITIgnitionTest_testNodesStartWithBootstrapConfiguration_3344%JRaft-Request-Processor-27][NodeImpl] Node <metastorage_raft_group/172.24.144.1:3344> ignore PreVoteRequest from 172.24.144.1:3345 as it is not in conf <ConfigurationEntry [id=LogId [index=1, term=1], conf=172.24.144.1:3344, oldConf=]>.\n[WARNING][%ITIgnitionTest_testNodesStartWithBootstrapConfiguration_3345%JRaft-Response-Processor-1][NodeImpl] Node <metastorage_raft_group/172.24.144.1:3345> received invalid PreVoteResponse from 172.24.144.1:3344, term 1, expect=0.\n\nIt seems that this issue cannot be properly fixed until is IGNITE-14414 is implemented. For now, we can just prohibit creating a metastorage group greater than one node.\n",
+  "severity": "Critical",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Medium",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

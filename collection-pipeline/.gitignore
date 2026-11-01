@@ -1,0 +1,5 @@
+output/diffs/
+output/prompts/
+output/issues/*.csv
+output/agent/
+stats

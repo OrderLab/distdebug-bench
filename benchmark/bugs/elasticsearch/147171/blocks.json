@@ -1,0 +1,8 @@
+[
+  {
+    "file": "server/src/main/java/org/elasticsearch/common/blobstore/fs/FsBlobContainer.java",
+    "function": "moveBlobAtomic",
+    "start_line": "406",
+    "end_line": "420"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "id": "2836",
+  "system": "zookeeper",
+  "issue_creation_date": "2017-07-04",
+  "issue_link": "[ZOOKEEPER-2836] QuorumCnxManager.Listener Thread Better handling of SocketTimeoutException - ASF JIRA",
+  "fix_link": "ZOOKEEPER-2836: fix SocketTimeoutException by bitgaoshu \u00b7 Pull Request #336 \u00b7 apache/zookeeper",
+  "branch": "release-3.5.3",
+  "title": "QuorumCnxManager.Listener Thread Better handling of SocketTimeoutException",
+  "description": "QuorumCnxManager Listener thread blocks SocketServer on accept but we are getting SocketTimeoutException on our boxes after 49days 17 hours . As per current code there is a 3 times retry and after that it says \"As I'm leaving the listener thread, I won't be able to participate in leader election any longer: $<hostname>/$<ip>:3888_\" , Once server nodes reache this state and we restart or add a new node ,it fails to join cluster and logs 'WARN QuorumPeer<myid=1>/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@383 - Cannot open channel to 3 at election address $<hostname>/$<ip>:3888' .\n\nAs there is no timeout specified for ServerSocket it should never timeout but there are some already discussed issues where people have seen this issue and added checks for SocketTimeoutException explicitly like https://issues.apache.org/jira/browse/KARAF-3325 .\n\nI think we need to handle SocketTimeoutException on similar lines for zookeeper as well",
+  "severity": "Critical",
+  "root_cause_type": "Error handling",
+  "bug_complexity": "Medium",
+  "distributed": "Yes",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

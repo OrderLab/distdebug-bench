@@ -1,0 +1,20 @@
+{
+    "id": "59649",
+    "system": "elasticsearch",
+    "issue_creation_date": "2020-07-15",
+    "issue_link": "https://github.com/elastic/elasticsearch/issues/59649",
+    "fix_link": "https://github.com/elastic/elasticsearch/pull/61016",
+    "branch": "24143b07a47339e9455b5b2d0b20b5f6a352134e",
+    "title": "Dedicated voting-only master-eligible node requires access to snapshot repositories for verification",
+    "description": "Today a snapshot repository verification ensures that all master-eligible and data nodes have write access to the snapshot repository (and can see each other's data) since taking a snapshot requires data nodes and the currently-elected master to write to the repository. However, a dedicated voting-only master-eligible node is not a data node and will never be the elected master so we should not require it to have write access to the repository.\n",
+    "severity": "Major",
+    "root_cause_type": "Logic",
+    "bug_complexity": "Medium",
+    "distributed": "Yes",
+    "contains_analysis": "No",
+    "analysis_removed": "No",
+    "contains_logs": "No",
+    "contains_stack_traces": "No",
+    "bug_cause_description": "",
+    "artifact_dir": "artifact_dir"
+}

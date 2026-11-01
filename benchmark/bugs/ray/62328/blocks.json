@@ -1,0 +1,20 @@
+[
+  {
+    "file": "src/ray/core_worker/experimental_mutable_object_manager.cc",
+    "function": "GetSemaphoreObjectName",
+    "start_line": "36",
+    "end_line": "39"
+  },
+  {
+    "file": "src/ray/core_worker/experimental_mutable_object_manager.cc",
+    "function": "GetSemaphoreHeaderName",
+    "start_line": "42",
+    "end_line": "45"
+  },
+  {
+    "file": "src/ray/core_worker/experimental_mutable_object_manager.cc",
+    "function": "OpenSemaphores",
+    "start_line": "174",
+    "end_line": "175"
+  }
+]

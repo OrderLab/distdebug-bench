@@ -1,0 +1,8 @@
+[
+  {
+    "file": "src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java",
+    "function": "QuorumCnxManager.Listener.run",
+    "start_line": 639,
+    "end_line": 646
+  }
+]

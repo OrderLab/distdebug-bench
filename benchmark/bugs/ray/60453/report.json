@@ -1,0 +1,20 @@
+{
+  "id": "60453",
+  "system": "Ray",
+  "issue_creation_date": "2026-01-23",
+  "issue_link": "https://github.com/ray-project/ray/issues/60453",
+  "fix_link": "https://github.com/ray-project/ray/pull/61700",
+  "branch": "f996fa05bbbf6cbef6a80121c8c04fdf4d8f28d8",
+  "title": "[data] Actor's shutdown hook isn't being called",
+  "description": "What happened + What you expected to happen\nIt seem like Ray Data does not call the Actor shutdown hook, which I'd expect it to do.\n\nVersions / Dependencies\nray==2.53.0\n\nReproduction script\nimport os\n\nimport tempfile\nfrom pathlib import Path\n\nimport ray\n\nlog_file = Path(tempfile.mkdtemp()) / \"log.txt\"\n\nclass Actor:\n    def __init__(self, path: str):\n        self.path = path\n        with open(path, \"a\") as f:\n            f.write(\"init\\n\")\n\n    def __call__(self, row):\n        with open(self.path, \"a\") as f:\n            f.write(f\"call {row}\\n\")\n        return row\n\n    def __del__(self):\n        with open(self.path, \"a\") as f:\n            f.write(\"__del__\\n\")\n\n    def __ray_shutdown__(self):\n        with open(self.path, \"a\") as f:\n            f.write(\"__ray_shutdown__\\n\")\n\nray.init(num_cpus=2)\nray.data.from_items([1, 2, 3]).map(\n    Actor,\n    compute=ray.data.ActorPoolStrategy(min_size=1, max_size=1),\n    fn_constructor_kwargs={\"path\": str(log_file)},\n).materialize()\n\nprint(\"after materialize:\", log_file.read_text())\nray.shutdown()\nprint(\"after shutdown:\", log_file.read_text())\noutputs:\n\n✔️  Dataset dataset_2_0 execution finished in 1.63 seconds: 100%|███████████████████| 3.00/3.00 [00:01<00:00, 1.86 row/s] \n- Map(Actor): Tasks: 0; Actors: 1 (running=0, restarting=0, pending=1); Queued blocks: 3 (0.0B); Resources: 0.0 CPU, 0.0B- Map(Actor): Tasks: 0; Actors: 0; Queued blocks: 0 (0.0B); Resources: 1.0 CPU, 8.0B object store; [all objects local]: :- Map(Actor): Tasks: 0; Actors: 0; Queued blocks: 0 (0.0B); Resources: 1.0 CPU, 8.0B object store; [all objects local]: 1\nafter materialize: init\ncall {'item': 1}\ncall {'item': 2}\ncall {'item': 3}\n\nafter shutdown: init\ncall {'item': 1}\ncall {'item': 2}\ncall {'item': 3}\nno traces of neither __ray_shutdown__ not __del__ methods being called.\n\n",
+  "severity": "Major",
+  "root_cause_type": "Concurrency",
+  "bug_complexity": "Medium",
+  "distributed": "Yes",
+  "contains_analysis": "Yes",
+  "analysis_removed": "No",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": ""
+}

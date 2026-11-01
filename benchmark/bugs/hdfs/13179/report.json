@@ -1,0 +1,20 @@
+{
+  "id": "13179",
+  "system": "hdfs",
+  "issue_creation_date": "2018-02-22",
+  "issue_link": "HDFS-13179",
+  "fix_link": "https://issues.apache.org/jira/secure/attachment/12991953/HDFS-13179.003.patch",
+  "branch": "5abd0148eb9484381c7ff92b4bfab9ac8a81c681",
+  "title": "TestLazyPersistReplicaRecovery#testDnRestartWithSavedReplicas fails intermittently",
+  "description": "The error caused by TimeoutException because the test is waiting to ensure that the file is replicated to DISK storage but the replication can't be finished to DISK during the 30s timeout in ensureFileReplicasOnStorageType(), but the file is still on RAM_DISK - so there is no data loss.\nAdding the following to TestLazyPersistReplicaRecovery.java:56 essentially fixes the flakiness.\n    try {\n      ensureFileReplicasOnStorageType(path1, DEFAULT);\n    }catch (TimeoutException t){\n      LOG.warn(\"We got \\\"\" + t.getMessage() + \"\\\" so trying to find data on RAM_DISK\");\n      ensureFileReplicasOnStorageType(path1, RAM_DISK);\n    }\n  }\nSome thoughts:\nSuccessful and failed tests run similar to the point when datanode restarts. Restart line is the following in the log: LazyPersistTestCase - Restarting the DataNode\nThere is a line which only occurs in the failed test: addStoredBlock: Redundant addStoredBlock request received for blk_1073741825_1001 on node 127.0.0.1:49455 size 5242880\nThis redundant request at BlockManager#addStoredBlock could be the main reason for the test fail. Something wrong with the gen stamp? Corrupt replicas?\n=============================\nCurrent fail ratio based on my test of TestLazyPersistReplicaRecovery:\n1000 runs, 34 failures (3.4% fail)\nFailure rate analysis:\nTestLazyPersistReplicaRecovery.testDnRestartWithSavedReplicas: 3.4%\n33 failures caused by:\njava.util.concurrent.TimeoutException: Timed out waiting for condition. Thread diagnostics: Timestamp: 2018-01-05 11:50:34,964 \"IPC Server handler 6 on 39589\" \n1 failure caused by:\njava.net.BindException: Problem binding to [localhost:56729] java.net.BindException: Address already in use; For more details see: http://wiki.apache.org/hadoop/BindException at org.apache.hadoop.hdfs.server.datanode.fsdataset.impl.TestLazyPersistReplicaRecovery.testDnRestartWithSavedReplicas(TestLazyPersistReplicaRecovery.java:49) Caused by: java.net.BindException: Address already in use at org.apache.hadoop.hdfs.server.datanode.fsdataset.impl.TestLazyPersistReplicaRecovery.testDnRestartWithSavedReplicas(TestLazyPersistReplicaRecovery.java:49)\n=============================\nExample stacktrace:\nTimed out waiting for condition. Thread diagnostics:\nTimestamp: 2017-11-01 10:36:49,499\n\"Thread-1\" prio=5 tid=13 runnable\njava.lang.Thread.State: RUNNABLE\nat java.lang.Thread.dumpThreads(Native Method)\nat java.lang.Thread.getAllStackTraces(Thread.java:1610)\nat org.apache.hadoop.test.TimedOutTestsListener.buildThreadDump(TimedOutTestsListener.java:87)\nat org.apache.hadoop.test.TimedOutTestsListener.buildThreadDiagnosticString(TimedOutTestsListener.java:73)\nat org.apache.hadoop.test.GenericTestUtils.waitFor(GenericTestUtils.java:369)\nat org.apache.hadoop.hdfs.server.datanode.fsdataset.impl.LazyPersistTestCase.ensureFileReplicasOnStorageType(LazyPersistTestCase.java:140)\nat org.apache.hadoop.hdfs.server.datanode.fsdataset.impl.TestLazyPersistReplicaRecovery.testDnRestartWithSavedReplicas(TestLazyPersistReplicaRecovery.java:54)\nat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\nat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\nat java.lang.reflect.Method.invoke(Method.java:498)",
+  "severity": "Critical",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Easy",
+  "distributed": "Yes",
+  "contains_analysis": "Yes",
+  "analysis_removed": "No",
+  "contains_logs": "No",
+  "contains_stack_traces": "Yes",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

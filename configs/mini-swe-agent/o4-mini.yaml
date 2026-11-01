@@ -1,0 +1,9 @@
+# Mini-SWE-Agent 2.2.8 with o4-mini (paper Table 1).
+name: mini-swe-agent-o4-mini
+model_name: openai/o4-mini
+model_class: litellm
+model_kwargs:
+  drop_params: true
+cost_limit: 3.0
+env:
+  MSWEA_COST_TRACKING: ignore_errors

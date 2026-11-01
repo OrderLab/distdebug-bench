@@ -1,0 +1,20 @@
+{
+  "id": "8889",
+  "system": "Ray",
+  "issue_creation_date": "2020-06-22",
+  "issue_link": "https://github.com/ray-project/ray/issues/8889",
+  "fix_link": "https://github.com/ray-project/ray/pull/8898",
+  "branch": "a90cd0fcbb81c2be472b16c61bebc75125d16133",
+  "title": "[RLlib] PPO not learning in complex cont. action environments.",
+  "description": "PPO is currently not learning e.g. HalfCheetah-v2 using the tuned_examples/ppo/halfcheetah-ppo.yaml config (on neither tf nor torch).\n\nray-0.9.0dev\ntf2.2.0\ntorch1.5.0\n\nThe problem does not occur on ray/rllib 0.8.5.", 
+  "severity": "Critical",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Medium",
+  "distributed": "Yes",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

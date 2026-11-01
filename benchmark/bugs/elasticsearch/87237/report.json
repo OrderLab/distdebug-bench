@@ -1,0 +1,20 @@
+{
+    "id": "87237",
+    "system": "elasticsearch",
+    "issue_creation_date": "2022-05-31",
+    "issue_link": "https://github.com/elastic/elasticsearch/issues/87237",
+    "fix_link": "https://github.com/elastic/elasticsearch/pull/87264",
+    "branch": "35b48729b183bc180914146a361609f01b08b921",
+    "title": "StoreRecovery#restore may invoke Repository#restoreShard on transport thread",
+    "description": "This code involves getRepositoryData which may complete its listener on a transport worker:\nelasticsearch/server/src/main/java/org/elasticsearch/index/shard/StoreRecovery.java\nLines 528 to 547 in 898d849\n\n final StepListener<IndexId> indexIdListener = new StepListener<>(); \n // If the index UUID was not found in the recovery source we will have to load RepositoryData and resolve it by index name \n if (indexId.getId().equals(IndexMetadata.INDEX_UUID_NA_VALUE)) { \n     // BwC path, running against an old version master that did not add the IndexId to the recovery source \n     repository.getRepositoryData(indexIdListener.map(repositoryData -> repositoryData.resolveIndexId(indexId.getName()))); \n } else { \n     indexIdListener.onResponse(indexId); \n } \n assert indexShard.getEngineOrNull() == null; \n indexIdListener.whenComplete( \n     idx -> repository.restoreShard( \n         indexShard.store(), \n         restoreSource.snapshot().getSnapshotId(), \n         idx, \n         snapshotShardId, \n         indexShard.recoveryState(), \n         restoreListener \n     ), \n     restoreListener::onFailure \n ); \nHowever the listener in question calls Repository#restoreShard which involves blocking calls and should not run on a transport worker.\n\n",
+    "severity": "Major",
+    "root_cause_type": "Concurrency",
+    "bug_complexity": "Medium",
+    "distributed": "Yes",
+    "contains_analysis": "Yes",
+    "analysis_removed": "No",
+    "contains_logs": "No",
+    "contains_stack_traces": "No",
+    "bug_cause_description": "",
+    "artifact_dir": "artifact_dir"
+}

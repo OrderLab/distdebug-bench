@@ -1,0 +1,8 @@
+[
+  {
+    "file": "server/src/main/java/org/elasticsearch/index/mapper/SyntheticIdField.java",
+    "function": "tokenStream",
+    "start_line": "65",
+    "end_line": "66"
+  }
+]

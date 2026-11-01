@@ -1,0 +1,20 @@
+{
+  "id": "4761",
+  "system": "zookeeper",
+  "issue_creation_date": "2023-10-16",
+  "issue_link": "[ZOOKEEPER-4761] Cli tool read saved clientid fail - ASF JIRA",
+  "fix_link": "ZOOKEEPER-4761: CLI tool read saved clientid fail by gycherish \u00b7 Pull Request #2079 \u00b7 apache/zookeeper",
+  "branch": "release-3.7.0",
+  "title": "Cli tool read saved clientid fail",
+  "description": "A very simple bug when reading saved clientid using fread. It causes the cli tool fail to recover from the last session connected to zookeeper server.",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Medium",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

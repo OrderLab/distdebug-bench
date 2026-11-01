@@ -1,0 +1,14 @@
+[
+  {
+    "file": "x-pack/plugin/transform/src/main/java/org/elasticsearch/xpack/transform/transforms/ClientTransformIndexer.java",
+    "function": "doNextSearch",
+    "start_line": "157",
+    "end_line": "158"
+  },
+  {
+    "file": "x-pack/plugin/transform/src/main/java/org/elasticsearch/xpack/transform/transforms/ClientTransformIndexer.java",
+    "function": "closePointInTime",
+    "start_line": "490",
+    "end_line": "513"
+  }
+]

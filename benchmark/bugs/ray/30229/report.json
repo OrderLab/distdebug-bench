@@ -1,0 +1,20 @@
+{
+  "id": "30229",
+  "system": "Ray",
+  "issue_creation_date": "2022-11-12",
+  "issue_link": "https://github.com/ray-project/ray/issues/30229",
+  "fix_link": "https://github.com/ray-project/ray/pull/30404",
+  "branch": "d59f189540b14269f49d976ba60e97b804f011ba",
+  "title": "[Dashboard] diskless nodes crash reporter_agent resulting in no stats",
+  "description": "What happened + What you expected to happen\nWhen running ray on a databricks cluster, no stats appear in the dashboard.\nIn the dashboard_agent.log I see:\n\n\nTraceback (most recent call last):40  File \"/databricks/python/lib/python3.9/site-packages/ray/dashboard/modules/reporter/reporter_agent.py\", line 827, in _perform_iteration41    stats = self._get_all_stats()42  File \"/databricks/python/lib/python3.9/site-packages/ray/dashboard/modules/reporter/reporter_agent.py\", line 491, in _get_all_stats43    disk_stats = self._get_disk_io_stats()44  File \"/databricks/python/lib/python3.9/site-packages/ray/dashboard/modules/reporter/reporter_agent.py\", line 401, in _get_disk_io_stats45    stats.read_bytes,46AttributeError: 'NoneType' object has no attribute 'read_bytes\n\nthe  def _get_disk_io_stats(): method in reporter_agent.py needs some sort of error handling for that rather than crashing the report for all the other stats\n\nVersions / Dependencies\nray 2.1.0\npython 3.9.5\n\nReproduction script\nstart ray with:\n\n\nray start --head --include-dashboard=true\n\non a databricks cluster and check the dashboard_agent.log", 
+  "severity": "Major",
+  "root_cause_type": "Error Handling",
+  "bug_complexity": "Low",
+  "distributed": "Yes",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "Yes",
+  "contains_stack_traces": "Yes",
+  "bug_cause_description": "",
+  "artifact_dir": ""
+}

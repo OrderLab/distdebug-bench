@@ -1,0 +1,14 @@
+[
+  {
+    "file": "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/qjournal/client/QuorumCall.java",
+    "function": "QuorumCall.waitFor",
+    "start_line": 113,
+    "end_line": 115
+  },
+  {
+    "file": "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/qjournal/client/QuorumCall.java",
+    "function": "QuorumCall.waitFor",
+    "start_line": 139,
+    "end_line": 150
+  }
+]

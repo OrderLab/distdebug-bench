@@ -1,0 +1,26 @@
+[
+  {
+    "file": "server/src/main/java/org/elasticsearch/health/node/LocalHealthMonitor.java",
+    "function": "startMonitoringIfNecessary",
+    "start_line": "155",
+    "end_line": "156"
+  },
+  {
+    "file": "server/src/main/java/org/elasticsearch/health/node/LocalHealthMonitor.java",
+    "function": "clusterChanged",
+    "start_line": "178",
+    "end_line": "178"
+  },
+  {
+    "file": "server/src/main/java/org/elasticsearch/health/node/LocalHealthMonitor.java",
+    "function": "start",
+    "start_line": "266",
+    "end_line": "285"
+  },
+  {
+    "file": "server/src/main/java/org/elasticsearch/health/node/LocalHealthMonitor.java",
+    "function": "run",
+    "start_line": "317",
+    "end_line": "357"
+  }
+]

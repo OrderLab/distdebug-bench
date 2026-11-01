@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["utils"]
+
+[project]
+name = "distdebug-collection"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "bs4>=0.0.2",
+    "javalang>=0.13.0",
+    "matplotlib>=3.10.8",
+    "mini-swe-agent @ git+https://github.com/SWE-agent/mini-swe-agent.git",
+    "openai>=2.21.0",
+    "python-dotenv>=1.0.0",
+    "tree-sitter>=0.25.2",
+    "tree-sitter-language-pack>=0.13.0",
+]
+
+[project.optional-dependencies]
+viz = ["matplotlib>=3.5.0"]
+
+[project.scripts]
+distdebug-collection = "main:main"

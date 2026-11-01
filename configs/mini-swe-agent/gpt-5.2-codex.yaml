@@ -1,0 +1,10 @@
+# Mini-SWE-Agent 2.2.8 with GPT-5.2-Codex (paper Table 1).
+# Uses the provider's default (medium) reasoning effort.
+name: mini-swe-agent-gpt-5.2-codex
+model_name: openai/gpt-5.2-codex
+model_class: litellm
+model_kwargs:
+  drop_params: true
+cost_limit: 3.0
+env:
+  MSWEA_COST_TRACKING: ignore_errors

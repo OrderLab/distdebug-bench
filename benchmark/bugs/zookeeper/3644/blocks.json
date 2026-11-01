@@ -1,0 +1,8 @@
+[
+  {
+    "file": "zookeeper-server/src/main/java/org/apache/zookeeper/server/persistence/FileTxnSnapLog.java",
+    "function": "FileTxnSnapLog.restore",
+    "start_line": 223,
+    "end_line": 226
+  }
+]

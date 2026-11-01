@@ -1,0 +1,90 @@
+{
+  "13741": {
+    "url": "https://github.com/etcd-io/etcd/issues/13741?utm_source=chatgpt.com",
+    "title": "Adding new members after snapshot taken fails",
+    "description": "Using the contrib/raftexample code, adding a new node to the cluster if there is a Snapshot outstanding results in failure",
+    "comments": [],
+    "pr_number": 13760,
+    "commit": "01035878de84ba606b6b9ba8815744e3160d0d47",
+    "parent_commit": "b6a2d2d48ac5fcd8d7914537f4fa9f0bc11d27b8"
+  },
+  "20009": {
+    "url": "https://github.com/etcd-io/etcd/issues/20009?utm_source=chatgpt.com",
+    "title": "3.6.0: server fails to start, nil pointer exception when re-using storage with force-new-cluster",
+    "description": "When starting etcd with the recovery option, --force-new-cluster, using an existing data directory, the server crashes immediately during startup.",
+    "comments": [],
+    "pr_number": 20339,
+    "commit": "7d21a5b216d2dbe177a9fab5738c6ae77d753e4b"
+  },
+  "13192": {
+    "url": "https://github.com/etcd-io/etcd/issues/13192",
+    "title": "etcd client v3 v3.5.0 sends invalid :authority header field value",
+    "description": "authority is not parsed or extracted correctly.",
+    "comments": [],
+    "pr_number": 13359,
+    "commit": "f3cfe0f1a54603d72c376eb79439d469cdd5f9d2",
+    "parent_commit": "3df272774672366beb02c5447782805ab5fec957"
+  },
+  "18069": {
+    "url": "https://github.com/etcd-io/etcd/issues/18069",
+    "title": "Performance Issue: CPU usage of the leader node increased by 20%",
+    "description": "In the ETCD cluster I tested, the lease renew rate is 1500/s, arm64 CPU, and the CPU usage of the leader node increased by 20%.",
+    "comments": [],
+    "pr_number": 18428,
+    "commit": "a8b30b19bdbd48cfd6af7151926e7aaa6f4e7750",
+    "parent_commit": "c147425c519652014df09325692a063e07fc69f2"
+  },
+  "15247": {
+    "url": "https://github.com/etcd-io/etcd/issues/15247",
+    "title": "All leases are revoked when the etcd leader is stuck in handling raft Ready due to slow fdatasync or high CPU",
+    "description": "We have 3 etcd nodes which are running on k8s, the etcd pod use portworx storage for db saving, we've found when rebooting the portworx node, it will cause etcd to be stuck in fdatasync, if this etcd node is leader, then it will cause below 2 lease keep alive issues.",
+    "comments": [],
+    "pr_number": 16822,
+    "commit": "4e986363a371ad88479cb8f9b248d16ea83abc87",
+    "parent_commit": "2f03bbc5dd34b4250c9baece58754e8180786bd4"
+  },
+  "17507": {
+    "url": "https://github.com/etcd-io/etcd/issues/17507",
+    "title": "Etcd not respond to progress notification on newly created watch RPC until there is a event in a watch",
+    "description": "If the watch is newly created and not yet synced, and the client sends a progress request during that window, etcd may mark progress as deferred and then never send the progress response unless an actual watch event later occurs. If no events match the watch filter, the client can wait forever for progress notifications.",
+    "comments": [],
+    "pr_number": 17557,
+    "commit": "ddf54715bf47b8c7ec2f1257b25cd0981d081ae9",
+    "parent_commit": "3f799433718d77a965e32d580e87c93859818d62"
+  },
+  "18810": {
+    "url": "https://github.com/etcd-io/etcd/issues/18810?utm_source=chatgpt.com",
+    "title": "Etcd crashes when running out of space during defrag",
+    "description": "Etcd crashes when running out of space during defrag",
+    "comments": [],
+    "pr_number": 18843,
+    "commit": "463615d0a36f5d7b9c568ea25f45d8f12bef9bc8"
+  },
+  "13524": {
+    "url": "https://github.com/etcd-io/etcd/issues/13524",
+    "title": "etcd can't serve serializable read request when the quorum isn't satisfied",
+    "description": "etcd can't serve serializable read request when the quorum isn't satisfied",
+    "comments": [],
+    "pr_number": 13525,
+    "commit": "20c89df5e5e2d738efb9c276d954d754eb86918b",
+    "parent_commit": "986a2b51f4e87fe72e3fa2e85394dd659268dfcb"
+  },
+  "14571": {
+    "url": "https://github.com/etcd-io/etcd/issues/14571",
+    "title": "3.5.5: client auth failures on new member first startup",
+    "description": "After cluster upgrade from 3.5.4 to 3.5.5 we are seeing auth issues on new nodes after first startup. Cluster runs in auth-enable mode. New node joins the cluster, fetches the snapshot, but fails all client requests",
+    "comments": [],
+    "pr_number": 14574,
+    "commit": "1570dc9c433e503d69afba3a59e42ad590fe0222",
+    "parent_commit": "c45f3388ac93f9645b5dea4bcfea7020622207d3"
+  },
+  "15271": {
+    "url": "https://github.com/etcd-io/etcd/issues/15271",
+    "title": "Watch response traveling back in time when reconnecting member downloads snapshot from the leader",
+    "description": "Recently added failpoints started showing issues rated to etcd recovery from leaders snapshot.",
+    "comments": [],
+    "pr_number": 15492,
+    "commit": "6d01ab641f0def3c2f8932eec150f83a388d6f10",
+    "parent_commit": "8cb8f4bf1cc6a737b642695687e41fa1e232962a"
+  }
+}

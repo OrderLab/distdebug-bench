@@ -1,0 +1,11 @@
+# Mini-SWE-Agent 2.2.8 with MiMo v2.5 (paper Table 1).
+# OpenAI-compatible Xiaomi MiMo API: set OPENAI_API_BASE and OPENAI_API_KEY
+# to your MiMo endpoint and key.
+name: mini-swe-agent-mimo-v2.5
+model_name: openai/mimo-v2.5
+model_class: litellm
+model_kwargs:
+  drop_params: true
+cost_limit: 3.0
+env:
+  MSWEA_COST_TRACKING: ignore_errors

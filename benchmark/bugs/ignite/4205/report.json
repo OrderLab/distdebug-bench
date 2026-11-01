@@ -1,0 +1,20 @@
+{
+  "id": "4205",
+  "system": "ignite",
+  "issue_creation_date": "2016-11-10",
+  "issue_link": "https://issues.apache.org/jira/browse/IGNITE-4205",
+  "fix_link": "",
+  "branch": "90717b4b7230ca5f5e0fd9318d0aa0a6f5e48064",
+  "title": "",
+  "description": "CassandraCacheStore.loadCache() method starts a generic thread pool for parallel data load. Threads in this thread pool can't deserialize Ignite internal objects (e.g. IgniteKernal) which can cause unexpected behavior. Here is one of the scenarios:\n\n    There is column in Cassandra which stores an object as BLOB using JavaSerializer.\n    CacheConfiguration.storeKeepBinary is true.\n    When an object is saved, it's passed to the store as an instance of BinaryObject which is converted to a byte array and saved in Cassandra.\n    When the same object is loaded in loadCache, the store takes the byte array and tries to convert it to BinaryObject. But it can't because this implies calling IgnitionEx.localIgnite() from non-Ignite thread.\n\nTo fix this we need to provide a thread factory that will create instances of IgniteThread and use it in the pool that loads the data.\n\nMost likely the same issue exists in CacheAbstractJdbcStore.\n\nAnd in general, any threads created by Ignite internals should be IgniteThread-s. This should be revisited.",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Medium",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

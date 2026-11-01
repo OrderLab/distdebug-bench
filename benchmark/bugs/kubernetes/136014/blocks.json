@@ -1,0 +1,20 @@
+[
+  {
+    "file": "cmd/kubeadm/app/util/etcd/etcd.go",
+    "function": "listMembers",
+    "start_line": 284,
+    "end_line": 314
+  },
+  {
+    "file": "cmd/kubeadm/app/util/etcd/etcd.go",
+    "function": "addMember",
+    "start_line": 528,
+    "end_line": 565
+  },
+  {
+    "file": "cmd/kubeadm/app/util/etcd/etcd.go",
+    "function": "MemberPromote",
+    "start_line": 568,
+    "end_line": 596
+  }
+]

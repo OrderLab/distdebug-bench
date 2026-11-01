@@ -1,0 +1,20 @@
+{
+  "id": "61604",
+  "system": "Ray",
+  "issue_creation_date": "2026-03-09",
+  "issue_link": "https://github.com/ray-project/ray/issues/61604",
+  "fix_link": "https://github.com/ray-project/ray/pull/61618",
+  "branch": "d334cd6536846bb44d27d6af7b1ddc6106a1e056",
+  "title": "[Core] Exception on RuntimeContext.get_node_labels() in local cluster",
+  "description": "What happened + What you expected to happen\nI get this exception with calling RuntimeContext.get_node_labels() in the driver in a local Ray cluster spun up by ray.init():\n\nTraceback (most recent call last):\n  File \"/code/labs/jakob/ray/node_labels.py\", line 7, in <module>\n    print(ray.runtime_context.get_runtime_context().get_node_labels())\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/ray/runtime_context.py\", line 598, in get_node_labels\n    return worker.current_node_labels\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/ray/_private/worker.py\", line 634, in current_node_labels\n    return self.node.node_labels\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/ray/_private/node.py\", line 685, in node_labels\n    return self._node_labels\n           ^^^^^^^^^^^^^^^^^\nAttributeError: 'Node' object has no attribute '_node_labels'. Did you mean: 'node_labels'?\nVersions / Dependencies\nRay 2.54.0\n\nReproduction script\nRun python script.py on a local machine (with RAY_ADDRESS unset), where script.py contains:\n\nimport ray\nray.init()\nprint(ray.runtime_context.get_runtime_context().get_node_labels())\n",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Easy",
+  "distributed": "Yes",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "Yes",
+  "bug_cause_description": "",
+  "artifact_dir": ""
+}

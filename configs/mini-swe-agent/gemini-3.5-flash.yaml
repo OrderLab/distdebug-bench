@@ -1,0 +1,9 @@
+# Mini-SWE-Agent 2.2.8 with Gemini 3.5 Flash (paper Table 1).
+name: mini-swe-agent-gemini-3.5-flash
+model_name: gemini/gemini-3.5-flash
+model_class: litellm
+model_kwargs:
+  drop_params: true
+cost_limit: 3.0
+env:
+  MSWEA_COST_TRACKING: ignore_errors

@@ -1,0 +1,8 @@
+[
+  {
+    "file": "zookeeper-server/src/main/java/org/apache/zookeeper/server/NettyServerCnxnFactory.java",
+    "function": "NettyServerCnxnFactory.CnxnChannelHandler.channelActive",
+    "start_line": 263,
+    "end_line": 270
+  }
+]

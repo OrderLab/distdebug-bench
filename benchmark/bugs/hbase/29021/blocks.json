@@ -1,0 +1,14 @@
+[
+  {
+    "file": "hbase-server/src/main/java/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.java",
+    "function": "StoreFileListFile.TRACK_FILE_PATTERN",
+    "start_line": 87,
+    "end_line": 88
+  },
+  {
+    "file": "hbase-server/src/main/java/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.java",
+    "function": "StoreFileListFile.listFiles",
+    "start_line": 182,
+    "end_line": 183
+  }
+]

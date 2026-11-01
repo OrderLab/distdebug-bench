@@ -1,0 +1,20 @@
+{
+  "id": "136037",
+  "system": "kubernetes",
+  "issue_creation_date": "",
+  "issue_link": "https://github.com/kubernetes/kubernetes/issues/136031",
+  "fix_link": "https://github.com/kubernetes/kubernetes/pull/136037",
+  "branch": "0f89b13c794",
+  "title": "[Failing-test] Kubelet panic in NodeDeclareFeatures code",
+  "description": "Which jobs are failing?\nalpha jobs\n\nWhich tests are failing?\nEntire job.\n\nSince when has it been failing?\nTest grid for some reason doesn't go very far back.\n\nTestgrid link\nhttps://testgrid.k8s.io/sig-node-containerd#ci-node-e2e-containerd-alpha-features\n\nReason for failure (if possible)\nI0105 07:36:00.527576    2667 kubelet.go:2611] \"SyncLoop DELETE\" source=\"api\" pods=[\"mirror-pod-6526/static-pod-909c75fb-fb8e-4443-b1d1-79f09ce6219a-tmp-node-e2e-9ee50a67-ubuntu-gke-2404-1-34-amd64-v20251218a\"]\npanic: runtime error: invalid memory address or nil pointer dereference\n[signal SIGSEGV: segmentation violation code=0x1 addr=0x0 pc=0x1d6e0b9]\n\ngoroutine 234 [running]:\nk8s.io/kubernetes/pkg/kubelet.(*Kubelet).HandlePodUpdates(0xc000359008, {0xc00112cfa8, 0x1, 0x0?})\n\tk8s.io/kubernetes/pkg/kubelet/kubelet.go:2830 +0x459\nk8s.io/kubernetes/pkg/kubelet.(*Kubelet).syncLoopIteration(0xc000359008, {0x295a2d0, 0x3b54280}, 0xc0000f5ce0, {0x2963408, 0xc000359008}, 0xc00043ee70, 0xc00043ef50, 0xc00033ff10)\n\tk8s.io/kubernetes/pkg/kubelet/kubelet.go:2613 +0xa22\nk8s.io/kubernetes/pkg/kubelet.(*Kubelet).syncLoop(0xc000359008, {0x295a2d0, 0x3b54280}, 0xc0000f5ce0, {0x2963408, 0xc000359008})\n\tk8s.io/kubernetes/pkg/kubelet/kubelet.go:2542 +0x34c\nk8s.io/kubernetes/pkg/kubelet.(*Kubelet).Run(0xc000359008, 0xc0000f5ce0)\n\tk8s.io/kubernetes/pkg/kubelet/kubelet.go:1896 +0x8db\ncreated by k8s.io/kubernetes/cmd/kubelet/app.startKubelet in goroutine 1\n\tk8s.io/kubernetes/cmd/kubelet/app/server.go:1264 +0xa9\nAnything else we need to know?\nkubernetes/pkg/kubelet/kubelet.go\n\nLine 2830 in b2ac9e2\n\n oldPodInfo := &ndf.PodInfo{Spec: &oldPod.Spec, Status: &oldPod.Status} \nLooks like oldPod may not always be set so this triggers the panic.\n\nRelevant SIG(s)\n/sig node",
+  "severity": "Critical",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Hard",
+  "distributed": "Yes",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

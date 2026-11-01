@@ -1,0 +1,20 @@
+{
+  "id": "2959",
+  "system": "zookeeper",
+  "issue_creation_date": "2017-12-20",
+  "issue_link": "[ZOOKEEPER-2959] ignore accepted epoch and LEADERINFO ack from observers when a newly elected leader computes new epoch - ASF JIRA",
+  "fix_link": "ZOOKEEPER-2959: ignore accepted epoch and LEADERINFO ack from observers \u00b7 apache/zookeeper@088dfdf",
+  "branch": "release-3.5.3",
+  "title": "ignore accepted epoch and LEADERINFO ack from observers when a newly elected leader computes new epoch",
+  "description": "Once the ZooKeeper cluster finishes the election for new leader, all learners report their accepted epoch to the leader for the computation of new cluster epoch.\n\nThe computation will get an outcome once :\n\n- The leader has call method \"getEpochToPropose\"\n- The number of all reporters is greater than half of participants.\n\nThe problem is, an observer server will also send its accepted epoch to the leader, while this procedure treat observers as participants.\n\nSupposed that the cluster consists of 1 leader, 2 followers and 1 observer, and now the leader and the observer have reported their accepted epochs while neither of the followers has. Thus, the connectingFollowers set consists of two elements, resulting in a size of 2, which is greater than half quorum, namely, 2. Then QuorumVerifier#containsQuorum will return true, because it does not check whether the elements of the parameter are participants.\n\nThe same flaw exists in org.apache.zookeeper.server.quorum.Leader#waitForEpochAck",
+  "severity": "Blocker",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Easy",
+  "distributed": "Yes",
+  "contains_analysis": "Yes",
+  "analysis_removed": "Partly Removed",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

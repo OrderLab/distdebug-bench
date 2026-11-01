@@ -1,0 +1,8 @@
+[
+  {
+    "file": "metastorage/src/main/java/org/apache/ignite/internal/metastorage/MetaStorageManager.java",
+    "function": "MetaStorageManager.start",
+    "start_line": 188,
+    "end_line": 194
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "file": "components/raftstore/src/store/fsm/peer.rs",
+    "function": "Peer::on_raft_gc_log_tick",
+    "start_line": 6069,
+    "end_line": 6070
+  }
+]

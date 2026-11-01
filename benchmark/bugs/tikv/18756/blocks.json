@@ -1,0 +1,20 @@
+[
+  {
+    "file": "components/tikv_util/src/range_latch.rs",
+    "function": "RangeLatch::acquire",
+    "start_line": 107,
+    "end_line": 108
+  },
+  {
+    "file": "components/tikv_util/src/range_latch.rs",
+    "function": "RangeLatchGuard::_mutex_guard",
+    "start_line": 129,
+    "end_line": 130
+  },
+  {
+    "file": "components/tikv_util/src/range_latch.rs",
+    "function": "RangeLatchGuard::drop",
+    "start_line": 136,
+    "end_line": 140
+  }
+]

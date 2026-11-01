@@ -1,0 +1,20 @@
+{
+    "id": "110360",
+    "system": "elasticsearch",
+    "issue_creation_date": "2024-07-02",
+    "issue_link": "https://github.com/elastic/elasticsearch/issues/110360",
+    "fix_link": "https://github.com/elastic/elasticsearch/pull/110361",
+    "branch": "89cd966b247148372aed73c3586b0754d6e176ca",
+    "title": "PlainActionFuture#assertCompleteAllowed false positives on concurrent resolve",
+    "description": "PlainActionFuture detects dangerous usage patterns where threads from the same pool are simultaneously resolving and waiting on the future. This is to prevent tests that deadlock and is only switched on when assertions are enabled.\n\nThis deadlock detection can falsely fire when threads from the same pool are simultaneously resolving a future.\n\nThe sequence of events is as follows:\n\nT1 calls PlainActionFuture.Sync.complete with a value or exception, it successfully performs compareAndSet(RUNNING, COMPLETING) and proceeds to set the value/exception.\nT2 calls PlainActionFuture.Sync.complete with a value or exception, if fails to perform compareAndSet(RUNNING, COMPLETING) while state is COMPLETING. It calls awaitShared to wait for T1 to finish.\nT3 from the same pool as T2 attempts to complete the future, it throws in assertCompleteAllowed because there is a thread from the same pool (T2) waiting on the result.\nThis is a false-positive because T2 will definitely complete.\n\nNote that T1 can be the same as T3 if completing the future in a loop or the thread gets recycled.\n\nSteps to Reproduce\nThis has resulted in at least one test flake\n\n",
+    "severity": "Major",
+    "root_cause_type": "Concurrency",
+    "bug_complexity": "Medium",
+    "distributed": "Yes",
+    "contains_analysis": "Yes",
+    "analysis_removed": "No",
+    "contains_logs": "No",
+    "contains_stack_traces": "No",
+    "bug_cause_description": "",
+    "artifact_dir": "artifact_dir"
+}

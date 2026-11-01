@@ -1,0 +1,5406 @@
+{
+  "elasticsearch-105065": {
+    "bug_id": "105065",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "LocalHealthMonitor"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/health/node/LocalHealthMonitor.java"
+    ],
+    "gold_methods_considered": [
+      "clusterChanged",
+      "startMonitoringIfNecessary"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "LocalHealthMonitor"
+    ],
+    "matched_methods": [],
+    "name": "elasticsearch-105065",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "file_class"
+  },
+  "elasticsearch-110360": {
+    "bug_id": "110360",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "PlainActionFuture"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/action/support/PlainActionFuture.java"
+    ],
+    "gold_methods_considered": [
+      "complete"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "PlainActionFuture"
+    ],
+    "matched_methods": [
+      "complete"
+    ],
+    "name": "elasticsearch-110360",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "method"
+  },
+  "elasticsearch-113615": {
+    "bug_id": "113615",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "InferenceProcessorInfoExtractor"
+    ],
+    "gold_files": [
+      "x-pack/plugin/core/src/main/java/org/elasticsearch/xpack/core/ml/utils/InferenceProcessorInfoExtractor.java"
+    ],
+    "gold_methods_considered": [
+      "addModelsAndPipelines"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "elasticsearch-113615",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "opaque"
+  },
+  "elasticsearch-116341": {
+    "bug_id": "116341",
+    "contains_analysis": "No",
+    "crash_context": "org.elasticsearch.xpack.search",
+    "crash_site": "AsyncSearchTask.java",
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "AsyncSearchTask"
+    ],
+    "gold_files": [
+      "x-pack/plugin/async-search/src/main/java/org/elasticsearch/xpack/search/AsyncSearchTask.java"
+    ],
+    "gold_methods_considered": [
+      "onFailure",
+      "onQueryFailure"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "AsyncSearchTask"
+    ],
+    "matched_methods": [],
+    "name": "elasticsearch-116341",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [
+      {
+        "context": "org.elasticsearch.xpack.search",
+        "file": "AsyncSearchTask.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.action.search",
+        "file": "SearchProgressListener.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.action.search",
+        "file": "TransportSearchAction.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.action",
+        "file": "ActionListenerResponseHandler.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.transport",
+        "file": "TransportService.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.transport",
+        "file": "InboundHandler.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.common.util.concurrent",
+        "file": "AbstractRunnable.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.common.util.concurrent",
+        "file": "TimedRunnable.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.common.util.concurrent",
+        "file": "ThreadContext.java",
+        "language": "java"
+      }
+    ],
+    "system": "elasticsearch",
+    "textual_anchor": "file_class"
+  },
+  "elasticsearch-128583": {
+    "bug_id": "128583",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "Engine"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/index/engine/Engine.java"
+    ],
+    "gold_methods_considered": [
+      "getSparseVectorValueCount"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "Engine"
+    ],
+    "matched_methods": [
+      "getSparseVectorValueCount"
+    ],
+    "name": "elasticsearch-128583",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "method"
+  },
+  "elasticsearch-128852": {
+    "bug_id": "128852",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "TransportNodesAction"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/action/support/nodes/TransportNodesAction.java"
+    ],
+    "gold_methods_considered": [
+      "addReleaseOnCancellationListener",
+      "onCompletion"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "TransportNodesAction"
+    ],
+    "matched_methods": [
+      "onCompletion"
+    ],
+    "name": "elasticsearch-128852",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "method"
+  },
+  "elasticsearch-134925": {
+    "bug_id": "134925",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "ClientTransformIndexer"
+    ],
+    "gold_files": [
+      "x-pack/plugin/transform/src/main/java/org/elasticsearch/xpack/transform/transforms/ClientTransformIndexer.java"
+    ],
+    "gold_methods_considered": [
+      "closePointInTime",
+      "doNextSearch"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "elasticsearch-134925",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "opaque"
+  },
+  "elasticsearch-135472": {
+    "bug_id": "135472",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "OperationRouting"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/cluster/routing/OperationRouting.java"
+    ],
+    "gold_methods_considered": [
+      "searchShards"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "elasticsearch-135472",
+    "num_gold_files": 1,
+    "root_cause_type": "Performance",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "opaque"
+  },
+  "elasticsearch-139252": {
+    "bug_id": "139252",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "GetTransformStatsAction",
+      "ScheduleNowTransformAction",
+      "StopTransformAction",
+      "UpdateTransformAction"
+    ],
+    "gold_files": [
+      "x-pack/plugin/core/src/main/java/org/elasticsearch/xpack/core/transform/action/GetTransformStatsAction.java",
+      "x-pack/plugin/core/src/main/java/org/elasticsearch/xpack/core/transform/action/ScheduleNowTransformAction.java",
+      "x-pack/plugin/core/src/main/java/org/elasticsearch/xpack/core/transform/action/StopTransformAction.java",
+      "x-pack/plugin/core/src/main/java/org/elasticsearch/xpack/core/transform/action/UpdateTransformAction.java"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "GetTransformStatsAction"
+    ],
+    "matched_methods": [],
+    "name": "elasticsearch-139252",
+    "num_gold_files": 4,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "file_class"
+  },
+  "elasticsearch-140492": {
+    "bug_id": "140492",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "SyntheticIdField"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/index/mapper/SyntheticIdField.java"
+    ],
+    "gold_methods_considered": [
+      "tokenStream"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "elasticsearch-140492",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "opaque"
+  },
+  "elasticsearch-141740": {
+    "bug_id": "141740",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "CancelTasksRequest"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/action/admin/cluster/node/tasks/cancel/CancelTasksRequest.java"
+    ],
+    "gold_methods_considered": [
+      "getDescription"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "CancelTasksRequest"
+    ],
+    "matched_methods": [
+      "getDescription"
+    ],
+    "name": "elasticsearch-141740",
+    "num_gold_files": 1,
+    "root_cause_type": "Performance",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "method"
+  },
+  "elasticsearch-147171": {
+    "bug_id": "147171",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "FsBlobContainer"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/common/blobstore/fs/FsBlobContainer.java"
+    ],
+    "gold_methods_considered": [
+      "moveBlobAtomic"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "elasticsearch-147171",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "opaque"
+  },
+  "elasticsearch-59649": {
+    "bug_id": "59649",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "RepositoriesService",
+      "VerifyNodeRepositoryAction"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/repositories/RepositoriesService.java",
+      "server/src/main/java/org/elasticsearch/repositories/VerifyNodeRepositoryAction.java"
+    ],
+    "gold_methods_considered": [
+      "RepositoriesService"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "elasticsearch-59649",
+    "num_gold_files": 2,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "opaque"
+  },
+  "elasticsearch-85839": {
+    "bug_id": "85839",
+    "contains_analysis": "No",
+    "crash_context": "org.elasticsearch.common.util.concurrent",
+    "crash_site": "BaseFuture.java",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "RecoverySourceHandler"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/indices/recovery/RecoverySourceHandler.java"
+    ],
+    "gold_methods_considered": [
+      "runWithGenericThreadPool"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "RecoverySourceHandler"
+    ],
+    "matched_methods": [
+      "runWithGenericThreadPool"
+    ],
+    "name": "elasticsearch-85839",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [
+      {
+        "context": "org.elasticsearch.common.util.concurrent",
+        "file": "BaseFuture.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.common.util.concurrent",
+        "file": "FutureUtils.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.indices.recovery",
+        "file": "RecoverySourceHandler.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.index.engine",
+        "file": "Engine.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.core.internal.io",
+        "file": "IOUtils.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.action",
+        "file": "ActionListener.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.common.util.concurrent",
+        "file": "ListenableFuture.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.action",
+        "file": "StepListener.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.action",
+        "file": "NotifyOnceListener.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.action.support",
+        "file": "RetryableAction.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.action",
+        "file": "ActionListenerResponseHandler.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.transport",
+        "file": "TransportService.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.transport",
+        "file": "InboundHandler.java",
+        "language": "java"
+      },
+      {
+        "context": "org.elasticsearch.common.util.concurrent",
+        "file": "ThreadContext.java",
+        "language": "java"
+      }
+    ],
+    "system": "elasticsearch",
+    "textual_anchor": "method"
+  },
+  "elasticsearch-87237": {
+    "bug_id": "87237",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "StoreRecovery"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/index/shard/StoreRecovery.java"
+    ],
+    "gold_methods_considered": [
+      "restore"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "StoreRecovery"
+    ],
+    "matched_methods": [
+      "restore"
+    ],
+    "name": "elasticsearch-87237",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "method"
+  },
+  "elasticsearch-90442": {
+    "bug_id": "90442",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "DiskHealthIndicatorService"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/health/node/DiskHealthIndicatorService.java"
+    ],
+    "gold_methods_considered": [
+      "getDiagnoses"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "elasticsearch-90442",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "opaque"
+  },
+  "elasticsearch-93542": {
+    "bug_id": "93542",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "PeerRecoveryTargetService",
+      "RecoveryTarget"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/indices/recovery/PeerRecoveryTargetService.java",
+      "server/src/main/java/org/elasticsearch/indices/recovery/RecoveryTarget.java"
+    ],
+    "gold_methods_considered": [
+      "disableRecoveryMonitor",
+      "doRecovery",
+      "lastAccessTime"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "elasticsearch-93542",
+    "num_gold_files": 2,
+    "root_cause_type": "Performance",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "opaque"
+  },
+  "elasticsearch-96544": {
+    "bug_id": "96544",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "TransportClusterHealthAction"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/action/admin/cluster/health/TransportClusterHealthAction.java"
+    ],
+    "gold_methods_considered": [
+      "clusterStateProcessed",
+      "onFailure",
+      "onNewClusterState",
+      "onPublicationComplete",
+      "onTimeout"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "elasticsearch-96544",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "opaque"
+  },
+  "elasticsearch-98926": {
+    "bug_id": "98926",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "HealthNodeTaskExecutor"
+    ],
+    "gold_files": [
+      "server/src/main/java/org/elasticsearch/health/node/selection/HealthNodeTaskExecutor.java"
+    ],
+    "gold_methods_considered": [
+      "startTask"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "elasticsearch-98926",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "elasticsearch",
+    "textual_anchor": "opaque"
+  },
+  "etcd-14110": {
+    "bug_id": "14110",
+    "contains_analysis": "No",
+    "crash_context": "etcdserver",
+    "crash_site": "apply.go",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [],
+    "gold_files": [
+      "server/etcdserver/txn/txn.go"
+    ],
+    "gold_methods_considered": [
+      "applyTxn"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [
+      "applyTxn"
+    ],
+    "name": "etcd-14110",
+    "num_gold_files": 1,
+    "root_cause_type": "Error Handling",
+    "stack_frames": [
+      {
+        "context": "etcdserver",
+        "file": "apply.go",
+        "language": "go"
+      },
+      {
+        "context": "t/go/src/go.etcd.io/etcd/release/etcd/server/etcdserver",
+        "file": "v3_server.go",
+        "language": "go"
+      },
+      {
+        "context": "t/go/src/go.etcd.io/etcd/release/etcd/server/etcdserver/api/v3rpc",
+        "file": "key.go",
+        "language": "go"
+      },
+      {
+        "context": "t/go/src/go.etcd.io/etcd/release/etcd/server/etcdserver/api/v3rpc",
+        "file": "quota.go",
+        "language": "go"
+      },
+      {
+        "context": "t/go/src/go.etcd.io/etcd/release/etcd/api/etcdserverpb",
+        "file": "rpc.pb.go",
+        "language": "go"
+      },
+      {
+        "context": "v1.2.0",
+        "file": "server_metrics.go",
+        "language": "go"
+      },
+      {
+        "context": "v1.3.0",
+        "file": "chain.go",
+        "language": "go"
+      },
+      {
+        "context": "t/go/src/go.etcd.io/etcd/release/etcd/server/etcdserver/api/v3rpc",
+        "file": "interceptor.go",
+        "language": "go"
+      },
+      {
+        "context": "v1.38.0",
+        "file": "server.go",
+        "language": "go"
+      },
+      {
+        "context": "traceutil",
+        "file": "trace.go",
+        "language": "go"
+      },
+      {
+        "context": "v1.17.0/zapcore",
+        "file": "entry.go",
+        "language": "go"
+      },
+      {
+        "context": "v1.17.0",
+        "file": "logger.go",
+        "language": "go"
+      },
+      {
+        "context": "v3",
+        "file": "retry_interceptor.go",
+        "language": "go"
+      },
+      {
+        "context": "etcdserver",
+        "file": "util.go",
+        "language": "go"
+      }
+    ],
+    "system": "etcd",
+    "textual_anchor": "method"
+  },
+  "etcd-14325": {
+    "bug_id": "14325",
+    "contains_analysis": "No",
+    "crash_context": "etcdserver",
+    "crash_site": "corrupt.go",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "store"
+    ],
+    "gold_file_stems_considered": [
+      "kvstore"
+    ],
+    "gold_files": [
+      "server/storage/mvcc/kvstore.go"
+    ],
+    "gold_methods_considered": [
+      "hashByRev"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "etcd-14325",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "etcdserver",
+        "file": "corrupt.go",
+        "language": "go"
+      }
+    ],
+    "system": "etcd",
+    "textual_anchor": "opaque"
+  },
+  "etcd-14382": {
+    "bug_id": "14382",
+    "contains_analysis": "No",
+    "crash_context": "etcdserver",
+    "crash_site": "backend.go",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "EtcdServer"
+    ],
+    "gold_file_stems_considered": [
+      "server"
+    ],
+    "gold_files": [
+      "server/etcdserver/server.go"
+    ],
+    "gold_methods_considered": [
+      "applyEntryNormal"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "server"
+    ],
+    "matched_methods": [
+      "applyEntryNormal"
+    ],
+    "name": "etcd-14382",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "etcdserver",
+        "file": "backend.go",
+        "language": "go"
+      },
+      {
+        "context": "etcdserver",
+        "file": "server.go",
+        "language": "go"
+      },
+      {
+        "context": "snap",
+        "file": "db.go",
+        "language": "go"
+      },
+      {
+        "context": "t/go/src/go.etcd.io/etcd/release/etcd/server/embed",
+        "file": "etcd.go",
+        "language": "go"
+      },
+      {
+        "context": "t/go/src/go.etcd.io/etcd/release/etcd/server/etcdmain",
+        "file": "main.go",
+        "language": "go"
+      },
+      {
+        "context": "t/go/gos/go1.16.15/src/runtime",
+        "file": "proc.go",
+        "language": "go"
+      },
+      {
+        "context": "v1.17.0/zapcore",
+        "file": "entry.go",
+        "language": "go"
+      },
+      {
+        "context": "v1.17.0",
+        "file": "logger.go",
+        "language": "go"
+      },
+      {
+        "context": "v3rpc",
+        "file": "interceptor.go",
+        "language": "go"
+      },
+      {
+        "context": "zapgrpc",
+        "file": "zapgrpc.go",
+        "language": "go"
+      }
+    ],
+    "system": "etcd",
+    "textual_anchor": "method"
+  },
+  "etcd-14571": {
+    "bug_id": "14571",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "authStore"
+    ],
+    "gold_file_stems_considered": [
+      "store"
+    ],
+    "gold_files": [
+      "server/auth/store.go"
+    ],
+    "gold_methods_considered": [
+      "Recover"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "etcd-14571",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "etcd",
+    "textual_anchor": "opaque"
+  },
+  "etcd-14764": {
+    "bug_id": "14764",
+    "contains_analysis": "No",
+    "crash_context": "v3.5.5",
+    "crash_site": "retry_interceptor.go",
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [
+      "Client",
+      "serverStreamingRetryingStream"
+    ],
+    "gold_file_stems_considered": [
+      "retry_interceptor"
+    ],
+    "gold_files": [
+      "client/v3/retry_interceptor.go"
+    ],
+    "gold_methods_considered": [
+      "receiveMsgAndIndicateRetry",
+      "unaryClientInterceptor"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "Client",
+      "retry_interceptor"
+    ],
+    "matched_methods": [
+      "unaryClientInterceptor"
+    ],
+    "name": "etcd-14764",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [
+      {
+        "context": "v3.5.5",
+        "file": "retry_interceptor.go",
+        "language": "go"
+      },
+      {
+        "context": "v1.41.0",
+        "file": "call.go",
+        "language": "go"
+      },
+      {
+        "context": "v3.5.5/etcdserverpb",
+        "file": "rpc.pb.go",
+        "language": "go"
+      },
+      {
+        "context": "v3.5.5",
+        "file": "retry.go",
+        "language": "go"
+      },
+      {
+        "context": "v3.5.5",
+        "file": "kv.go",
+        "language": "go"
+      },
+      {
+        "context": "/home/eric/Projects/test/etcd-bug",
+        "file": "main.go",
+        "language": "go"
+      }
+    ],
+    "system": "etcd",
+    "textual_anchor": "method"
+  },
+  "etcd-15247": {
+    "bug_id": "15247",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "lessor"
+    ],
+    "gold_file_stems_considered": [
+      "lessor",
+      "server",
+      "v3_server"
+    ],
+    "gold_files": [
+      "server/etcdserver/v3_server.go",
+      "server/etcdserver/server.go",
+      "server/lease/lessor.go"
+    ],
+    "gold_methods_considered": [
+      "LeaseRenew",
+      "checkpointScheduledLeases()",
+      "revokeExpiredLeases"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "etcd-15247",
+    "num_gold_files": 3,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "etcd",
+    "textual_anchor": "opaque"
+  },
+  "etcd-17507": {
+    "bug_id": "17507",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "serverWatchStream"
+    ],
+    "gold_file_stems_considered": [
+      "watch"
+    ],
+    "gold_files": [
+      "server/etcdserver/api/v3rpc/watch.go"
+    ],
+    "gold_methods_considered": [
+      "recvLoop"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "watch"
+    ],
+    "matched_methods": [],
+    "name": "etcd-17507",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "etcd",
+    "textual_anchor": "file_class"
+  },
+  "etcd-5664": {
+    "bug_id": "5664",
+    "contains_analysis": "No",
+    "crash_context": "/usr/lib/go/src/runtime",
+    "crash_site": "panic.go",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "raftNode"
+    ],
+    "gold_file_stems_considered": [
+      "raft"
+    ],
+    "gold_files": [
+      "etcdserver/raft.go"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "raft"
+    ],
+    "matched_methods": [],
+    "name": "etcd-5664",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "/usr/lib/go/src/runtime",
+        "file": "panic.go",
+        "language": "go"
+      },
+      {
+        "context": "/home/anthony/go/src/github.com/coreos/etcd/cmd/vendor/github.com/coreos/pkg/capnslog",
+        "file": "pkg_logger.go",
+        "language": "go"
+      },
+      {
+        "context": "/home/anthony/go/src/github.com/coreos/etcd/cmd/vendor/github.com/coreos/etcd/raft",
+        "file": "raft.go",
+        "language": "go"
+      },
+      {
+        "context": "/home/anthony/go/src/github.com/coreos/etcd/cmd/vendor/github.com/coreos/etcd/raft",
+        "file": "node.go",
+        "language": "go"
+      },
+      {
+        "context": "/home/anthony/go/src/github.com/coreos/etcd/cmd/vendor/github.com/coreos/etcd/etcdserver",
+        "file": "server.go",
+        "language": "go"
+      },
+      {
+        "context": "/home/anthony/go/src/github.com/coreos/etcd/cmd/vendor/github.com/coreos/etcd/etcdmain",
+        "file": "etcd.go",
+        "language": "go"
+      },
+      {
+        "context": "/home/anthony/go/src/github.com/coreos/etcd/cmd/vendor/github.com/coreos/etcd/etcdmain",
+        "file": "main.go",
+        "language": "go"
+      }
+    ],
+    "system": "etcd",
+    "textual_anchor": "file_class"
+  },
+  "hbase-28376": {
+    "bug_id": "28376",
+    "contains_analysis": "No",
+    "crash_context": "org.apache.hadoop.hbase.master",
+    "crash_site": "HMaster.java",
+    "crash_to_fix_distance": "adjacent",
+    "gold_classes_considered": [
+      "TableNamespaceManager"
+    ],
+    "gold_file_stems_considered": [
+      "TableNamespaceManager"
+    ],
+    "gold_files": [
+      "hbase-server/src/main/java/org/apache/hadoop/hbase/master/TableNamespaceManager.java"
+    ],
+    "gold_methods_considered": [
+      "migrateNamespaceTable"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "TableNamespaceManager"
+    ],
+    "matched_methods": [
+      "migrateNamespaceTable"
+    ],
+    "name": "hbase-28376",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "org.apache.hadoop.hbase.master",
+        "file": "HMaster.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hbase.trace",
+        "file": "TraceUtil.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hbase.client",
+        "file": "BufferedMutatorOverAsyncBufferedMutator.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hbase.master",
+        "file": "TableNamespaceManager.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hbase.master",
+        "file": "ClusterSchemaServiceImpl.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hbase.regionserver",
+        "file": "HRegion.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hbase.regionserver",
+        "file": "RSRpcServices.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hbase.shaded.protobuf.generated",
+        "file": "ClientProtos.java",
+        "language": "java"
+      }
+    ],
+    "system": "hbase",
+    "textual_anchor": "method"
+  },
+  "hbase-28830": {
+    "bug_id": "28830",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "MasterProcedureScheduler",
+      "ProcedureExecutor"
+    ],
+    "gold_file_stems_considered": [
+      "MasterProcedureScheduler",
+      "ProcedureExecutor"
+    ],
+    "gold_files": [
+      "hbase-procedure/src/main/java/org/apache/hadoop/hbase/procedure2/ProcedureExecutor.java",
+      "hbase-server/src/main/java/org/apache/hadoop/hbase/master/procedure/MasterProcedureScheduler.java"
+    ],
+    "gold_methods_considered": [
+      "completionCleanup",
+      "executeProcedure"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "hbase-28830",
+    "num_gold_files": 2,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "hbase",
+    "textual_anchor": "opaque"
+  },
+  "hbase-28962": {
+    "bug_id": "28962",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "ModifyTableProcedure"
+    ],
+    "gold_file_stems_considered": [
+      "ModifyTableProcedure"
+    ],
+    "gold_files": [
+      "hbase-server/src/main/java/org/apache/hadoop/hbase/master/procedure/ModifyTableProcedure.java"
+    ],
+    "gold_methods_considered": [
+      "assignNewReplicasIfNeeded"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "hbase-28962",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "hbase",
+    "textual_anchor": "opaque"
+  },
+  "hbase-29021": {
+    "bug_id": "29021",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "StoreFileListFile"
+    ],
+    "gold_file_stems_considered": [
+      "StoreFileListFile"
+    ],
+    "gold_files": [
+      "hbase-server/src/main/java/org/apache/hadoop/hbase/regionserver/storefiletracker/StoreFileListFile.java"
+    ],
+    "gold_methods_considered": [
+      "TRACK_FILE_PATTERN",
+      "listFiles"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "StoreFileListFile"
+    ],
+    "matched_methods": [],
+    "name": "hbase-29021",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "hbase",
+    "textual_anchor": "file_class"
+  },
+  "hbase-29108": {
+    "bug_id": "29108",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "DefaultCompactor"
+    ],
+    "gold_file_stems_considered": [
+      "DefaultCompactor"
+    ],
+    "gold_files": [
+      "hbase-server/src/main/java/org/apache/hadoop/hbase/regionserver/compactions/DefaultCompactor.java"
+    ],
+    "gold_methods_considered": [
+      "commitWriter"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "hbase-29108",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "hbase",
+    "textual_anchor": "opaque"
+  },
+  "hdfs-10512": {
+    "bug_id": "10512",
+    "contains_analysis": "Yes",
+    "crash_context": "org.apache.hadoop.hdfs.server.datanode",
+    "crash_site": "DataNode.java",
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [
+      "DataNode",
+      "FsDatasetImpl",
+      "VolumeScanner"
+    ],
+    "gold_file_stems_considered": [
+      "DataNode",
+      "FsDatasetImpl",
+      "VolumeScanner"
+    ],
+    "gold_files": [
+      "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/datanode/DataNode.java",
+      "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/datanode/VolumeScanner.java",
+      "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/datanode/fsdataset/impl/FsDatasetImpl.java"
+    ],
+    "gold_methods_considered": [
+      "checkAndUpdate",
+      "reportBadBlocks"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "DataNode",
+      "VolumeScanner"
+    ],
+    "matched_methods": [
+      "reportBadBlocks"
+    ],
+    "name": "hdfs-10512",
+    "num_gold_files": 3,
+    "root_cause_type": "Error handling",
+    "stack_frames": [
+      {
+        "context": "org.apache.hadoop.hdfs.server.datanode",
+        "file": "DataNode.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.datanode",
+        "file": "VolumeScanner.java",
+        "language": "java"
+      }
+    ],
+    "system": "hdfs",
+    "textual_anchor": "method"
+  },
+  "hdfs-10733": {
+    "bug_id": "10733",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "QuorumCall"
+    ],
+    "gold_file_stems_considered": [
+      "QuorumCall"
+    ],
+    "gold_files": [
+      "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/qjournal/client/QuorumCall.java"
+    ],
+    "gold_methods_considered": [
+      "waitFor"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "QuorumCall"
+    ],
+    "matched_methods": [
+      "waitFor"
+    ],
+    "name": "hdfs-10733",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "hdfs",
+    "textual_anchor": "method"
+  },
+  "hdfs-11583": {
+    "bug_id": "11583",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "DFSOutputStream"
+    ],
+    "gold_file_stems_considered": [
+      "DFSOutputStream"
+    ],
+    "gold_files": [
+      "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/DFSOutputStream.java"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "hdfs-11583",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "hdfs",
+    "textual_anchor": "opaque"
+  },
+  "hdfs-11701": {
+    "bug_id": "11701",
+    "contains_analysis": "No",
+    "crash_context": "org.apache.hadoop.hdfs",
+    "crash_site": "DFSClient.java",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "BlockReaderFactory"
+    ],
+    "gold_file_stems_considered": [
+      "BlockReaderFactory"
+    ],
+    "gold_files": [
+      "hadoop-hdfs-client/src/main/java/org/apache/hadoop/hdfs/client/impl/BlockReaderFactory.java"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "BlockReaderFactory"
+    ],
+    "matched_methods": [],
+    "name": "hdfs-11701",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [
+      {
+        "context": "org.apache.hadoop.hdfs",
+        "file": "DFSClient.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.shortcircuit",
+        "file": "DomainSocketFactory.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs",
+        "file": "BlockReaderFactory.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs",
+        "file": "DFSInputStream.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.fs",
+        "file": "FSDataInputStream.java",
+        "language": "java"
+      }
+    ],
+    "system": "hdfs",
+    "textual_anchor": "file_class"
+  },
+  "hdfs-13051": {
+    "bug_id": "13051",
+    "contains_analysis": "No",
+    "crash_context": "org.apache.hadoop.hdfs.server.namenode",
+    "crash_site": "FSEditLogAsync.java",
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [
+      "FSEditLogAsync"
+    ],
+    "gold_file_stems_considered": [
+      "FSEditLogAsync"
+    ],
+    "gold_files": [
+      "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/namenode/FSEditLogAsync.java"
+    ],
+    "gold_methods_considered": [
+      "enqueueEdit"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "FSEditLogAsync"
+    ],
+    "matched_methods": [
+      "enqueueEdit"
+    ],
+    "name": "hdfs-13051",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "FSEditLogAsync.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "FSEditLog.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "FSNamesystem.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.security.token.delegation",
+        "file": "DelegationTokenSecretManager.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.security.token.delegation",
+        "file": "AbstractDelegationTokenSecretManager.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "FSImage.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "NameNodeRpcServer.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.protocolPB",
+        "file": "NamenodeProtocolServerSideTranslatorPB.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.protocol.proto",
+        "file": "NamenodeProtocolProtos.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.ipc",
+        "file": "ProtobufRpcEngine.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.ipc",
+        "file": "RPC.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.ipc",
+        "file": "Server.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.security",
+        "file": "UserGroupInformation.java",
+        "language": "java"
+      }
+    ],
+    "system": "hdfs",
+    "textual_anchor": "method"
+  },
+  "hdfs-13101": {
+    "bug_id": "13101",
+    "contains_analysis": "No",
+    "crash_context": "org.apache.hadoop.hdfs.server.namenode",
+    "crash_site": "INodeDirectory.java",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "AbstractINodeDiffList",
+      "DirectoryWithSnapshotFeature"
+    ],
+    "gold_file_stems_considered": [
+      "AbstractINodeDiffList",
+      "DirectoryWithSnapshotFeature"
+    ],
+    "gold_files": [
+      "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/namenode/snapshot/DirectoryWithSnapshotFeature.java",
+      "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/namenode/snapshot/AbstractINodeDiffList.java"
+    ],
+    "gold_methods_considered": [
+      "cleanDirectory"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "hdfs-13101",
+    "num_gold_files": 2,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "INodeDirectory.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "FSImageFormatPBINode.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "FSImageFormatProtobuf.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "FSImageFormat.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "FSImage.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "FSNamesystem.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "NameNode.java",
+        "language": "java"
+      }
+    ],
+    "system": "hdfs",
+    "textual_anchor": "opaque"
+  },
+  "hdfs-13179": {
+    "bug_id": "13179",
+    "contains_analysis": "Yes",
+    "crash_context": "org.apache.hadoop.hdfs.server.datanode.fsdataset.impl",
+    "crash_site": "TestLazyPersistReplicaRecovery.java",
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [
+      "TestLazyPersistReplicaRecovery"
+    ],
+    "gold_file_stems_considered": [
+      "TestLazyPersistReplicaRecovery"
+    ],
+    "gold_files": [
+      "hadoop-hdfs/src/test/java/org/apache/hadoop/hdfs/server/datanode/fsdataset/impl/TestLazyPersistReplicaRecovery.java"
+    ],
+    "gold_methods_considered": [
+      "testDnRestartWithSavedReplicas"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "TestLazyPersistReplicaRecovery"
+    ],
+    "matched_methods": [
+      "testDnRestartWithSavedReplicas"
+    ],
+    "name": "hdfs-13179",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "org.apache.hadoop.hdfs.server.datanode.fsdataset.impl",
+        "file": "TestLazyPersistReplicaRecovery.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.test",
+        "file": "TimedOutTestsListener.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.test",
+        "file": "GenericTestUtils.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.datanode.fsdataset.impl",
+        "file": "LazyPersistTestCase.java",
+        "language": "java"
+      }
+    ],
+    "system": "hdfs",
+    "textual_anchor": "method"
+  },
+  "hdfs-13292": {
+    "bug_id": "13292",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "EncryptionZoneManage"
+    ],
+    "gold_file_stems_considered": [
+      "EncryptionZoneManager"
+    ],
+    "gold_files": [
+      "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/namenode/EncryptionZoneManager.java"
+    ],
+    "gold_methods_considered": [
+      "createEncryptionZone"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "hdfs-13292",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "hdfs",
+    "textual_anchor": "opaque"
+  },
+  "hdfs-13893": {
+    "bug_id": "13893",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "DiskBalancerCLI"
+    ],
+    "gold_file_stems_considered": [
+      "DiskBalancerCLI"
+    ],
+    "gold_files": [
+      "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/tools/DiskBalancerCLI.java"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "hdfs-13893",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "hdfs",
+    "textual_anchor": "opaque"
+  },
+  "hdfs-15175": {
+    "bug_id": "15175",
+    "contains_analysis": "No",
+    "crash_context": "org.apache.hadoop.hdfs.server.namenode",
+    "crash_site": "FSEditLogLoader.java",
+    "crash_to_fix_distance": "adjacent",
+    "gold_classes_considered": [
+      "FSEditLogOp"
+    ],
+    "gold_file_stems_considered": [
+      "FSEditLogOp"
+    ],
+    "gold_files": [
+      "hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/namenode/FSEditLogOp.java"
+    ],
+    "gold_methods_considered": [
+      "setBlocks",
+      "setLastBlock",
+      "setPenultimateBlock",
+      "setTruncateBlock"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "hdfs-15175",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "FSEditLogLoader.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode",
+        "file": "FSImage.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.hdfs.server.namenode.ha",
+        "file": "EditLogTailer.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.security",
+        "file": "UserGroupInformation.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.hadoop.security",
+        "file": "SecurityUtil.java",
+        "language": "java"
+      }
+    ],
+    "system": "hdfs",
+    "textual_anchor": "opaque"
+  },
+  "ignite-4205": {
+    "bug_id": "4205",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "CacheAbstractJdbcStore",
+      "CassandraCacheStore"
+    ],
+    "gold_file_stems_considered": [
+      "CacheAbstractJdbcStore",
+      "CassandraCacheStore"
+    ],
+    "gold_files": [
+      "cassandra/store/src/main/java/org/apache/ignite/cache/store/cassandra/CassandraCacheStore.java",
+      "core/src/main/java/org/apache/ignite/cache/store/jdbc/CacheAbstractJdbcStore.java"
+    ],
+    "gold_methods_considered": [
+      "loadCache"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "CacheAbstractJdbcStore",
+      "CassandraCacheStore"
+    ],
+    "matched_methods": [
+      "loadCache"
+    ],
+    "name": "ignite-4205",
+    "num_gold_files": 2,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "ignite",
+    "textual_anchor": "method"
+  },
+  "ignite-6860": {
+    "bug_id": "6860",
+    "contains_analysis": "No",
+    "crash_context": "org.apache.ignite.internal.binary",
+    "crash_site": "BinaryWriterExImpl.java",
+    "crash_to_fix_distance": "adjacent",
+    "gold_classes_considered": [
+      "BinaryClassDescriptor",
+      "BinaryFieldAccessor",
+      "OptimizedObjectInputStream"
+    ],
+    "gold_file_stems_considered": [
+      "BinaryClassDescriptor",
+      "BinaryFieldAccessor",
+      "OptimizedObjectInputStream"
+    ],
+    "gold_files": [
+      "core/src/main/java/org/apache/ignite/internal/binary/BinaryClassDescriptor.java",
+      "core/src/main/java/org/apache/ignite/internal/binary/BinaryFieldAccessor.java",
+      "core/src/main/java/org/apache/ignite/internal/marshaller/optimized/OptimizedObjectInputStream.java"
+    ],
+    "gold_methods_considered": [
+      "readObject0"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "BinaryClassDescriptor",
+      "BinaryFieldAccessor"
+    ],
+    "matched_methods": [],
+    "name": "ignite-6860",
+    "num_gold_files": 3,
+    "root_cause_type": "Error handling",
+    "stack_frames": [
+      {
+        "context": "org.apache.ignite.internal.binary",
+        "file": "BinaryWriterExImpl.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.ignite.internal.binary",
+        "file": "BinaryFieldAccessor.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.ignite.internal.binary",
+        "file": "BinaryClassDescriptor.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.ignite.internal.binary",
+        "file": "GridBinaryMarshaller.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.ignite.internal.binary",
+        "file": "BinaryMarshaller.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.ignite.marshaller",
+        "file": "AbstractNodeNameAwareMarshaller.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.ignite.internal.util",
+        "file": "IgniteUtils.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.ignite.internal.processors.task",
+        "file": "GridTaskWorker.java",
+        "language": "java"
+      },
+      {
+        "context": "com.sbt.dpl.gridgain",
+        "file": "DistributedCollectTask.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.ignite.internal.marshaller.optimized",
+        "file": "OptimizedMarshaller.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.ignite.internal.marshaller.optimized",
+        "file": "OptimizedObjectOutputStream.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.ignite.internal.marshaller.optimized",
+        "file": "OptimizedClassDescriptor.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.ignite.internal.marshaller.optimized",
+        "file": "OptimizedMarshallerUtils.java",
+        "language": "java"
+      }
+    ],
+    "system": "ignite",
+    "textual_anchor": "file_class"
+  },
+  "ignite-9133": {
+    "bug_id": "9133",
+    "contains_analysis": "No",
+    "crash_context": "o.a.i.i.util.future",
+    "crash_site": "GridFutureAdapter.java",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "IgniteTxLocalAdapter",
+      "NearTxQueryEnlistResultHandler"
+    ],
+    "gold_file_stems_considered": [
+      "IgniteTxLocalAdapter",
+      "NearTxQueryEnlistResultHandler"
+    ],
+    "gold_files": [
+      "core/src/main/java/org/apache/ignite/internal/processors/cache/distributed/dht/NearTxQueryEnlistResultHandler.java",
+      "core/src/main/java/org/apache/ignite/internal/processors/cache/transactions/IgniteTxLocalAdapter.java"
+    ],
+    "gold_methods_considered": [
+      "userRollback"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ignite-9133",
+    "num_gold_files": 2,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "o.a.i.i.util.future",
+        "file": "GridFutureAdapter.java",
+        "language": "java"
+      },
+      {
+        "context": "o.a.i.i.processors.query.h2",
+        "file": "DmlStatementsProcessor.java",
+        "language": "java"
+      },
+      {
+        "context": "o.a.i.i.processors.query.h2",
+        "file": "IgniteH2Indexing.java",
+        "language": "java"
+      },
+      {
+        "context": "o.a.i.i.processors.query",
+        "file": "GridQueryProcessor.java",
+        "language": "java"
+      },
+      {
+        "context": "o.a.i.i.util.lang",
+        "file": "IgniteOutClosureX.java",
+        "language": "java"
+      },
+      {
+        "context": "o.a.i.i.processors.cache",
+        "file": "IgniteCacheProxyImpl.java",
+        "language": "java"
+      },
+      {
+        "context": "o.a.i.i.processors.cache",
+        "file": "GatewayProtectedCacheProxy.java",
+        "language": "java"
+      },
+      {
+        "context": "o.a.i.i.processors.cache.mvcc",
+        "file": "CacheMvccAbstractTest.java",
+        "language": "java"
+      },
+      {
+        "context": "o.a.i.testframework",
+        "file": "GridTestThread.java",
+        "language": "java"
+      }
+    ],
+    "system": "ignite",
+    "textual_anchor": "opaque"
+  },
+  "ignite3-15596": {
+    "bug_id": "15596",
+    "contains_analysis": "No",
+    "crash_context": "org.apache.ignite.internal.processors.query.calcite.exec.exp",
+    "crash_site": "ExpressionFactoryImpl.java",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "TypeUtils"
+    ],
+    "gold_file_stems_considered": [
+      "TypeUtils"
+    ],
+    "gold_files": [
+      "sql-engine/src/main/java/org/apache/ignite/internal/sql/engine/util/TypeUtils.java"
+    ],
+    "gold_methods_considered": [
+      "fromInternal",
+      "hasConvertableFields",
+      "isConvertableType",
+      "toInternal"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ignite3-15596",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "org.apache.ignite.internal.processors.query.calcite.exec.exp",
+        "file": "ExpressionFactoryImpl.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.ignite.internal.processors.query.calcite.exec.rel",
+        "file": "NestedLoopJoinNode.java",
+        "language": "java"
+      }
+    ],
+    "system": "ignite3",
+    "textual_anchor": "opaque"
+  },
+  "ignite3-15724": {
+    "bug_id": "15724",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "MetaStorageManager"
+    ],
+    "gold_file_stems_considered": [
+      "MetaStorageManager"
+    ],
+    "gold_files": [
+      "metastorage/src/main/java/org/apache/ignite/internal/metastorage/MetaStorageManager.java"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "MetaStorageManager"
+    ],
+    "matched_methods": [],
+    "name": "ignite3-15724",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "ignite3",
+    "textual_anchor": "file_class"
+  },
+  "ignite3-17428": {
+    "bug_id": "17428",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "SchemaManager",
+      "TableManager"
+    ],
+    "gold_file_stems_considered": [
+      "SchemaManager",
+      "TableManager"
+    ],
+    "gold_files": [
+      "schema/src/main/java/org/apache/ignite/internal/schema/SchemaManager.java",
+      "table/src/main/java/org/apache/ignite/internal/table/distributed/TableManager.java"
+    ],
+    "gold_methods_considered": [
+      "tableAsyncInternal",
+      "tableSchema"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "SchemaManager",
+      "TableManager"
+    ],
+    "matched_methods": [
+      "tableAsyncInternal",
+      "tableSchema"
+    ],
+    "name": "ignite3-17428",
+    "num_gold_files": 2,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "ignite3",
+    "textual_anchor": "method"
+  },
+  "ignite3-20498": {
+    "bug_id": "20498",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "CatalogManagerImpl"
+    ],
+    "gold_file_stems_considered": [
+      "CatalogManagerImpl"
+    ],
+    "gold_files": [
+      "catalog/src/main/java/org/apache/ignite/internal/catalog/CatalogManagerImpl.java"
+    ],
+    "gold_methods_considered": [
+      "applyUpdateFinal"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "CatalogManagerImpl"
+    ],
+    "matched_methods": [],
+    "name": "ignite3-20498",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "ignite3",
+    "textual_anchor": "file_class"
+  },
+  "ignite3-21776": {
+    "bug_id": "21776",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "CatalogManagerImpl"
+    ],
+    "gold_file_stems_considered": [
+      "CatalogManagerImpl"
+    ],
+    "gold_files": [
+      "catalog/src/main/java/org/apache/ignite/internal/catalog/CatalogManagerImpl.java"
+    ],
+    "gold_methods_considered": [
+      "CompletableFuture",
+      "saveUpdate"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ignite3-21776",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "ignite3",
+    "textual_anchor": "opaque"
+  },
+  "ignite3-21827": {
+    "bug_id": "21827",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "Commons",
+      "UnionConverterRule"
+    ],
+    "gold_file_stems_considered": [
+      "Commons",
+      "UnionConverterRule"
+    ],
+    "gold_files": [
+      "sql-engine/src/main/java/org/apache/ignite/internal/sql/engine/rule/UnionConverterRule.java",
+      "sql-engine/src/main/java/org/apache/ignite/internal/sql/engine/util/Commons.java"
+    ],
+    "gold_methods_considered": [
+      "castInputsToLeastRestrictiveTypeIfNeeded",
+      "onMatch"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ignite3-21827",
+    "num_gold_files": 2,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "ignite3",
+    "textual_anchor": "opaque"
+  },
+  "ignite3-22597": {
+    "bug_id": "22597",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "ActionRequestProcessor"
+    ],
+    "gold_file_stems_considered": [
+      "ActionRequestProcessor"
+    ],
+    "gold_files": [
+      "raft/src/main/java/org/apache/ignite/raft/jraft/rpc/impl/ActionRequestProcessor.java"
+    ],
+    "gold_methods_considered": [
+      "RpcProcessor"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ignite3-22597",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "ignite3",
+    "textual_anchor": "opaque"
+  },
+  "kafka-13407": {
+    "bug_id": "13407",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "ZooKeeperClient"
+    ],
+    "gold_file_stems_considered": [
+      "ZooKeeperClient"
+    ],
+    "gold_files": [
+      "core/src/main/scala/kafka/zookeeper/ZooKeeperClient.scala"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "ZooKeeperClient"
+    ],
+    "matched_methods": [],
+    "name": "kafka-13407",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "kafka",
+    "textual_anchor": "file_class"
+  },
+  "kafka-13668": {
+    "bug_id": "13668",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "InitProducerIdHandler",
+      "Sender",
+      "State"
+    ],
+    "gold_file_stems_considered": [
+      "Sender",
+      "TransactionManager"
+    ],
+    "gold_files": [
+      "clients/src/main/java/org/apache/kafka/clients/producer/internals/Sender.java",
+      "clients/src/main/java/org/apache/kafka/clients/producer/internals/TransactionManager.java"
+    ],
+    "gold_methods_considered": [
+      "handleResponse",
+      "isTransitionValid",
+      "runOnce"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "kafka-13668",
+    "num_gold_files": 2,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "kafka",
+    "textual_anchor": "opaque"
+  },
+  "kafka-17062": {
+    "bug_id": "17062",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "RLMTask"
+    ],
+    "gold_file_stems_considered": [
+      "RemoteLogManager"
+    ],
+    "gold_files": [
+      "core/src/main/java/kafka/log/remote/RemoteLogManager.java"
+    ],
+    "gold_methods_considered": [
+      "buildRetentionSizeData",
+      "copyLogSegment"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "RLMTask",
+      "RemoteLogManager"
+    ],
+    "matched_methods": [
+      "buildRetentionSizeData",
+      "copyLogSegment"
+    ],
+    "name": "kafka-17062",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "kafka",
+    "textual_anchor": "method"
+  },
+  "kafka-18073": {
+    "bug_id": "18073",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "RetryWithToleranceOperator"
+    ],
+    "gold_file_stems_considered": [
+      "RetryWithToleranceOperator"
+    ],
+    "gold_files": [
+      "connect/runtime/src/main/java/org/apache/kafka/connect/runtime/errors/RetryWithToleranceOperator.java"
+    ],
+    "gold_methods_considered": [
+      "execAndRetry"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "kafka-18073",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "kafka",
+    "textual_anchor": "opaque"
+  },
+  "kafka-6446": {
+    "bug_id": "6446",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "KafkaProducer",
+      "Sender",
+      "TransactionalRequestResult"
+    ],
+    "gold_file_stems_considered": [
+      "KafkaProducer",
+      "Sender",
+      "TransactionalRequestResult"
+    ],
+    "gold_files": [
+      "clients/src/main/java/org/apache/kafka/clients/producer/KafkaProducer.java",
+      "clients/src/main/java/org/apache/kafka/clients/producer/internals/Sender.java",
+      "clients/src/main/java/org/apache/kafka/clients/producer/internals/TransactionalRequestResult.java"
+    ],
+    "gold_methods_considered": [
+      "initTransactions",
+      "maybeSendTransactionalRequest"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "KafkaProducer"
+    ],
+    "matched_methods": [
+      "initTransactions"
+    ],
+    "name": "kafka-6446",
+    "num_gold_files": 3,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "kafka",
+    "textual_anchor": "method"
+  },
+  "kafka-7044": {
+    "bug_id": "7044",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "ConsumerGroupService",
+      "Fetcher",
+      "KafkaConsumerGroupService"
+    ],
+    "gold_file_stems_considered": [
+      "ConsumerGroupCommand",
+      "Fetcher"
+    ],
+    "gold_files": [
+      "clients/src/main/java/org/apache/kafka/clients/consumer/internals/Fetcher.java",
+      "core/src/main/scala/kafka/admin/ConsumerGroupCommand.scala"
+    ],
+    "gold_methods_considered": [
+      "describePartitions",
+      "fetchOffsetsByTimes",
+      "getLogEndOffsets",
+      "getLogStartOffsets"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "ConsumerGroupCommand",
+      "ConsumerGroupService",
+      "KafkaConsumerGroupService"
+    ],
+    "matched_methods": [
+      "describePartitions",
+      "getLogEndOffsets"
+    ],
+    "name": "kafka-7044",
+    "num_gold_files": 2,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "kafka",
+    "textual_anchor": "method"
+  },
+  "kafka-8289": {
+    "bug_id": "8289",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "GraphGraceSearchUtil",
+      "KStreamSessionWindowAggregateProcessor"
+    ],
+    "gold_file_stems_considered": [
+      "GraphGraceSearchUtil",
+      "KStreamSessionWindowAggregate"
+    ],
+    "gold_files": [
+      "streams/src/main/java/org/apache/kafka/streams/kstream/internals/KStreamSessionWindowAggregate.java",
+      "streams/src/main/java/org/apache/kafka/streams/kstream/internals/graph/GraphGraceSearchUtil.java"
+    ],
+    "gold_methods_considered": [
+      "extractGracePeriod"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "kafka-8289",
+    "num_gold_files": 2,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "kafka",
+    "textual_anchor": "opaque"
+  },
+  "kafka-8950": {
+    "bug_id": "8950",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "Fetcher"
+    ],
+    "gold_file_stems_considered": [
+      "Fetcher"
+    ],
+    "gold_files": [
+      "clients/src/main/java/org/apache/kafka/clients/consumer/internals/Fetcher.java"
+    ],
+    "gold_methods_considered": [
+      "sendFetches"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "Fetcher"
+    ],
+    "matched_methods": [],
+    "name": "kafka-8950",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "kafka",
+    "textual_anchor": "file_class"
+  },
+  "kubernetes-135981": {
+    "bug_id": "135981",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "scheduling_queue"
+    ],
+    "gold_files": [
+      "pkg/scheduler/backend/queue/scheduling_queue.go"
+    ],
+    "gold_methods_considered": [
+      "Delete",
+      "runPreEnqueuePlugin"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "kubernetes-135981",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "kubernetes",
+    "textual_anchor": "opaque"
+  },
+  "kubernetes-135983": {
+    "bug_id": "135983",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "controller"
+    ],
+    "gold_files": [
+      "pkg/controller/resourceclaim/controller.go"
+    ],
+    "gold_methods_considered": [
+      "NewController"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "controller"
+    ],
+    "matched_methods": [],
+    "name": "kubernetes-135983",
+    "num_gold_files": 1,
+    "root_cause_type": "Communication",
+    "stack_frames": [],
+    "system": "kubernetes",
+    "textual_anchor": "file_class"
+  },
+  "kubernetes-136014": {
+    "bug_id": "136014",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "etcd"
+    ],
+    "gold_files": [
+      "cmd/kubeadm/app/util/etcd/etcd.go"
+    ],
+    "gold_methods_considered": [
+      "MemberPromote",
+      "addMember",
+      "listMembers"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "etcd"
+    ],
+    "matched_methods": [],
+    "name": "kubernetes-136014",
+    "num_gold_files": 1,
+    "root_cause_type": "Communication",
+    "stack_frames": [],
+    "system": "kubernetes",
+    "textual_anchor": "file_class"
+  },
+  "kubernetes-136026": {
+    "bug_id": "136026",
+    "contains_analysis": "No",
+    "crash_context": "/home/song2048/\u684c\u9762/goProject/src/GoPie/testdata/realProjects/k8s.io/kubernetes/kubernetes/pkg/kubelet/pluginmanager/operationexecutor",
+    "crash_site": "operation_executor_test.go",
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "operation_executor_test"
+    ],
+    "gold_files": [
+      "pkg/kubelet/pluginmanager/operationexecutor/operation_executor_test.go"
+    ],
+    "gold_methods_considered": [
+      "startOperationAndBlock"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "operation_executor_test"
+    ],
+    "matched_methods": [
+      "startOperationAndBlock"
+    ],
+    "name": "kubernetes-136026",
+    "num_gold_files": 1,
+    "root_cause_type": "Resource leak",
+    "stack_frames": [
+      {
+        "context": "/home/song2048/\u684c\u9762/goProject/src/GoPie/testdata/realProjects/k8s.io/kubernetes/kubernetes/pkg/kubelet/pluginmanager/operationexecutor",
+        "file": "operation_executor_test.go",
+        "language": "go"
+      },
+      {
+        "context": "/home/song2048/\u684c\u9762/goProject/src/GoPie/testdata/realProjects/k8s.io/kubernetes/kubernetes/pkg/util/goroutinemap",
+        "file": "goroutinemap.go",
+        "language": "go"
+      }
+    ],
+    "system": "kubernetes",
+    "textual_anchor": "method"
+  },
+  "kubernetes-136028": {
+    "bug_id": "136028",
+    "contains_analysis": "No",
+    "crash_context": "pkg/controller/garbagecollector",
+    "crash_site": "garbagecollector.go",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "allocation_manager"
+    ],
+    "gold_files": [
+      "pkg/kubelet/allocation/allocation_manager.go"
+    ],
+    "gold_methods_considered": [
+      "RemovePod"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "allocation_manager"
+    ],
+    "matched_methods": [],
+    "name": "kubernetes-136028",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "pkg/controller/garbagecollector",
+        "file": "garbagecollector.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/controller/garbagecollector",
+        "file": "graph_builder.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/controller/resourcequota",
+        "file": "resource_quota_monitor.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/controller/storageversionmigrator",
+        "file": "storageversionmigrator.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/controller/volume/selinuxwarning",
+        "file": "selinux_warning_controller.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/volumemanager/cache",
+        "file": "desired_state_of_world.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/volumemanager/reconciler",
+        "file": "reconstruct.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/stats",
+        "file": "helper.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/stats",
+        "file": "cri_stats_provider.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/cm/devicemanager/plugin/v1beta1",
+        "file": "client.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/cm/dra/plugin",
+        "file": "dra_plugin_manager.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/kuberuntime",
+        "file": "kuberuntime_container_linux.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/lifecycle",
+        "file": "handlers.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/prober",
+        "file": "prober_manager.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/prober",
+        "file": "prober.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/metrics/collectors",
+        "file": "cri_metrics.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/pleg",
+        "file": "generic.go",
+        "language": "go"
+      },
+      {
+        "context": "pkg/kubelet/allocation",
+        "file": "allocation_manager.go",
+        "language": "go"
+      }
+    ],
+    "system": "kubernetes",
+    "textual_anchor": "file_class"
+  },
+  "kubernetes-136037": {
+    "bug_id": "136037",
+    "contains_analysis": "No",
+    "crash_context": ".",
+    "crash_site": "kubelet.go",
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "kubelet"
+    ],
+    "gold_files": [
+      "pkg/kubelet/kubelet.go"
+    ],
+    "gold_methods_considered": [
+      "HandlePodUpdates"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "kubelet"
+    ],
+    "matched_methods": [
+      "HandlePodUpdates"
+    ],
+    "name": "kubernetes-136037",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": ".",
+        "file": "kubelet.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/kubernetes/cmd/kubelet/app",
+        "file": "server.go",
+        "language": "go"
+      }
+    ],
+    "system": "kubernetes",
+    "textual_anchor": "method"
+  },
+  "kubernetes-136206": {
+    "bug_id": "136206",
+    "contains_analysis": "No",
+    "crash_context": "k8s.io/kubernetes/pkg/util/pod",
+    "crash_site": "pod.go",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "container_manager_linux",
+      "node_container_manager_linux"
+    ],
+    "gold_files": [
+      "pkg/kubelet/cm/container_manager_linux.go",
+      "pkg/kubelet/cm/node_container_manager_linux.go"
+    ],
+    "gold_methods_considered": [
+      "GetCapacity",
+      "GetNodeAllocatableAbsolute",
+      "GetNodeAllocatableReservation",
+      "validateNodeAllocatable"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "container_manager_linux"
+    ],
+    "matched_methods": [],
+    "name": "kubernetes-136206",
+    "num_gold_files": 2,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [
+      {
+        "context": "k8s.io/kubernetes/pkg/util/pod",
+        "file": "pod.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/kubernetes/pkg/kubelet/status",
+        "file": "status_manager.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/apimachinery/pkg/util/wait",
+        "file": "backoff.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/apimachinery/pkg/util/wait",
+        "file": "wait.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/kubernetes/pkg/kubelet",
+        "file": "kubelet.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/kubernetes/pkg/kubelet",
+        "file": "pod_workers.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/kubernetes/cmd/kubelet/app",
+        "file": "server.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/kubernetes/pkg/kubelet",
+        "file": "kubelet_pods.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/kubernetes/pkg/kubelet/kuberuntime",
+        "file": "kuberuntime_manager.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/kubernetes/pkg/kubelet/cm",
+        "file": "pod_container_manager_linux.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/kubernetes/pkg/kubelet/cm",
+        "file": "qos_container_manager_linux.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/kubernetes/pkg/kubelet/cm",
+        "file": "container_manager_linux.go",
+        "language": "go"
+      },
+      {
+        "context": "k8s.io/kubernetes/pkg/kubelet/container",
+        "file": "runtime_cache.go",
+        "language": "go"
+      }
+    ],
+    "system": "kubernetes",
+    "textual_anchor": "file_class"
+  },
+  "kubernetes-136450": {
+    "bug_id": "136450",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "Controller"
+    ],
+    "gold_file_stems_considered": [
+      "controller"
+    ],
+    "gold_files": [
+      "pkg/controller/resourceclaim/controller.go"
+    ],
+    "gold_methods_considered": [
+      "syncClaim"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "controller"
+    ],
+    "matched_methods": [],
+    "name": "kubernetes-136450",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "kubernetes",
+    "textual_anchor": "file_class"
+  },
+  "kubernetes-136509": {
+    "bug_id": "136509",
+    "contains_analysis": "No",
+    "crash_context": ".",
+    "crash_site": "shared_informer_test.go",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "sharedProcessor"
+    ],
+    "gold_file_stems_considered": [
+      "shared_informer"
+    ],
+    "gold_files": [
+      "staging/src/k8s.io/client-go/tools/cache/shared_informer.go"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "sharedProcessor",
+      "shared_informer"
+    ],
+    "matched_methods": [],
+    "name": "kubernetes-136509",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [
+      {
+        "context": ".",
+        "file": "shared_informer_test.go",
+        "language": "go"
+      }
+    ],
+    "system": "kubernetes",
+    "textual_anchor": "file_class"
+  },
+  "kubernetes-136534": {
+    "bug_id": "136534",
+    "contains_analysis": "No",
+    "crash_context": "v0.34.0/pkg/util/resource",
+    "crash_site": "resource.go",
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "resource"
+    ],
+    "gold_files": [
+      "staging/src/k8s.io/kubectl/pkg/util/resource/resource.go"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "resource"
+    ],
+    "matched_methods": [],
+    "name": "kubernetes-136534",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [
+      {
+        "context": "v0.34.0/pkg/util/resource",
+        "file": "resource.go",
+        "language": "go"
+      }
+    ],
+    "system": "kubernetes",
+    "textual_anchor": "file_class"
+  },
+  "ray-14264": {
+    "bug_id": "14264",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "monitor",
+      "node_provider"
+    ],
+    "gold_files": [
+      "python/ray/monitor.py",
+      "python/ray/autoscaler/_private/aws/node_provider.py"
+    ],
+    "gold_methods_considered": [
+      "_handle_failure",
+      "terminate_node",
+      "terminate_nodes"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "monitor",
+      "node_provider"
+    ],
+    "matched_methods": [],
+    "name": "ray-14264",
+    "num_gold_files": 2,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "file_class"
+  },
+  "ray-14883": {
+    "bug_id": "14883",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "ClusterResourceScheduler",
+      "NewPlacementGroupResourceManager"
+    ],
+    "gold_file_stems_considered": [
+      "cluster_resource_scheduler",
+      "placement_group_resource_manager"
+    ],
+    "gold_files": [
+      "src/ray/raylet/scheduling/cluster_resource_scheduler.cc",
+      "src/ray/raylet/placement_group_resource_manager.cc"
+    ],
+    "gold_methods_considered": [
+      "AddLocalResourceInstances",
+      "CommitBundle"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ray-14883",
+    "num_gold_files": 2,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "opaque"
+  },
+  "ray-15990": {
+    "bug_id": "15990",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "PullManager"
+    ],
+    "gold_file_stems_considered": [
+      "pull_manager"
+    ],
+    "gold_files": [
+      "src/ray/object_manager/pull_manager.cc"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ray-15990",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "opaque"
+  },
+  "ray-16614": {
+    "bug_id": "16614",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "worker"
+    ],
+    "gold_files": [
+      "python/ray/worker.py"
+    ],
+    "gold_methods_considered": [
+      "get_gpu_ids"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ray-16614",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "opaque"
+  },
+  "ray-22122": {
+    "bug_id": "22122",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "SchedulerResourceReporter"
+    ],
+    "gold_file_stems_considered": [
+      "scheduler_resource_reporter"
+    ],
+    "gold_files": [
+      "src/ray/raylet/scheduling/scheduler_resource_reporter.cc"
+    ],
+    "gold_methods_considered": [
+      "FillResourceUsage"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ray-22122",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "opaque"
+  },
+  "ray-25699": {
+    "bug_id": "25699",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "CoreWorker",
+      "WorkerPool"
+    ],
+    "gold_file_stems_considered": [
+      "core_worker",
+      "worker_pool"
+    ],
+    "gold_files": [
+      "src/ray/core_worker/core_worker.cc",
+      "src/ray/raylet/worker_pool.cc"
+    ],
+    "gold_methods_considered": [
+      "HandleExit",
+      "TryKillingIdleWorkers"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ray-25699",
+    "num_gold_files": 2,
+    "root_cause_type": "Resource Leak",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "opaque"
+  },
+  "ray-30229": {
+    "bug_id": "30229",
+    "contains_analysis": "No",
+    "crash_context": "/databricks/python/lib/python3.9/site-packages/ray/dashboard/modules/reporter",
+    "crash_site": "reporter_agent.py",
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "reporter_agent"
+    ],
+    "gold_files": [
+      "dashboard/modules/reporter/reporter_agent.py"
+    ],
+    "gold_methods_considered": [
+      "_get_disk_usage"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "reporter_agent"
+    ],
+    "matched_methods": [],
+    "name": "ray-30229",
+    "num_gold_files": 1,
+    "root_cause_type": "Error Handling",
+    "stack_frames": [
+      {
+        "context": "/databricks/python/lib/python3.9/site-packages/ray/dashboard/modules/reporter",
+        "file": "reporter_agent.py",
+        "language": "python"
+      }
+    ],
+    "system": "ray",
+    "textual_anchor": "file_class"
+  },
+  "ray-38591": {
+    "bug_id": "38591",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "ray_deps_setup"
+    ],
+    "gold_files": [
+      "bazel/ray_deps_setup.bzl"
+    ],
+    "gold_methods_considered": [
+      "ray_deps_setup"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ray-38591",
+    "num_gold_files": 1,
+    "root_cause_type": "Dependency",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "opaque"
+  },
+  "ray-41076": {
+    "bug_id": "41076",
+    "contains_analysis": "No",
+    "crash_context": ".",
+    "crash_site": "gcs_client.h",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "common"
+    ],
+    "gold_files": [
+      "python/ray/includes/common.pxi",
+      "python/ray/includes/common.pxd"
+    ],
+    "gold_methods_considered": [
+      "CGcsClientOptions",
+      "from_gcs_address"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [
+      "from_gcs_address"
+    ],
+    "name": "ray-41076",
+    "num_gold_files": 2,
+    "root_cause_type": "Error Handling",
+    "stack_frames": [
+      {
+        "context": ".",
+        "file": "gcs_client.h",
+        "language": "cpp"
+      }
+    ],
+    "system": "ray",
+    "textual_anchor": "method"
+  },
+  "ray-46315": {
+    "bug_id": "46315",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "actor_task_submitter",
+      "normal_task_submitter"
+    ],
+    "gold_files": [
+      "src/ray/core_worker/transport/normal_task_submitter.cc",
+      "src/ray/core_worker/transport/actor_task_submitter.cc"
+    ],
+    "gold_methods_considered": [
+      "CancelTask",
+      "SubmitTask"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ray-46315",
+    "num_gold_files": 2,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "opaque"
+  },
+  "ray-47668": {
+    "bug_id": "47668",
+    "contains_analysis": "Yes",
+    "crash_context": "/local_disk0/.ephemeral_nfs/envs/pythonEnv-8ac7e00d-2d10-430a-b39d-ad4447d3a5ed/lib/python3.11/site-packages/ray/dashboard",
+    "crash_site": "optional_utils.py",
+    "crash_to_fix_distance": "adjacent",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "datacenter"
+    ],
+    "gold_files": [
+      "python/ray/dashboard/datacenter.py"
+    ],
+    "gold_methods_considered": [
+      "get_node_info"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "datacenter"
+    ],
+    "matched_methods": [
+      "get_node_info"
+    ],
+    "name": "ray-47668",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "/local_disk0/.ephemeral_nfs/envs/pythonEnv-8ac7e00d-2d10-430a-b39d-ad4447d3a5ed/lib/python3.11/site-packages/ray/dashboard",
+        "file": "optional_utils.py",
+        "language": "python"
+      },
+      {
+        "context": "/local_disk0/.ephemeral_nfs/envs/pythonEnv-8ac7e00d-2d10-430a-b39d-ad4447d3a5ed/lib/python3.11/site-packages/ray/dashboard/modules/node",
+        "file": "node_head.py",
+        "language": "python"
+      },
+      {
+        "context": "/local_disk0/.ephemeral_nfs/envs/pythonEnv-8ac7e00d-2d10-430a-b39d-ad4447d3a5ed/lib/python3.11/site-packages/ray/dashboard",
+        "file": "datacenter.py",
+        "language": "python"
+      },
+      {
+        "context": "/local_disk0/.ephemeral_nfs/envs/pythonEnv-8ac7e00d-2d10-430a-b39d-ad4447d3a5ed/lib/python3.11/site-packages/ray/dashboard",
+        "file": "utils.py",
+        "language": "python"
+      }
+    ],
+    "system": "ray",
+    "textual_anchor": "method"
+  },
+  "ray-54830": {
+    "bug_id": "54830",
+    "contains_analysis": "Yes",
+    "crash_context": "/lib/gcc-8.5.0/python-3.11.7-ziwh63aulhhzxksf42k5u3gnim2rbpmp/lib/python3.11/concurrent/futures",
+    "crash_site": "_base.py",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "dp_server",
+      "llm_server"
+    ],
+    "gold_files": [
+      "python/ray/llm/_internal/serve/deployments/data_parallel/dp_server.py",
+      "python/ray/llm/_internal/serve/deployments/llm/llm_server.py"
+    ],
+    "gold_methods_considered": [
+      "_push_telemetry_report"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "llm_server"
+    ],
+    "matched_methods": [
+      "_push_telemetry_report"
+    ],
+    "name": "ray-54830",
+    "num_gold_files": 2,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [
+      {
+        "context": "/lib/gcc-8.5.0/python-3.11.7-ziwh63aulhhzxksf42k5u3gnim2rbpmp/lib/python3.11/concurrent/futures",
+        "file": "_base.py",
+        "language": "python"
+      },
+      {
+        "context": "/work_dir/pipeline/.venv/lib/python3.11/site-packages/ray/serve/_private",
+        "file": "replica.py",
+        "language": "python"
+      },
+      {
+        "context": "/work_dir/pipeline/.venv/lib/python3.11/site-packages/ray/llm/_internal/serve/observability/usage_telemetry",
+        "file": "usage.py",
+        "language": "python"
+      },
+      {
+        "context": "/work_dir/pipeline/.venv/lib/python3.11/site-packages/ray/llm/_internal/serve/deployments/llm",
+        "file": "llm_server.py",
+        "language": "python"
+      },
+      {
+        "context": "/lib/gcc-8.5.0/python-3.11.7-ziwh63aulhhzxksf42k5u3gnim2rbpmp/lib/python3.11/asyncio",
+        "file": "tasks.py",
+        "language": "python"
+      },
+      {
+        "context": "/work_dir/pipeline/.venv/lib/python3.11/site-packages/ray",
+        "file": "actor.py",
+        "language": "python"
+      }
+    ],
+    "system": "ray",
+    "textual_anchor": "method"
+  },
+  "ray-54841": {
+    "bug_id": "54841",
+    "contains_analysis": "Yes",
+    "crash_context": "/conda_env/lib/python3.12/site-packages/ray/data",
+    "crash_site": "exceptions.py",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "stats"
+    ],
+    "gold_files": [
+      "python/ray/data/_internal/stats.py"
+    ],
+    "gold_methods_considered": [
+      "_stats_actor"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "stats"
+    ],
+    "matched_methods": [
+      "_stats_actor"
+    ],
+    "name": "ray-54841",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "/conda_env/lib/python3.12/site-packages/ray/data",
+        "file": "exceptions.py",
+        "language": "python"
+      },
+      {
+        "context": "/conda_env/lib/python3.12/site-packages/ray/data/_internal",
+        "file": "plan.py",
+        "language": "python"
+      },
+      {
+        "context": "/conda_env/lib/python3.12/site-packages/ray/data/_internal/execution",
+        "file": "legacy_compat.py",
+        "language": "python"
+      },
+      {
+        "context": "/conda_env/lib/python3.12/site-packages/ray/data/_internal/execution",
+        "file": "streaming_executor.py",
+        "language": "python"
+      },
+      {
+        "context": "/conda_env/lib/python3.12/site-packages/ray/data/_internal",
+        "file": "stats.py",
+        "language": "python"
+      },
+      {
+        "context": "/conda_env/lib/python3.12/site-packages/ray",
+        "file": "actor.py",
+        "language": "python"
+      },
+      {
+        "context": "/conda_env/lib/python3.12/site-packages/ray/_private",
+        "file": "auto_init_hook.py",
+        "language": "python"
+      },
+      {
+        "context": "/conda_env/lib/python3.12/site-packages/ray/util/tracing",
+        "file": "tracing_helper.py",
+        "language": "python"
+      }
+    ],
+    "system": "ray",
+    "textual_anchor": "method"
+  },
+  "ray-60453": {
+    "bug_id": "60453",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "actor_pool_map_operator",
+      "context"
+    ],
+    "gold_files": [
+      "python/ray/data/_internal/execution/operators/actor_pool_map_operator.py",
+      "python/ray/data/context.py"
+    ],
+    "gold_methods_considered": [
+      "DataContext",
+      "_create_actor_pool",
+      "_release_running_actor",
+      "_release_running_actors",
+      "_try_schedule_tasks_internal",
+      "on_exit"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ray-60453",
+    "num_gold_files": 2,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "opaque"
+  },
+  "ray-60991": {
+    "bug_id": "60991",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "services",
+      "worker"
+    ],
+    "gold_files": [
+      "python/ray/_private/services.py",
+      "python/ray/_private/worker.py"
+    ],
+    "gold_methods_considered": [
+      "get_node_to_connect_for_driver"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "services"
+    ],
+    "matched_methods": [
+      "get_node_to_connect_for_driver"
+    ],
+    "name": "ray-60991",
+    "num_gold_files": 2,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "method"
+  },
+  "ray-61604": {
+    "bug_id": "61604",
+    "contains_analysis": "No",
+    "crash_context": "/code/labs/jakob/ray",
+    "crash_site": "node_labels.py",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "node"
+    ],
+    "gold_files": [
+      "python/ray/_private/node.py"
+    ],
+    "gold_methods_considered": [
+      "__init__"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "node"
+    ],
+    "matched_methods": [],
+    "name": "ray-61604",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "/code/labs/jakob/ray",
+        "file": "node_labels.py",
+        "language": "python"
+      },
+      {
+        "context": "/usr/local/lib/python3.12/site-packages/ray",
+        "file": "runtime_context.py",
+        "language": "python"
+      },
+      {
+        "context": "/usr/local/lib/python3.12/site-packages/ray/_private",
+        "file": "worker.py",
+        "language": "python"
+      },
+      {
+        "context": "/usr/local/lib/python3.12/site-packages/ray/_private",
+        "file": "node.py",
+        "language": "python"
+      }
+    ],
+    "system": "ray",
+    "textual_anchor": "file_class"
+  },
+  "ray-61922": {
+    "bug_id": "61922",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "actor"
+    ],
+    "gold_files": [
+      "python/ray/actor.py"
+    ],
+    "gold_methods_considered": [
+      "options"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "actor"
+    ],
+    "matched_methods": [
+      "options"
+    ],
+    "name": "ray-61922",
+    "num_gold_files": 1,
+    "root_cause_type": "Resource Leak",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "method"
+  },
+  "ray-62328": {
+    "bug_id": "62328",
+    "contains_analysis": "No",
+    "crash_context": "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine",
+    "crash_site": "async_llm.py",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "experimental_mutable_object_manager"
+    ],
+    "gold_files": [
+      "src/ray/core_worker/experimental_mutable_object_manager.cc"
+    ],
+    "gold_methods_considered": [
+      "GetSemaphoreHeaderName",
+      "GetSemaphoreObjectName",
+      "OpenSemaphores"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "experimental_mutable_object_manager"
+    ],
+    "matched_methods": [
+      "OpenSemaphores"
+    ],
+    "name": "ray-62328",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine",
+        "file": "async_llm.py",
+        "language": "python"
+      },
+      {
+        "context": "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine",
+        "file": "core_client.py",
+        "language": "python"
+      },
+      {
+        "context": ".",
+        "file": "experimental_mutable_object_manager.cc",
+        "language": "cpp"
+      }
+    ],
+    "system": "ray",
+    "textual_anchor": "method"
+  },
+  "ray-62430": {
+    "bug_id": "62430",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "local_resource_manager"
+    ],
+    "gold_files": [
+      "src/ray/raylet/scheduling/local_resource_manager.cc"
+    ],
+    "gold_methods_considered": [
+      "MarkFootprintAsBusy"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ray-62430",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "opaque"
+  },
+  "ray-8749": {
+    "bug_id": "8749",
+    "contains_analysis": "No",
+    "crash_context": ".",
+    "crash_site": "global_state_accessor.cc",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "worker_pool"
+    ],
+    "gold_files": [
+      "src/ray/raylet/worker_pool.cc"
+    ],
+    "gold_methods_considered": [
+      "GetNextFreePort"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ray-8749",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [
+      {
+        "context": ".",
+        "file": "global_state_accessor.cc",
+        "language": "cpp"
+      },
+      {
+        "context": ".",
+        "file": "redis_client.cc",
+        "language": "cpp"
+      },
+      {
+        "context": ".",
+        "file": "redis_gcs_client.cc",
+        "language": "cpp"
+      },
+      {
+        "context": ".",
+        "file": "service_based_gcs_client.cc",
+        "language": "cpp"
+      },
+      {
+        "context": ".",
+        "file": "server_chttp2.cc",
+        "language": "cpp"
+      }
+    ],
+    "system": "ray",
+    "textual_anchor": "opaque"
+  },
+  "ray-8889": {
+    "bug_id": "8889",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "sampler"
+    ],
+    "gold_files": [
+      "rllib/evaluation/sampler.py"
+    ],
+    "gold_methods_considered": [
+      "_process_policy_eval_results"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "ray-8889",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "ray",
+    "textual_anchor": "opaque"
+  },
+  "tikv-16818": {
+    "bug_id": "16818",
+    "contains_analysis": "No",
+    "crash_context": ".",
+    "crash_site": "lib.rs",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "MvccReader"
+    ],
+    "gold_file_stems_considered": [
+      "reader"
+    ],
+    "gold_files": [
+      "src/storage/mvcc/reader/reader.rs"
+    ],
+    "gold_methods_considered": [
+      "scan_locks"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "tikv-16818",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": ".",
+        "file": "lib.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src",
+        "file": "boxed.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src",
+        "file": "panicking.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys_common",
+        "file": "backtrace.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/resolved_ts/src",
+        "file": "cmd.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/adapters",
+        "file": "map.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/traits",
+        "file": "iterator.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec",
+        "file": "mod.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec",
+        "file": "spec_extend.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec",
+        "file": "spec_from_iter_nested.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec",
+        "file": "in_place_collect.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/resolved_ts/src",
+        "file": "endpoint.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/tikv_util/src/worker",
+        "file": "pool.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/tracker/src",
+        "file": "tls.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread",
+        "file": "local.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/.cargo/git/checkouts/yatp-e704b73c3ee279b6/793be4d/src/task",
+        "file": "future.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/.cargo/git/checkouts/yatp-e704b73c3ee279b6/793be4d/src/pool",
+        "file": "worker.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/.cargo/git/checkouts/yatp-e704b73c3ee279b6/793be4d/src/pool",
+        "file": "builder.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic",
+        "file": "unwind_safe.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src",
+        "file": "panic.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops",
+        "file": "function.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/unix",
+        "file": "thread.rs",
+        "language": "rust"
+      }
+    ],
+    "system": "tikv",
+    "textual_anchor": "opaque"
+  },
+  "tikv-17830": {
+    "bug_id": "17830",
+    "contains_analysis": "No",
+    "crash_context": ".",
+    "crash_site": "lib.rs",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "ImportSstService"
+    ],
+    "gold_file_stems_considered": [
+      "sst_service"
+    ],
+    "gold_files": [
+      "src/import/sst_service.rs"
+    ],
+    "gold_methods_considered": [
+      "duplicate_detect"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "ImportSstService",
+      "sst_service"
+    ],
+    "matched_methods": [
+      "duplicate_detect"
+    ],
+    "name": "tikv-17830",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [
+      {
+        "context": ".",
+        "file": "lib.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2022-11-15-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src",
+        "file": "boxed.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2022-11-15-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src",
+        "file": "panicking.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2022-11-15-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys_common",
+        "file": "backtrace.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/grpcio-0.10.4/src/task",
+        "file": "mod.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/grpcio-0.10.4/src/call",
+        "file": "server.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/futures-util-0.3.15/src/sink",
+        "file": "close.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/source/tikv/src/import",
+        "file": "sst_service.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/tokio-1.21.2/src/runtime/task",
+        "file": "core.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/tokio-1.21.2/src/loom/std",
+        "file": "unsafe_cell.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/tokio-1.21.2/src/runtime/task",
+        "file": "harness.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2022-11-15-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic",
+        "file": "unwind_safe.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2022-11-15-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src",
+        "file": "panic.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/tokio-1.21.2/src/runtime/task",
+        "file": "raw.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/tokio-1.21.2/src/runtime/scheduler/multi_thread",
+        "file": "worker.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/tokio-1.21.2/src",
+        "file": "coop.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2022-11-15-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread",
+        "file": "local.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/tokio-1.21.2/src/macros",
+        "file": "scoped_tls.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/tokio-1.21.2/src/runtime/blocking",
+        "file": "task.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/tokio-1.21.2/src/runtime/blocking",
+        "file": "pool.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2022-11-15-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops",
+        "file": "function.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2022-11-15-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/unix",
+        "file": "thread.rs",
+        "language": "rust"
+      }
+    ],
+    "system": "tikv",
+    "textual_anchor": "method"
+  },
+  "tikv-18317": {
+    "bug_id": "18317",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "ImportSstService"
+    ],
+    "gold_file_stems_considered": [
+      "sst_service"
+    ],
+    "gold_files": [
+      "src/import/sst_service.rs"
+    ],
+    "gold_methods_considered": [
+      "impl_write",
+      "upload"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "tikv-18317",
+    "num_gold_files": 1,
+    "root_cause_type": "Performance",
+    "stack_frames": [],
+    "system": "tikv",
+    "textual_anchor": "opaque"
+  },
+  "tikv-18458": {
+    "bug_id": "18458",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "unsafe_recovery"
+    ],
+    "gold_files": [
+      "components/raftstore/src/store/unsafe_recovery.rs"
+    ],
+    "gold_methods_considered": [
+      "demote_failed_voters_request"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "tikv-18458",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "tikv",
+    "textual_anchor": "opaque"
+  },
+  "tikv-18498": {
+    "bug_id": "18498",
+    "contains_analysis": "No",
+    "crash_context": ".",
+    "crash_site": "raft.rs",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "Delegate"
+    ],
+    "gold_file_stems_considered": [
+      "delegate"
+    ],
+    "gold_files": [
+      "components/cdc/src/delegate.rs"
+    ],
+    "gold_methods_considered": [
+      "push_lock"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "Delegate",
+      "delegate"
+    ],
+    "matched_methods": [
+      "push_lock"
+    ],
+    "name": "tikv-18498",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [
+      {
+        "context": ".",
+        "file": "raft.rs",
+        "language": "rust"
+      },
+      {
+        "context": ".",
+        "file": "lib.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src",
+        "file": "boxed.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src",
+        "file": "panicking.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys_common",
+        "file": "backtrace.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/cdc/src",
+        "file": "delegate.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/cdc/src",
+        "file": "endpoint.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/tikv_util/src/worker",
+        "file": "pool.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/tracker/src",
+        "file": "tls.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread",
+        "file": "local.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/futures-util-0.3.31/src/future/future",
+        "file": "map.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/.cargo/git/checkouts/yatp-e704b73c3ee279b6/793be4d/src/task",
+        "file": "future.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/tikv_util/src/yatp_pool",
+        "file": "mod.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/.cargo/git/checkouts/yatp-e704b73c3ee279b6/793be4d/src/pool",
+        "file": "worker.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/.cargo/git/checkouts/yatp-e704b73c3ee279b6/793be4d/src/pool",
+        "file": "builder.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic",
+        "file": "unwind_safe.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src",
+        "file": "panic.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops",
+        "file": "function.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2023-12-28-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/unix",
+        "file": "thread.rs",
+        "language": "rust"
+      }
+    ],
+    "system": "tikv",
+    "textual_anchor": "method"
+  },
+  "tikv-18756": {
+    "bug_id": "18756",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "RangeLatch",
+      "RangeLatchGuard"
+    ],
+    "gold_file_stems_considered": [
+      "range_latch"
+    ],
+    "gold_files": [
+      "components/tikv_util/src/range_latch.rs"
+    ],
+    "gold_methods_considered": [
+      "_mutex_guard",
+      "acquire"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "RangeLatch",
+      "RangeLatchGuard",
+      "range_latch"
+    ],
+    "matched_methods": [],
+    "name": "tikv-18756",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "tikv",
+    "textual_anchor": "file_class"
+  },
+  "tikv-18912": {
+    "bug_id": "18912",
+    "contains_analysis": "No",
+    "crash_context": "k8s",
+    "crash_site": "client.go",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "compaction_guard"
+    ],
+    "gold_files": [
+      "components/raftstore/src/store/compaction_guard.rs"
+    ],
+    "gold_methods_considered": [
+      "overlap_with"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "compaction_guard"
+    ],
+    "matched_methods": [
+      "overlap_with"
+    ],
+    "name": "tikv-18912",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "k8s",
+        "file": "client.go",
+        "language": "go"
+      },
+      {
+        "context": "workspace/.cargo/git/checkouts/rust-rocksdb-882d3d9019f8b391/1fa430f/librocksdb_sys/crocksdb",
+        "file": "c.cc",
+        "language": "cpp"
+      },
+      {
+        "context": "workspace/.cargo/git/checkouts/rust-rocksdb-882d3d9019f8b391/1fa430f/librocksdb_sys/rocksdb/db/compaction",
+        "file": "compaction.cc",
+        "language": "cpp"
+      },
+      {
+        "context": "workspace/.cargo/git/checkouts/rust-rocksdb-882d3d9019f8b391/1fa430f/librocksdb_sys/rocksdb/db/db_impl",
+        "file": "db_impl_compaction_flush.cc",
+        "language": "cpp"
+      },
+      {
+        "context": "/8/bits",
+        "file": "std_function.h",
+        "language": "cpp"
+      },
+      {
+        "context": "workspace/.cargo/git/checkouts/rust-rocksdb-882d3d9019f8b391/1fa430f/librocksdb_sys/rocksdb/util",
+        "file": "threadpool_imp.cc",
+        "language": "cpp"
+      },
+      {
+        "context": ".",
+        "file": "lib.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src",
+        "file": "boxed.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src",
+        "file": "panicking.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys",
+        "file": "backtrace.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/source/tikv/components/raftstore/src/store",
+        "file": "compaction_guard.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/source/tikv/components/engine_rocks/src",
+        "file": "sst_partitioner.rs",
+        "language": "rust"
+      }
+    ],
+    "system": "tikv",
+    "textual_anchor": "method"
+  },
+  "tikv-18983": {
+    "bug_id": "18983",
+    "contains_analysis": "No",
+    "crash_context": ".",
+    "crash_site": "lib.rs",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "Peer"
+    ],
+    "gold_file_stems_considered": [
+      "peer"
+    ],
+    "gold_files": [
+      "components/raftstore/src/store/fsm/peer.rs"
+    ],
+    "gold_methods_considered": [
+      "on_raft_gc_log_tick"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "Peer",
+      "peer"
+    ],
+    "matched_methods": [
+      "on_raft_gc_log_tick"
+    ],
+    "name": "tikv-18983",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [
+      {
+        "context": ".",
+        "file": "lib.rs",
+        "language": "rust"
+      },
+      {
+        "context": "components/raftstore/src/store/fsm",
+        "file": "store.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src",
+        "file": "boxed.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src",
+        "file": "panicking.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys",
+        "file": "backtrace.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/source/tikv/components/raftstore/src/store",
+        "file": "entry_storage.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src",
+        "file": "option.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/source/tikv/components/raftstore/src/store",
+        "file": "peer_storage.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/.cargo/git/checkouts/raft-rs-8d904e7e48a482b3/0d01b20/src",
+        "file": "raft_log.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/source/tikv/components/raftstore/src/store",
+        "file": "peer.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/source/tikv/components/batch-system/src",
+        "file": "batch.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/source/tikv/components/raftstore/src/store/worker",
+        "file": "refresh_config.rs",
+        "language": "rust"
+      },
+      {
+        "context": "workspace/source/tikv/components/tikv_util/src/sys",
+        "file": "thread.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread",
+        "file": "mod.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic",
+        "file": "unwind_safe.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src",
+        "file": "panic.rs",
+        "language": "rust"
+      },
+      {
+        "context": "root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops",
+        "file": "function.rs",
+        "language": "rust"
+      }
+    ],
+    "system": "tikv",
+    "textual_anchor": "method"
+  },
+  "tikv-19004": {
+    "bug_id": "19004",
+    "contains_analysis": "No",
+    "crash_context": ".",
+    "crash_site": "lib.rs",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "Peer",
+      "PeerFsmDelegate"
+    ],
+    "gold_file_stems_considered": [
+      "peer"
+    ],
+    "gold_files": [
+      "components/raftstore/src/store/fsm/peer.rs",
+      "components/raftstore/src/store/peer.rs"
+    ],
+    "gold_methods_considered": [
+      "PendingRemoveReason",
+      "destroy_peer",
+      "maybe_destroy",
+      "on_apply_res",
+      "on_casual_msg",
+      "on_ready_destroy_peer"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "Peer",
+      "PeerFsmDelegate",
+      "peer"
+    ],
+    "matched_methods": [],
+    "name": "tikv-19004",
+    "num_gold_files": 2,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [
+      {
+        "context": ".",
+        "file": "lib.rs",
+        "language": "rust"
+      },
+      {
+        "context": "components/raftstore/src/store/fsm",
+        "file": "store.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src",
+        "file": "boxed.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src",
+        "file": "panicking.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys",
+        "file": "backtrace.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/raftstore/src/store/fsm",
+        "file": "peer.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/batch-system/src",
+        "file": "batch.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/raftstore/src/store/worker",
+        "file": "refresh_config.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/workspace/source/tikv/components/tikv_util/src/sys",
+        "file": "thread.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread",
+        "file": "mod.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic",
+        "file": "unwind_safe.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src",
+        "file": "panic.rs",
+        "language": "rust"
+      },
+      {
+        "context": "/root/.rustup/toolchains/nightly-2025-02-28-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops",
+        "file": "function.rs",
+        "language": "rust"
+      }
+    ],
+    "system": "tikv",
+    "textual_anchor": "file_class"
+  },
+  "tikv-19220": {
+    "bug_id": "19220",
+    "contains_analysis": "No",
+    "crash_context": "k8s",
+    "crash_site": "client.go",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "CoprocessorHost"
+    ],
+    "gold_file_stems_considered": [
+      "dispatcher"
+    ],
+    "gold_files": [
+      "components/raftstore/src/coprocessor/dispatcher.rs"
+    ],
+    "gold_methods_considered": [
+      "new_split_checker_host"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "tikv-19220",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "k8s",
+        "file": "client.go",
+        "language": "go"
+      }
+    ],
+    "system": "tikv",
+    "textual_anchor": "opaque"
+  },
+  "tikv-19238": {
+    "bug_id": "19238",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "RouterInner"
+    ],
+    "gold_file_stems_considered": [
+      "router"
+    ],
+    "gold_files": [
+      "components/backup-stream/src/router.rs"
+    ],
+    "gold_methods_considered": [
+      "do_flush"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "tikv-19238",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "tikv",
+    "textual_anchor": "opaque"
+  },
+  "zookeeper-2581": {
+    "bug_id": "2581",
+    "contains_analysis": "No",
+    "crash_context": "org.apache.zookeeper.common",
+    "crash_site": "X509Util.java",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [
+      "X509AuthenticationProvider"
+    ],
+    "gold_file_stems_considered": [
+      "X509AuthenticationProvider"
+    ],
+    "gold_files": [
+      "src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java"
+    ],
+    "gold_methods_considered": [
+      "X509AuthenticationProvider"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "X509AuthenticationProvider"
+    ],
+    "matched_methods": [
+      "X509AuthenticationProvider"
+    ],
+    "name": "zookeeper-2581",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [
+      {
+        "context": "org.apache.zookeeper.common",
+        "file": "X509Util.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server.auth",
+        "file": "X509AuthenticationProvider.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server.auth",
+        "file": "ProviderRegistry.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server",
+        "file": "PrepRequestProcessor.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server",
+        "file": "FinalRequestProcessor.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server.quorum",
+        "file": "CommitProcessor.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server",
+        "file": "WorkerService.java",
+        "language": "java"
+      }
+    ],
+    "system": "zookeeper",
+    "textual_anchor": "method"
+  },
+  "zookeeper-2623": {
+    "bug_id": "2623",
+    "contains_analysis": "No",
+    "crash_context": "org.apache.zookeeper.server",
+    "crash_site": "NIOServerCnxn.java",
+    "crash_to_fix_distance": "adjacent",
+    "gold_classes_considered": [
+      "FinalRequestProcessor",
+      "PrepRequestProcessor"
+    ],
+    "gold_file_stems_considered": [
+      "FinalRequestProcessor",
+      "PrepRequestProcessor"
+    ],
+    "gold_files": [
+      "zookeeper-server/src/main/java/org/apache/zookeeper/server/FinalRequestProcessor.java",
+      "zookeeper-server/src/main/java/org/apache/zookeeper/server/PrepRequestProcessor.java"
+    ],
+    "gold_methods_considered": [
+      "pRequestHelper"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "FinalRequestProcessor"
+    ],
+    "matched_methods": [],
+    "name": "zookeeper-2623",
+    "num_gold_files": 2,
+    "root_cause_type": "Error handling",
+    "stack_frames": [
+      {
+        "context": "org.apache.zookeeper.server",
+        "file": "NIOServerCnxn.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server",
+        "file": "NIOServerCnxnFactory.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server",
+        "file": "WorkerService.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server",
+        "file": "ZKDatabase.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server",
+        "file": "FinalRequestProcessor.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server.quorum",
+        "file": "CommitProcessor.java",
+        "language": "java"
+      }
+    ],
+    "system": "zookeeper",
+    "textual_anchor": "file_class"
+  },
+  "zookeeper-2775": {
+    "bug_id": "2775",
+    "contains_analysis": "Yes",
+    "crash_context": "org.apache.zookeeper",
+    "crash_site": "ClientCnxn.java",
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [
+      "SendThread"
+    ],
+    "gold_file_stems_considered": [
+      "ClientCnxn"
+    ],
+    "gold_files": [
+      "src/java/main/org/apache/zookeeper/ClientCnxn.java"
+    ],
+    "gold_methods_considered": [
+      "startConnect"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "ClientCnxn",
+      "SendThread"
+    ],
+    "matched_methods": [],
+    "name": "zookeeper-2775",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [
+      {
+        "context": "org.apache.zookeeper",
+        "file": "ClientCnxn.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper",
+        "file": "ClientCnxnSocketNIO.java",
+        "language": "java"
+      }
+    ],
+    "system": "zookeeper",
+    "textual_anchor": "file_class"
+  },
+  "zookeeper-2836": {
+    "bug_id": "2836",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "Listener"
+    ],
+    "gold_file_stems_considered": [
+      "QuorumCnxManager"
+    ],
+    "gold_files": [
+      "src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "Listener",
+      "QuorumCnxManager"
+    ],
+    "matched_methods": [],
+    "name": "zookeeper-2836",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "zookeeper",
+    "textual_anchor": "file_class"
+  },
+  "zookeeper-2845": {
+    "bug_id": "2845",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "ZooKeeperServer"
+    ],
+    "gold_file_stems_considered": [
+      "ZooKeeperServer"
+    ],
+    "gold_files": [
+      "src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java"
+    ],
+    "gold_methods_considered": [
+      "shutdown"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [
+      "shutdown"
+    ],
+    "name": "zookeeper-2845",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "zookeeper",
+    "textual_anchor": "method"
+  },
+  "zookeeper-2959": {
+    "bug_id": "2959",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "Leader"
+    ],
+    "gold_file_stems_considered": [
+      "Leader"
+    ],
+    "gold_files": [
+      "src/java/main/org/apache/zookeeper/server/quorum/Leader.java"
+    ],
+    "gold_methods_considered": [
+      "getEpochToPropose",
+      "waitForEpochAck"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "Leader"
+    ],
+    "matched_methods": [
+      "getEpochToPropose",
+      "waitForEpochAck"
+    ],
+    "name": "zookeeper-2959",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "zookeeper",
+    "textual_anchor": "method"
+  },
+  "zookeeper-2960": {
+    "bug_id": "2960",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "QuorumPeerMain"
+    ],
+    "gold_file_stems_considered": [
+      "QuorumPeerMain"
+    ],
+    "gold_files": [
+      "src/java/main/org/apache/zookeeper/server/quorum/QuorumPeerMain.java"
+    ],
+    "gold_methods_considered": [
+      "runFromConfig"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "zookeeper-2960",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "zookeeper",
+    "textual_anchor": "opaque"
+  },
+  "zookeeper-2982": {
+    "bug_id": "2982",
+    "contains_analysis": "No",
+    "crash_context": "org.apache.zookeeper.server.quorum",
+    "crash_site": "Learner.java",
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [
+      "Learner"
+    ],
+    "gold_file_stems_considered": [
+      "Learner"
+    ],
+    "gold_files": [
+      "src/java/main/org/apache/zookeeper/server/quorum/Learner.java"
+    ],
+    "gold_methods_considered": [
+      "findLeader"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "Learner"
+    ],
+    "matched_methods": [],
+    "name": "zookeeper-2982",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [
+      {
+        "context": "org.apache.zookeeper.server.quorum",
+        "file": "Learner.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server.quorum",
+        "file": "Follower.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server.quorum",
+        "file": "QuorumPeer.java",
+        "language": "java"
+      }
+    ],
+    "system": "zookeeper",
+    "textual_anchor": "file_class"
+  },
+  "zookeeper-3218": {
+    "bug_id": "3218",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "FastLeaderElection"
+    ],
+    "gold_file_stems_considered": [
+      "FastLeaderElection"
+    ],
+    "gold_files": [
+      "zookeeper-server/src/main/java/org/apache/zookeeper/server/quorum/FastLeaderElection.java"
+    ],
+    "gold_methods_considered": [
+      "lookForLeader"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [
+      "lookForLeader"
+    ],
+    "name": "zookeeper-3218",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "zookeeper",
+    "textual_anchor": "method"
+  },
+  "zookeeper-3642": {
+    "bug_id": "3642",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "Learner"
+    ],
+    "gold_file_stems_considered": [
+      "Learner"
+    ],
+    "gold_files": [
+      "zookeeper-server/src/main/java/org/apache/zookeeper/server/quorum/Learner.java"
+    ],
+    "gold_methods_considered": [
+      "shutdown"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "Learner"
+    ],
+    "matched_methods": [],
+    "name": "zookeeper-3642",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [],
+    "system": "zookeeper",
+    "textual_anchor": "file_class"
+  },
+  "zookeeper-3644": {
+    "bug_id": "3644",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "FileTxnSnapLog"
+    ],
+    "gold_file_stems_considered": [
+      "FileTxnSnapLog"
+    ],
+    "gold_files": [
+      "zookeeper-server/src/main/java/org/apache/zookeeper/server/persistence/FileTxnSnapLog.java"
+    ],
+    "gold_methods_considered": [
+      "restore"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "FileTxnSnapLog"
+    ],
+    "matched_methods": [],
+    "name": "zookeeper-3644",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "zookeeper",
+    "textual_anchor": "file_class"
+  },
+  "zookeeper-3656": {
+    "bug_id": "3656",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "SyncRequestProcessor"
+    ],
+    "gold_file_stems_considered": [
+      "SyncRequestProcessor"
+    ],
+    "gold_files": [
+      "zookeeper-server/src/main/java/org/apache/zookeeper/server/SyncRequestProcessor.java"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "SyncRequestProcessor"
+    ],
+    "matched_methods": [],
+    "name": "zookeeper-3656",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "zookeeper",
+    "textual_anchor": "file_class"
+  },
+  "zookeeper-3769": {
+    "bug_id": "3769",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "WorkerReceiver"
+    ],
+    "gold_file_stems_considered": [
+      "FastLeaderElection"
+    ],
+    "gold_files": [
+      "zookeeper-server/src/main/java/org/apache/zookeeper/server/quorum/FastLeaderElection.java"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "zookeeper-3769",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [],
+    "system": "zookeeper",
+    "textual_anchor": "opaque"
+  },
+  "zookeeper-3829": {
+    "bug_id": "3829",
+    "contains_analysis": "Yes",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [
+      "Leader",
+      "QuorumPeer"
+    ],
+    "gold_file_stems_considered": [
+      "Leader",
+      "QuorumPeer"
+    ],
+    "gold_files": [
+      "zookeeper-server/src/main/java/org/apache/zookeeper/server/quorum/Leader.java",
+      "zookeeper-server/src/main/java/org/apache/zookeeper/server/quorum/QuorumPeer.java"
+    ],
+    "gold_methods_considered": [
+      "setLastSeenQuorumVerifier",
+      "startZkServer"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "zookeeper-3829",
+    "num_gold_files": 2,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "zookeeper",
+    "textual_anchor": "opaque"
+  },
+  "zookeeper-3988": {
+    "bug_id": "3988",
+    "contains_analysis": "No",
+    "crash_context": "org.apache.zookeeper.server",
+    "crash_site": "NettyServerCnxn.java",
+    "crash_to_fix_distance": "adjacent",
+    "gold_classes_considered": [
+      "CnxnChannelHandler"
+    ],
+    "gold_file_stems_considered": [
+      "NettyServerCnxnFactory"
+    ],
+    "gold_files": [
+      "zookeeper-server/src/main/java/org/apache/zookeeper/server/NettyServerCnxnFactory.java"
+    ],
+    "gold_methods_considered": [
+      "channelActive"
+    ],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "CnxnChannelHandler",
+      "NettyServerCnxnFactory"
+    ],
+    "matched_methods": [],
+    "name": "zookeeper-3988",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [
+      {
+        "context": "org.apache.zookeeper.server",
+        "file": "NettyServerCnxn.java",
+        "language": "java"
+      },
+      {
+        "context": "org.apache.zookeeper.server",
+        "file": "NettyServerCnxnFactory.java",
+        "language": "java"
+      }
+    ],
+    "system": "zookeeper",
+    "textual_anchor": "file_class"
+  },
+  "zookeeper-4699": {
+    "bug_id": "4699",
+    "contains_analysis": "Yes",
+    "crash_context": "/",
+    "crash_site": "main.cc",
+    "crash_to_fix_distance": "cross_component",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [
+      "zookeeper"
+    ],
+    "gold_files": [
+      "zookeeper-client/zookeeper-client-c/src/zookeeper.c"
+    ],
+    "gold_methods_considered": [
+      "zookeeper_interest"
+    ],
+    "has_exact_method_anchor": true,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "zookeeper"
+    ],
+    "matched_methods": [
+      "zookeeper_interest"
+    ],
+    "name": "zookeeper-4699",
+    "num_gold_files": 1,
+    "root_cause_type": "Concurrency",
+    "stack_frames": [
+      {
+        "context": "/",
+        "file": "main.cc",
+        "language": "cpp"
+      }
+    ],
+    "system": "zookeeper",
+    "textual_anchor": "method"
+  },
+  "zookeeper-4761": {
+    "bug_id": "4761",
+    "contains_analysis": "No",
+    "crash_context": null,
+    "crash_site": null,
+    "crash_to_fix_distance": "no_stack_trace",
+    "gold_classes_considered": [],
+    "gold_file_stems_considered": [],
+    "gold_files": [
+      "zookeeper-client/zookeeper-client-c/src/cli.c"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": false,
+    "matched_file_or_class": [],
+    "matched_methods": [],
+    "name": "zookeeper-4761",
+    "num_gold_files": 1,
+    "root_cause_type": "Logic",
+    "stack_frames": [],
+    "system": "zookeeper",
+    "textual_anchor": "opaque"
+  },
+  "zookeeper-4921": {
+    "bug_id": "4921",
+    "contains_analysis": "No",
+    "crash_context": "o.a.z",
+    "crash_site": "ClientCnxn.java",
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [
+      "SendThread"
+    ],
+    "gold_file_stems_considered": [
+      "ClientCnxn"
+    ],
+    "gold_files": [
+      "zookeeper-server/src/main/java/org/apache/zookeeper/ClientCnxn.java"
+    ],
+    "gold_methods_considered": [],
+    "has_exact_method_anchor": false,
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "ClientCnxn",
+      "SendThread"
+    ],
+    "matched_methods": [],
+    "name": "zookeeper-4921",
+    "num_gold_files": 1,
+    "root_cause_type": "Error handling",
+    "stack_frames": [
+      {
+        "context": "o.a.z",
+        "file": "ClientCnxn.java",
+        "language": "java"
+      }
+    ],
+    "system": "zookeeper",
+    "textual_anchor": "file_class"
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "id": "141740",
+    "system": "elasticsearch",
+    "issue_creation_date": "2026-02-03",
+    "issue_link": "https://github.com/elastic/elasticsearch/issues/141740",
+    "fix_link": "https://github.com/elastic/elasticsearch/pull/141815",
+    "branch": "96be973fb5687c9837f51352fd7c8c5d2a5894aa",
+    "title": "Logging cancellation task with large number of nodes/actions",
+    "description": "When canceling a possibly large list of actions / tasks, a possibly large amount of memory might be consumed at times as ES tries to log it by means of its description CancelTasksRequest#getDescription.\nWe should probably make sure the size of the underlying arrays doesn't become too big, and return a subset of the actions/nodes in the description when that's the case.\n\n",
+    "severity": "Major",
+    "root_cause_type": "Performance",
+    "bug_complexity": "Medium",
+    "distributed": "Yes",
+    "contains_analysis": "No",
+    "analysis_removed": "No",
+    "contains_logs": "No",
+    "contains_stack_traces": "No",
+    "bug_cause_description": "",
+    "artifact_dir": "artifact_dir"
+}

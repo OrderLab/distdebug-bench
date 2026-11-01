@@ -1,0 +1,20 @@
+{
+  "id": "2775",
+  "system": "zookeeper",
+  "issue_creation_date": "2017-05-05",
+  "issue_link": "[ZOOKEEPER-2775] ZK Client not able to connect with Xid out of order error - ASF JIRA",
+  "fix_link": "ZOOKEEPER-2775: ZK Client not able to connect with Xid out of order e\u2026 \u00b7 apache/zookeeper@0026e27",
+  "branch": "release-3.5.3",
+  "title": "ZK Client not able to connect with Xid out of order error",
+  "description": "During Network unreachable scenario in one of the cluster, we observed Xid out of order and Nothing in the queue error continously. And ZK client it finally not able to connect successully to ZK server.\n\nLogs:\n\nunexpected error, closing socket connection and attempting reconnect | org.apache.zookeeper.ClientCnxn (ClientCnxn.java:1447)\njava.io.IOException: Xid out of order. Got Xid 52 with err 0 expected Xid 53 for a packet with details: clientPath:null serverPath:null finished:false header:: 53,101 replyHeader:: 0,0,-4 request:: 12885502275,v\n\n{'/app1/controller,'/app1/config/changes}\n,v{},v\n\n{'/app1/config/changes}\nresponse:: null\nat org.apache.zookeeper.ClientCnxn$SendThread.readResponse(ClientCnxn.java:996)\nat org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:101)\nat org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:370)\nat org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1426)\n\nunexpected error, closing socket connection and attempting reconnect\njava.io.IOException: Nothing in the queue, but got 1\nat org.apache.zookeeper.ClientCnxn$SendThread.readResponse(ClientCnxn.java:983)\nat org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:101)\nat org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:370)\nat org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1426)\n\nAnalysis:\n1) First time Client fails to do SASL login due to network unreachable problem.\n2017-03-29 10:03:59,377 | WARN | [main-SendThread(192.168.130.8:24002)] | SASL configuration failed: javax.security.auth.login.LoginException: Network is unreachable (sendto failed) Will continue connection to Zookeeper server without SASL authentication, if Zookeeper server allows it. | org.apache.zookeeper.ClientCnxn (ClientCnxn.java:1307)\nHere the boolean saslLoginFailed becomes true.\n\n2) After some time network connection is recovered and client is successully able to login but still the boolean saslLoginFailed is not reset to false.\n\n3) Now SASL negotiation between client and server start happening and during this time no user request will be sent. ( As the socket channel will be closed for write till sasl negotiation complets)\n4) Now response from server for SASL packet will be processed by the client and client assumes that tunnelAuthInProgress() is finished ( method checks for saslLoginFailed boolean Since the boolean is true it assumes its done.) and tries to process the packet as a other packet and will result in above errors.\n\nSolution: Reset the saslLoginFailed boolean every time before client login",
+  "severity": "Critical",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Easy",
+  "distributed": "Yes",
+  "contains_analysis": "Yes",
+  "analysis_removed": "No",
+  "contains_logs": "Yes",
+  "contains_stack_traces": "Yes",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

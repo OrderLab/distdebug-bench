@@ -1,0 +1,8 @@
+[
+  {
+    "file": "hadoop-hdfs/src/test/java/org/apache/hadoop/hdfs/server/datanode/fsdataset/impl/TestLazyPersistReplicaRecovery.java",
+    "function": "TestLazyPersistReplicaRecovery.testDnRestartWithSavedReplicas",
+    "start_line": 45,
+    "end_line": 55
+  }
+]

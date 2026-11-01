@@ -1,0 +1,20 @@
+{
+  "id": "2960",
+  "system": "zookeeper",
+  "issue_creation_date": "2017-12-22",
+  "issue_link": "[ZOOKEEPER-2960] The dataDir and dataLogDir are used opposingly - ASF JIRA",
+  "fix_link": "ZOOKEEPER-2960. The dataDir and dataLogDir are used opposingly by anmolnar \u00b7 Pull Request #441 \u00b7 apache/zookeeper",
+  "branch": "release-3.4.11",
+  "title": "The dataDir and dataLogDir are used opposingly",
+  "description": "_emphasized text_After upgrading from zookeeper 3.4.5, to 3.4.11, without editing zoo.cfg, the new version of the server tries to use the dataDir as the dataLogDir, and the dataLogDir as the dataDir. Or at least some parts of the server.\n\nConfiguration file has:\n\n$ grep -i data /etc/zookeeper/zoo.cfg \ndataLogDir=/var/lib/zookeeper/datalog\ndataDir=/var/lib/zookeeper/data\nBut runtime configuration has:\n\n$ echo conf | nc localhost 2181 | grep -i data\ndataDir=/var/lib/zookeeper/datalog/version-2\ndataLogDir=/var/lib/zookeeper/data/version-2\nAlso, I got this in the debug logs, so clearly some parts of the server confuse things.\n\n[PurgeTask:FileTxnSnapLog@79] - Opening datadir:/var/lib/zookeeper/datalog snapDir:/var/lib/zookeeper/data\n[main:FileTxnSnapLog@79] - Opening datadir:/var/lib/zookeeper/data snapDir:/var/lib/zookeeper/datalog\nI tried to look in the code for wrong uses of the directories. I only found ZookeeperServer.java is passing the arguments to FileTxnSnapLog in the wrong order, but the code comment says that this is legacy only for tests, so I assume it isn't the cause for my case.",
+  "severity": "Critical",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Hard",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "Yes",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

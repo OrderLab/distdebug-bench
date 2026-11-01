@@ -1,0 +1,20 @@
+{
+  "id": "136534",
+  "system": "kubernetes",
+  "issue_creation_date": "",
+  "issue_link": "https://github.com/kubernetes/kubernetes/issues/136533",
+  "fix_link": "https://github.com/kubernetes/kubernetes/pull/136534",
+  "branch": "4ffc49fb3e4",
+  "title": "panic: assignment to entry in nil map in pkg/util/resource.maxResourceList when pod container has nil Resources.Requests",
+  "description": "What happened?\nWhen using PodRequestsAndLimits() to calculate pod resource requests, a panic occurs when comparing spec container resources with status container resources, and the spec has nil Resources.Requests while the status has populated values.\n\npanic: assignment to entry in nil map\n\ngoroutine 586 [running]:\nk8s.io/kubectl/pkg/util/resource.maxResourceList(0x0, 0x0?)\n    /go/pkg/mod/k8s.io/kubectl@v0.34.0/pkg/util/resource/resource.go:179 +0x190\nk8s.io/kubectl/pkg/util/resource.max(0x18?, {0x4003797b68, 0x2, 0x0?})\n    /go/pkg/mod/k8s.io/kubectl@v0.34.0/pkg/util/resource/resource.go:157 +0x60\nk8s.io/kubectl/pkg/util/resource.determineContainerReqs(...)\n    /go/pkg/mod/k8s.io/kubectl@v0.34.0/pkg/util/resource/resource.go:149 +0x148\nk8s.io/kubectl/pkg/util/resource.podRequests(...)\n    /go/pkg/mod/k8s.io/kubectl@v0.34.0/pkg/util/resource/resource.go:57 +0x254\nk8s.io/kubectl/pkg/util/resource.PodRequestsAndLimits(...)\n    /go/pkg/mod/k8s.io/kubectl@v0.34.0/pkg/util/resource/resource.go:36 +0x20\nWhat did you expect to happen?\nThe function should handle nil ResourceList gracefully and return an empty or properly initialized ResourceList instead of panicking.\n\nHow can we reproduce it?\nThe determineContainerReqs function compares spec and status resources:\n\nreqs := max(container.Resources.Requests,        // from pod.spec.containers[].resources.requests\n            containerStatus.AllocatedResources,   // from pod.status.containerStatuses[].allocatedResources\n            containerStatus.Resources.Requests)   // from pod.status.containerStatuses[].resources.requests\nThe panic occurs when:\n\nspec.containers[].resources.requests is nil (pod doesn't define resource requests)\nstatus.containerStatuses[].resources.requests has values (populated by kubelet or admission controllers)\nAny code calls PodRequestsAndLimits() on that pod\nThis state can occur when:\n\nA LimitRange with defaultRequest applies defaults to pods without explicit requests\nThe kubelet populates status.containerStatuses[].resources with actual values\nVirtual cluster (vcluster) syncers copy status back but don't modify spec\nExample pod state that triggers the panic:\n\n{\n  \"spec\": {\n    \"containers\": [{\n      \"resources\": {}\n    }]\n  },\n  \"status\": {\n    \"containerStatuses\": [{\n      \"resources\": {\n        \"requests\": {\"cpu\": \"100m\", \"memory\": \"128Mi\"}\n      }\n    }]\n  }\n}",
+  "severity": "Major",
+  "root_cause_type": "Error handling",
+  "bug_complexity": "Hard",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

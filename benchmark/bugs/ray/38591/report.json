@@ -1,0 +1,20 @@
+{
+  "id": "38591",
+  "system": "Ray",
+  "issue_creation_date": "2023-08-17",
+  "issue_link": "https://github.com/ray-project/ray/issues/38591",
+  "fix_link": "https://github.com/ray-project/ray/pull/39210",
+  "branch": "449afc9461a54ddd15a2f479b163ec4daf9d12a4",
+  "title": "[core] Possible memory leak in async actor implementation",
+  "description": "@shrekris-anyscale and I have been trying to track down a memory leak issue happening across multiple serve components. All of them are async actors and the growth only happens when actor calls are being made, so it lines up that it could be a memory leak related to async actor calls.\n\nI ran a minimal script to send batches of many async actor calls and memory appears to be consistently growing. This is running on nightly wheels, commit sha: 0b8fd1d6dd7e83656713b21bb408fa7f04244bfb.\n\nRepro script (pinning to head node):\n\nimport ray\n\n@ray.remote\nclass A:\n    async def hi(self):\n        return \"hi\"\n\na = A.options(resources={\"node:10.0.62.86\": 0.1}).remote()\n\nwhile True:\n    ray.get([a.hi.remote() for _ in range(10000)])\nMemory growth over 3 hours:\nScreen Shot 2023-08-17 at 5 05 49 PM\n\nLink to the workspace where this is currently running (I plan to leave it going overnight, please don't touch):\n\nhttps://console.anyscale-staging.com/o/anyscale-internal/workspaces/expwrk_czchm1deg9ecnvv44a5cnl3gq6/ses_vw8ax7ielka9scsy8m38iu2lbg\nFor reference, here is a run of the same script but dropping the async def:\n\nimport ray\n\n@ray.remote\nclass A:\n    def hi(self):\n        return \"hi\"\n\na = A.options(resources={\"node:10.0.62.86\": 0.1}).remote()\n\nwhile True:\n    ray.get([a.hi.remote() for _ in range(10000)])\nScreen Shot 2023-08-17 at 5 06 29 PM\n\n", 
+  "severity": "Critical",
+  "root_cause_type": "Dependency",
+  "bug_complexity": "High",
+  "distributed": "Yes",
+  "contains_analysis": "Yes",
+  "analysis_removed": "No",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "3218",
+  "system": "zookeeper",
+  "issue_creation_date": "2018-12-17",
+  "issue_link": "[ZOOKEEPER-3218] zk server reopened\uff0cthe interval for observer connect to the new leader is too long\uff0cthen session expired - ASF JIRA",
+  "fix_link": "ZOOKEEPER-3218: zk server reopened\uff0cthe interval for observer connect \u2026 by enixon \u00b7 Pull Request #747 \u00b7 apache/zookeeper",
+  "branch": "release-3.5.5",
+  "title": "zk server reopened\uff0cthe interval for observer connect to the new leader is too long\uff0cthen session expired",
+  "description": "two participants\u3001one observer\uff0czkclient connect to observer\u3002\n\nThen\uff0cclose the two participants\uff0cthe zookeeper server cloesed\n\nTen seconds later\uff0creopen the two participants\uff0cand leader selected\n\n----------------------------------------------------------------------------\n\nBut the observer can't connect to the new leader immediately\u3002Because in lookForLeader, the observer use blockingQueue(recvqueue)  to offer/poll notifications\uff0cwhen the recvqueue is empty\uff0cpoll from recvqueue will be blocked\uff0cand timeout is 200ms\uff0c400ms\uff0c800ms....60s\u3002\n\nFor example\uff0c09:59:59 observer poll notification\uff0crecvqueue was empty and timeout was 60s\uff1b10:00:00 two participants reopened and reselected\uff1b10:00:59 observer polled notification\uff0cconnected to the new leader\n\nBut the maxSessionTimeout default to 40s\u3002The session expired\n\n-----------------------------------------------------------------------------\n\nPlease improve it\uff1aobserver should connect to the new leader as soon as possible",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Medium",
+  "distributed": "Yes",
+  "contains_analysis": "Yes",
+  "analysis_removed": "No",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "file": "src/java/main/org/apache/zookeeper/server/quorum/QuorumPeerMain.java",
+    "function": "QuorumPeerMain.runFromConfig",
+    "start_line": 139,
+    "end_line": 142
+  }
+]

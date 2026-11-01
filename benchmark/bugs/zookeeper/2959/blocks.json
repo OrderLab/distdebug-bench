@@ -1,0 +1,14 @@
+[
+  {
+    "file": "src/java/main/org/apache/zookeeper/server/quorum/Leader.java",
+    "function": "Leader.getEpochToPropose",
+    "start_line": 1177,
+    "end_line": 1178
+  },
+  {
+    "file": "src/java/main/org/apache/zookeeper/server/quorum/Leader.java",
+    "function": "Leader.waitForEpochAck",
+    "start_line": 1215,
+    "end_line": 1216
+  }
+]

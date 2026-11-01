@@ -1,0 +1,20 @@
+{
+  "id": "46315",
+  "system": "Ray",
+  "issue_creation_date": "2024-06-28",
+  "issue_link": "https://github.com/ray-project/ray/issues/46315",
+  "fix_link": "https://github.com/ray-project/ray/pull/48661",
+  "branch": "a1d4cb19ffcf3e430f88d2e00504b930fadad338",
+  "title": "[core] Cancelling tasks who is waiting for dependencies hangs result objects",
+  "description": "What happened + What you expected to happen\nWhen you have a task returning a Ray Object, and the task is in \"waiting dependencies\" status; and you do ray.cancel(ref) on the ref. You expect the next ray.get(ref) raises TaskCancelledError but it hangs now.\n\nThis issue also applies for streaming generators, and when the task is resubmitted via lineage reconstruction.\n\nThis comes from\n\nray/src/ray/core_worker/transport/direct_task_transport.cc\n\nLines 798 to 799 in 755a49b\n\n // This case is reached for tasks that have unresolved dependencies. \n // No executing tasks, so cancelling is a noop. \nwhere if a task being cancelled have unresolved deps, it does noop.\n\nThis may be true in 4 yrs ago, but now we need to fail the task and mark all objects as failed with the exception.\n\nVersions / Dependencies\nmaster\n\nReproduction script\nRun this script multiple times, it's 70% hanging and 30% passing.\n\nimport ray\nimport numpy as np\nimport pytest\nfrom ray._private.test_utils import SignalActor\nimport time\n\ndef test_cancel_pending_arg_running():\n    with ray.init():\n        @ray.remote(max_retries=-1)\n        def wait_forever():\n            print(\"wait_and_reset starting\")\n            while True:\n                time.sleep(10000)\n\n        @ray.remote(max_retries=-1)\n        def has_deps(may_block):\n            big = may_block\n            return big * 2\n\n        may_block = wait_forever.remote()\n        ref = has_deps.remote(may_block)\n        print(f\"{ref=}\")\n        \n        ready, not_ready = ray.wait([may_block, ref], timeout=1)\n        assert not ready\n        assert len(not_ready) == 2\n        print(f\"both are not ready: {may_block=}, {ref=}\")\n\n        # Now, the generator is pending arg. Cancel it.\n        print(\"Cancelling\")\n        ray.cancel(ref)\n\n        print(\"Getting\")\n        with pytest.raises(ray.exceptions.TaskCancelledError):\n            ray.get(ref)  # This should raise TaskCancelledError, but hangs\n\n\nif __name__ == \"__main__\":\n    import os,sys\n\n    if os.environ.get(\"PARALLEL_CI\"):\n        sys.exit(pytest.main([\"-n\", \"auto\", \"--boxed\", \"-vs\", __file__]))\n    else:\n        sys.exit(pytest.main([\"-sv\", __file__]))",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Hard",
+  "distributed": "Yes",
+  "contains_analysis": "Yes",
+  "analysis_removed": "No",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": ""
+}

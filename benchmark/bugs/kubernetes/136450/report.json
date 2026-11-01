@@ -1,0 +1,20 @@
+{
+  "id": "136450",
+  "system": "kubernetes",
+  "issue_creation_date": "",
+  "issue_link": "https://github.com/kubernetes/kubernetes/pull/136450",
+  "fix_link": "https://github.com/kubernetes/kubernetes/pull/136450",
+  "branch": "bcdc613966e613aa3d7f5106c013c8650a0edecf",
+  "title": "DRA: support non-pod references in ReservedFor",
+  "description": "TheResourceClaim controller would fail to process and clean up stale pod references if it encountered any non-pod references in the status.reservedFor field. This halted the controller's operation, preventing necessary cleanup.",
+  "severity": "Critical",
+  "root_cause_type": "Error handling",
+  "bug_complexity": "Medium",
+  "distributed": "Yes",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

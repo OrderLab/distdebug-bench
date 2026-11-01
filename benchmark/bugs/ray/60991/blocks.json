@@ -1,0 +1,14 @@
+[
+  {
+    "file": "python/ray/_private/services.py",
+    "function": "get_node_to_connect_for_driver",
+    "start_line": "498",
+    "end_line": "528"
+  },
+  {
+    "file": "python/ray/_private/worker.py",
+    "function": "init",
+    "start_line": "1944",
+    "end_line": "1953"
+  }
+]

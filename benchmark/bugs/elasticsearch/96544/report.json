@@ -1,0 +1,20 @@
+{
+    "id": "96544",
+    "system": "elasticsearch",
+    "issue_creation_date": "2023-06-03",
+    "issue_link": "https://github.com/elastic/elasticsearch/issues/96544",
+    "fix_link": "https://github.com/elastic/elasticsearch/pull/98904",
+    "branch": "6caf9c1f60ba0b993dbb3d6cf97768275e9975fc",
+    "title": "Cluster health computation sometimes runs on applier thread",
+    "description": "In #90621 we moved most usages of the cluster health API onto a MANAGEMENT thread because it's too expensive to run on SAME in a large cluster. However, if the request includes any wait_for_* option then we set up a cluster state observer, which supplies its responses on the cluster applier thread. We need to fork those computations onto a MANAGEMENT thread too.\n\n",
+    "severity": "Critical",
+    "root_cause_type": "Concurrency",
+    "bug_complexity": "Hard",
+    "distributed": "Yes",
+    "contains_analysis": "No",
+    "analysis_removed": "No",
+    "contains_logs": "No",
+    "contains_stack_traces": "No",
+    "bug_cause_description": "",
+    "artifact_dir": "artifact_dir"
+}

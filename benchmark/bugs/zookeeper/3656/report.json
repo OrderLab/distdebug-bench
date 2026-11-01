@@ -1,0 +1,20 @@
+{
+  "id": "3656",
+  "system": "zookeeper",
+  "issue_creation_date": "2019-12-19",
+  "issue_link": "[ZOOKEEPER-3656] SyncRequestProcessor doesn't update lastFlushTime correctly on observers - ASF JIRA",
+  "fix_link": "ZOOKEEPER-3656: Properly set lastFlushTime when flushing by hammerlefb \u00b7 Pull Request #1189 \u00b7 apache/zookeeper",
+  "branch": "release-3.6.3",
+  "title": "SyncRequestProcessor doesn't update lastFlushTime correctly on observers",
+  "description": "This issues was introduced in ZOOKEEPER-3311. The lastFlushTime used to decide the batch window is not updated correctly for the observer case when the nextProcessor is always be null.\n\nThis can cause observers to fall behind and their sync queue to grow indefinitely.",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Easy",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

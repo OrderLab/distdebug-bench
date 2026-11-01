@@ -1,0 +1,11 @@
+# Mini-SWE-Agent 2.2.8 with GPT-5.3-Codex (paper Table 1).
+name: mini-swe-agent-gpt-5.3-codex
+model_name: openai/gpt-5.3-codex
+model_class: litellm_response
+model_kwargs:
+  drop_params: true
+  reasoning:
+    effort: medium
+cost_limit: 3.0
+env:
+  MSWEA_COST_TRACKING: ignore_errors

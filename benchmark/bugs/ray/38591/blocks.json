@@ -1,0 +1,8 @@
+[
+  {
+    "file": "bazel/ray_deps_setup.bzl",
+    "function": "ray_deps_setup",
+    "start_line": "235",
+    "end_line": "235"
+  }
+]

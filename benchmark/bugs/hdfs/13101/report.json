@@ -1,0 +1,20 @@
+{
+  "id": "13101",
+  "system": "hdfs",
+  "issue_creation_date": "2018-02-01",
+  "issue_link": "https://issues.apache.org/jira/browse/HDFS-13101",
+  "fix_link": "https://issues.apache.org/jira/secure/attachment/12977155/HDFS-13101.004.patch",
+  "branch": "167acd87daf61be9a27dfb5af6e7cbacb96e44de",
+  "title": "Yet another fsimage corruption related to snapshot",
+  "description": "FSImage corruption happened after HDFS snapshots were taken. Cluster was not used\nat that time.\nWhen namenode restarts it reported NULL pointer exception:\n15/11/07 10:01:15 INFO namenode.FileJournalManager: Recovering unfinalized segments in /tmp/fsimage_checker_5857/fsimage/current\n15/11/07 10:01:15 INFO namenode.FSImage: No edit log streams selected.\n15/11/07 10:01:18 INFO namenode.FSImageFormatPBINode: Loading 1370277 INodes.\n15/11/07 10:01:27 ERROR namenode.NameNode: Failed to start namenode.\njava.lang.NullPointerException\n        at org.apache.hadoop.hdfs.server.namenode.INodeDirectory.addChild(INodeDirectory.java:531)\n        at org.apache.hadoop.hdfs.server.namenode.FSImageFormatPBINode$Loader.addToParent(FSImageFormatPBINode.java:252)\n        at org.apache.hadoop.hdfs.server.namenode.FSImageFormatPBINode$Loader.loadINodeDirectorySection(FSImageFormatPBINode.java:202)\n        at org.apache.hadoop.hdfs.server.namenode.FSImageFormatProtobuf$Loader.loadInternal(FSImageFormatProtobuf.java:261)\n        at org.apache.hadoop.hdfs.server.namenode.FSImageFormatProtobuf$Loader.load(FSImageFormatProtobuf.java:180)\n        at org.apache.hadoop.hdfs.server.namenode.FSImageFormat$LoaderDelegator.load(FSImageFormat.java:226)\n        at org.apache.hadoop.hdfs.server.namenode.FSImage.loadFSImage(FSImage.java:929)\n        at org.apache.hadoop.hdfs.server.namenode.FSImage.loadFSImage(FSImage.java:913)\n        at org.apache.hadoop.hdfs.server.namenode.FSImage.loadFSImageFile(FSImage.java:732)\n        at org.apache.hadoop.hdfs.server.namenode.FSImage.loadFSImage(FSImage.java:668)\n        at org.apache.hadoop.hdfs.server.namenode.FSImage.recoverTransitionRead(FSImage.java:281)\n        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.loadFSImage(FSNamesystem.java:1061)\n        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.loadFromDisk(FSNamesystem.java:765)\n        at org.apache.hadoop.hdfs.server.namenode.NameNode.loadNamesystem(NameNode.java:584)\n        at org.apache.hadoop.hdfs.server.namenode.NameNode.initialize(NameNode.java:643)\n        at org.apache.hadoop.hdfs.server.namenode.NameNode.<init>(NameNode.java:810)\n        at org.apache.hadoop.hdfs.server.namenode.NameNode.<init>(NameNode.java:794)\n        at org.apache.hadoop.hdfs.server.namenode.NameNode.createNameNode(NameNode.java:1487)\n        at org.apache.hadoop.hdfs.server.namenode.NameNode.main(NameNode.java:1553)\n15/11/07 10:01:27 INFO util.ExitUtil: Exiting with status 1\nCorruption happened after \"07.11.2015 00:15\", and after that time blocks ~9300 blocks were invalidated that shouldn't be.\nAfter recovering FSimage I discovered that around ~9300 blocks were missing.",
+  "severity": "Critical",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Medium",
+  "distributed": "Yes",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "Yes",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "file": "catalog/src/main/java/org/apache/ignite/internal/catalog/CatalogManagerImpl.java",
+    "function": "CatalogManagerImpl.CompletableFuture",
+    "start_line": 376,
+    "end_line": 388
+  },
+  {
+    "file": "catalog/src/main/java/org/apache/ignite/internal/catalog/CatalogManagerImpl.java",
+    "function": "CatalogManagerImpl.saveUpdate",
+    "start_line": 410,
+    "end_line": 416
+  }
+]

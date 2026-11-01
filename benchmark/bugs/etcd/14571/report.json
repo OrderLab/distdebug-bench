@@ -1,0 +1,20 @@
+{
+  "id": "14571",
+  "system": "etcd",
+  "issue_creation_date": "2022-10-11",
+  "issue_link": "https://github.com/etcd-io/etcd/issues/14571",
+  "fix_link": "https://github.com/etcd-io/etcd/pull/14574",
+  "branch": "v3.5.5",
+  "title": "3.5.5: client auth failures on new member first startup",
+  "description": "After cluster upgrade from 3.5.4 to 3.5.5 we are seeing auth issues on new nodes after first startup. Cluster runs in auth-enable mode. New node joins the cluster, fetches the snapshot, but fails all client requests ",
+  "severity": "Critical",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Medium",
+  "distributed": "Yes",
+  "contains_analysis": "No",
+  "analysis_removed": "",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": ""
+}

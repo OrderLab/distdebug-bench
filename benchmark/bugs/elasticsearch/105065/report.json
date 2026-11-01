@@ -1,0 +1,20 @@
+{
+    "id": "105065",
+    "system": "elasticsearch",
+    "issue_creation_date": "2024-02-02",
+    "issue_link": "https://github.com/elastic/elasticsearch/issues/105065",
+    "fix_link": "https://github.com/elastic/elasticsearch/pull/105674",
+    "branch": "bb1eddada3678257838b0590090ff9eb68acaa1b",
+    "title": "Avoid race in LocalHealthMonitor w.r.t null values",
+    "description": "There is a race condition in the LocalHealthMonitor regarding null values (i.e. initial/reset values):\n\nLast reported value was null\nthere is new a health node\nNew run starts the update process and records previous value null\nhealth node/master change\nnew reported value is null\nRun sees null and considers that it's ok to update the value....\nCan probably relatively easily be fixed by using some form of ref counting/versioning of the lastReportedValue",
+    "severity": "Major",
+    "root_cause_type": "Concurrency",
+    "bug_complexity": "Hard",
+    "distributed": "Yes",
+    "contains_analysis": "Yes",
+    "analysis_removed": "No",
+    "contains_logs": "No",
+    "contains_stack_traces": "No",
+    "bug_cause_description": "",
+    "artifact_dir": "artifact_dir"
+}

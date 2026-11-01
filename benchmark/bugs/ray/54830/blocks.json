@@ -1,0 +1,20 @@
+[
+  {
+    "file": "python/ray/llm/_internal/serve/deployments/data_parallel/dp_server.py",
+    "function": "_push_telemetry_report",
+    "start_line": "62",
+    "end_line": "66"
+  },
+  {
+    "file": "python/ray/llm/_internal/serve/deployments/llm/llm_server.py",
+    "function": "start",
+    "start_line": "207",
+    "end_line": "207"
+  },
+  {
+    "file": "python/ray/llm/_internal/serve/deployments/llm/llm_server.py",
+    "function": "_push_telemetry_report",
+    "start_line": "255",
+    "end_line": "257"
+  }
+]

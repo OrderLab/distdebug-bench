@@ -1,0 +1,8 @@
+[
+  {
+    "file": "hadoop-hdfs-client/src/main/java/org/apache/hadoop/hdfs/client/impl/BlockReaderFactory.java",
+    "function": "BlockReaderFactory.",
+    "start_line": 357,
+    "end_line": 385
+  }
+]

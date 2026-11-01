@@ -1,0 +1,8 @@
+[
+  {
+    "file": "pkg/kubelet/pluginmanager/operationexecutor/operation_executor_test.go",
+    "function": "startOperationAndBlock",
+    "start_line": 185,
+    "end_line": 191
+  }
+]

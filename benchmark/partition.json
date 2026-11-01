@@ -1,0 +1,17 @@
+{
+    "v1_benchmark_systems": [
+        "zookeeper",
+        "kafka",
+        "ignite",
+        "ignite3",
+        "hdfs",
+        "hbase"
+    ],
+    "v2_benchmark_additional_systems": [
+        "etcd",
+        "ray",
+        "kubernetes",
+        "elasticsearch",
+        "tikv"
+    ]
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "file": "x-pack/plugin/core/src/main/java/org/elasticsearch/xpack/core/ml/utils/InferenceProcessorInfoExtractor.java",
+    "function": "addModelsAndPipelines",
+    "start_line": "181",
+    "end_line": "216"
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "file": "staging/src/k8s.io/client-go/tools/cache/shared_informer.go",
+    "function": "sharedProcessor.run",
+    "start_line": 882,
+    "end_line": 897
+  }
+]

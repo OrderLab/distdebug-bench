@@ -1,0 +1,20 @@
+{
+  "id": "11583",
+  "system": "hdfs",
+  "issue_creation_date": "2017-03-27",
+  "issue_link": "HDFS-11583",
+  "fix_link": "",
+  "branch": "release-2.7.1",
+  "title": "Parent spans are not initialized to NullScope for every DFSPacket",
+  "description": "Each packet received by the run() method of DataStreamer class, uses the parents field of the DFSPacket to create a new dataStreamer span, which in turn creates a writeTo span as its child span. The parents field is initialized when the packet is added to the dataQueue and the value is initialized from the ThreadLocal. This is how HTrace handles spans.\nA TraceScope is created and initialized to NullScope before the loop which runs till the point when the stream is closed.\nConsider the following scenario, when the dataQueue contains multiple packets, only the first of which has a tracing enabled. The scope is initialized to the dataStreamer scope and a writeTo span is created as its child, which gets closed once the packet is sent out to a remote datanode. Before writeTo span is started, the dataStreamer scope is detached. So calling the close method on it doesn't do anything at the end of loop.\nThe second iteration will be using the stale value of the scope variable with a DFSPacket on which tracing is not enabled. This results in generation of an orphan writeTo spans which are being delivered to the SpanReceiver as registered in the TraceFramework. This may result in unlimited number of spans being generated and sent out to receiver.",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Easy",
+  "distributed": "No",
+  "contains_analysis": "Yes",
+  "analysis_removed": "No",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

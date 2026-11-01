@@ -1,0 +1,20 @@
+{
+  "id": "136509",
+  "system": "kubernetes",
+  "issue_creation_date": "",
+  "issue_link": "https://github.com/kubernetes/kubernetes/pull/136509",
+  "fix_link": "https://github.com/kubernetes/kubernetes/pull/136509",
+  "branch": "8f4c197169b",
+  "title": "client-go informers: fix potential deadlock",
+  "description": "In the unlikely situation that sharedProcessor.distribute was triggered by a resync before sharedProcessor.run had a chance to start the listeners, the sharedProcessor deadlocked: sharedProcessor.distribute held a read/write lock on listenersLock while being blocked on the write to the listener's channel. The listeners who would have read from those weren't get started because sharedProcessor.run was blocked trying to get a read lock for listenersLock.\n\nThis gets fixed by releasing the read/write lock in sharedProcessor.distribute while waiting for all listeners to be started. Because either all or no listeners are started, the existing global listenersStarted boolean is sufficient.\n\nThe TestListenerResyncPeriods tests now runs twice, with and without the artificial delay. It gets converted to a synctest, so it executes quickly despite the time.Sleep calls and timing is deterministic. The enhanced log output confirms that with the delay, the initial sync completes later:\n\n=== RUN   TestListenerResyncPeriods\n    shared_informer_test.go:236: 0s: listener3: handle: pod1\n    shared_informer_test.go:236: 0s: listener3: handle: pod2\n    shared_informer_test.go:236: 0s: listener1: handle: pod1\n    shared_informer_test.go:236: 0s: listener1: handle: pod2\n    shared_informer_test.go:236: 0s: listener2: handle: pod1\n    shared_informer_test.go:236: 0s: listener2: handle: pod2\n    shared_informer_test.go:236: 2s: listener2: handle: pod1\n    shared_informer_test.go:236: 2s: listener2: handle: pod2\n    shared_informer_test.go:236: 3s: listener3: handle: pod1\n    shared_informer_test.go:236: 3s: listener3: handle: pod2\n--- PASS: TestListenerResyncPeriods (0.00s)\n=== RUN   TestListenerResyncPeriodsDelayed\n    shared_informer_test.go:236: 1s: listener1: handle: pod1\n    shared_informer_test.go:236: 1s: listener1: handle: pod2\n    shared_informer_test.go:236: 1s: listener2: handle: pod1\n    shared_informer_test.go:236: 1s: listener2: handle: pod2\n    shared_informer_test.go:236: 1s: listener3: handle: pod1\n    shared_informer_test.go:236: 1s: listener3: handle: pod2\n    shared_informer_test.go:236: 2s: listener2: handle: pod1\n    shared_informer_test.go:236: 2s: listener2: handle: pod2\n    shared_informer_test.go:236: 3s: listener3: handle: pod1\n    shared_informer_test.go:236: 3s: listener3: handle: pod2\n--- PASS: TestListenerResyncPeriodsDelayed (0.00s)",
+  "severity": "Major",
+  "root_cause_type": "Concurrency",
+  "bug_complexity": "Medium",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

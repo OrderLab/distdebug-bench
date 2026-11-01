@@ -1,0 +1,20 @@
+[
+  {
+    "file": "server/etcdserver/server.go",
+    "function": "EtcdServer.applyEntryNormal",
+    "start_line": 1843,
+    "end_line": 1844
+  },
+  {
+    "file": "server/etcdserver/server.go",
+    "function": "EtcdServer.applyEntryNormal",
+    "start_line": 1850,
+    "end_line": 1856
+  },
+  {
+    "file": "server/etcdserver/server.go",
+    "function": "EtcdServer.applyEntryNormal",
+    "start_line": 1906,
+    "end_line": 1907
+  }
+]

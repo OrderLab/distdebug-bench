@@ -1,0 +1,20 @@
+{
+  "id": "29021",
+  "system": "hbase",
+  "issue_creation_date": "2024-12-6",
+  "issue_link": "https://issues.apache.org/jira/browse/HBASE-29021",
+  "fix_link": "",
+  "branch": "rel/2.6.1",
+  "title": "",
+  "description": "Symptoms\nAfter upgrading from HBase 2.5.10 to HBase 2.6.1, I observed an inconsistent read across versions.\n\nBefore the upgrade, I created a table with one row. Invoking a count command returns 1. After upgrading to 2.6.1, execute the same count command, it returns 0.\n\ncount 'test'\n\nOld Version Result:\n1 row(s)\nTook 0.5582 seconds\n=> 1\n\nNew Version Result: \n0 row(s)\nTook 1.4439 seconds\n=> 0 \nReproduce\nIt can be reproduced deterministically with the following steps\n\nStep1: Start up the HBase cluster in 2.5.10 and execute the following commands\n\ncreate 'test', 'cf', CONFIGURATION => {'hbase.store.file-tracker.impl' => 'FILE'}\nput 'test', 'row', 'cf:q', 'value'\nStep2: Execute the count command in the old version\n\ncount 'test'\n\n1 row(s)\nTook 0.5582 seconds\n=> 1 \nStep3: Stop the entire cluster, upgrade to 2.6.1 and execute the same count command\n\ncount 'test'\n\n0 row(s)\nTook 0.0842 seconds\n=> 0\nAnalysis\nThe names of StoreFileListFile differ between the two versions:\n\nIn 2.5.10: f1 or f2\nIn 2.6.1: f1.{timestamp} or f2.{timestamp}\nThe addition of a timestamp to the file name was introduced in HBASE-26791.\n\nIt can be resolved by handling missing timestamps by setting them to 0.\n\nHowever, in the case of downgrading versions, the above approach does not work. A workaround is available:\n\nChange the storefile tracker implementation from FILE > MIGRATION > DEFAULT before downgrading.",
+  "severity": "Critical",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Hard",
+  "distributed": "No",
+  "contains_analysis": "Yes",
+  "analysis_removed": "Partly Removed",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

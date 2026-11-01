@@ -1,0 +1,8 @@
+[
+  {
+    "file": "catalog/src/main/java/org/apache/ignite/internal/catalog/CatalogManagerImpl.java",
+    "function": "CatalogManagerImpl.applyUpdateFinal",
+    "start_line": 525,
+    "end_line": 535
+  }
+]

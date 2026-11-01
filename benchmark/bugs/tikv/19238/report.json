@@ -1,0 +1,20 @@
+{
+  "id": "19238",
+  "system": "tikv",
+  "issue_creation_date": "2025-12-26",
+  "issue_link": "https://github.com/tikv/tikv/issues/19238",
+  "fix_link": "https://github.com/tikv/tikv/pull/19252",
+  "branch": "v8.5.3",
+  "title": "Log Backup may get stuck due to async lock held across .await",
+  "description": "Bug Report\nUnder certain configurations, Log Backup may get permanently stuck.\n\nOnce this happens:\n\nLog backup no longer makes progress, no related backup log output\nPause/Stop task commands do not work\nThis issue is strongly correlated with holding an async lock across .await, which may stall the Tokio runtime when thread resources are constrained.\n\nWhat version of TiKV are you using?\nv8.5.3\n\nWhat operating system and CPU are you using?\nN/A\n\nSteps to reproduce\nIt's not easy to reproduce, but a hypothesis version should be\n\nUse a small Tokio runtime thread pool\n• e.g. reduce [log-backup] num.threads to a small number (1–2)\nConfigure log backup with a short flush interval\nStart normal write workload and wait\nWhat did you expect?\nLog backup works normally.\n\nWhat did happened?\nLog backup flush stops making progress without reporting any error.\n\nWhen this happens:\n\nLog backup no longer advances\nQuerying /async-tasks shows that async tasks are blocked on S3-related operations\n- These S3 operations are configured with Tokio timeouts, but:\n- The timeouts do not trigger\nPause / control operations do not work",
+  "severity": "Major",
+  "root_cause_type": "Concurrency",
+  "bug_complexity": "Medium",
+  "distributed": "No",
+  "contains_analysis": "Yes",
+  "analysis_removed": "No",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": ""
+}

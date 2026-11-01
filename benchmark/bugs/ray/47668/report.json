@@ -1,0 +1,20 @@
+{
+  "id": "47668",
+  "system": "Ray",
+  "issue_creation_date": "2024-09-16",
+  "issue_link": "https://github.com/ray-project/ray/issues/47668",
+  "fix_link": "https://github.com/ray-project/ray/pull/47701",
+  "branch": "c1e7c45f58c659132c56815b179e9493663fe73c",
+  "title": "[UI] When a Ray worker node dies, it makes Ray dashboard cluster page and logs page broken",
+  "description": "What happened + What you expected to happen\nWhen a Ray worker node dies, it makes Ray dashboard \"cluster\" page and \"logs\" page broken\n\nNormal \"cluster page\" containing dead node should be like:\nimage\n\nBut now it becomes:\nimage\n\nand when Ray worker node dies, \"logs\" page is completely broken and show nothing.\n\nVersions / Dependencies\nThis bug is introduced in Ray nightly build version , Ray 2.35 version is good.\n\nReproduction script\ninstall Ray nightly build version\nstart a Ray head node like:\nray start --head --node-ip-address=127.0.0.1 --port 9988 --dashboard-host=0.0.0.0\nstart a Ray worker node like:\nray start --address 127.0.0.1:9988 --block &\nFind the Ray worker node processes group, and kill (-9) all processes in the group\nps -ef|grep \"ray start --address 127.0.0.1:9988\"  # Get process id of \"ray start --address 127.0.0.1:9988\" command\nkill -9 -{xxx} # kill the process **group** of id printed in above command\nWait a few seconds, Open Ray dashboard cluster page. error occurs.\nChecking nodes?view=summary request response, it got error like:\n\nTraceback (most recent call last):\n  File \"/local_disk0/.ephemeral_nfs/envs/pythonEnv-8ac7e00d-2d10-430a-b39d-ad4447d3a5ed/lib/python3.11/site-packages/ray/dashboard/optional_utils.py\", line 224, in _update_cache\n    response = task.result()\n               ^^^^^^^^^^^^^\n  File \"/local_disk0/.ephemeral_nfs/envs/pythonEnv-8ac7e00d-2d10-430a-b39d-ad4447d3a5ed/lib/python3.11/site-packages/ray/dashboard/modules/node/node_head.py\", line 364, in get_all_nodes\n    all_node_summary, nodes_logical_resources = await asyncio.gather(\n                                                ^^^^^^^^^^^^^^^^^^^^^\n  File \"/local_disk0/.ephemeral_nfs/envs/pythonEnv-8ac7e00d-2d10-430a-b39d-ad4447d3a5ed/lib/python3.11/site-packages/ray/dashboard/datacenter.py\", line 171, in get_all_node_summary\n    return [\n           ^\n  File \"/local_disk0/.ephemeral_nfs/envs/pythonEnv-8ac7e00d-2d10-430a-b39d-ad4447d3a5ed/lib/python3.11/site-packages/ray/dashboard/datacenter.py\", line 172, in <listcomp>\n    await DataOrganizer.get_node_info(node_id, get_summary=True)\n  File \"/local_disk0/.ephemeral_nfs/envs/pythonEnv-8ac7e00d-2d10-430a-b39d-ad4447d3a5ed/lib/python3.11/site-packages/ray/dashboard/datacenter.py\", line 150, in get_node_info\n    node_info[\"status\"] = node[\"stateSnapshot\"][\"state\"]\n                          ~~~~^^^^^^^^^^^^^^^^^\n  File \"/local_disk0/.ephemeral_nfs/envs/pythonEnv-8ac7e00d-2d10-430a-b39d-ad4447d3a5ed/lib/python3.11/site-packages/ray/dashboard/utils.py\", line 435, in __getitem__\n    proxy = self._proxy[item] = make_immutable(self._dict[item])\n                                               ~~~~~~~~~~^^^^^^\nKeyError: 'stateSnapshot'", 
+  "severity": "Critical",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Easy",
+  "distributed": "Yes",
+  "contains_analysis": "Yes",
+  "analysis_removed": "No",
+  "contains_logs": "No",
+  "contains_stack_traces": "Yes",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

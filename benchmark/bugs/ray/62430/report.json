@@ -1,0 +1,20 @@
+{
+  "id": "62430",
+  "system": "Ray",
+  "issue_creation_date": "2026-04-08",
+  "issue_link": "https://github.com/ray-project/ray/issues/62430",
+  "fix_link": "https://github.com/ray-project/ray/pull/62588",
+  "branch": "e4d0c470b5f97d461a19f6321dcaba97ec69aeab",
+  "title": "[Core] idle nodes fail to scale down due to idle_time_ms resetting",
+  "description": "What happened + What you expected to happen\nIdle worker nodes (0 GPU/CPU usage, no scheduled tasks) never scale down while other nodes in the cluster are still running tasks.\nAlso, activity shows up as \"Busy workers on node\" and \"Resource: GPU currently in use\" even when node is idle and idle counter is accumulating.\n\nExpected: each node's idle timer accumulates independently and triggers scale-down after idle_timeout_minutes regardless of peer node activity\n\nActual: idle_duration_ms resets simultaneously on ALL nodes whenever a worker lease is released on ANY node, so the idle timer never accumulates past the inter-task interval\n\nHypothesis: the WorkFootprint/leased-worker tracking introduced to fix \"blocked task\" misclassification appears to reset idle_duration_ms cluster-wide as a side effect of worker lease lifecycle events. The autoscaler.py scale-down decision is correctly per-node, but the idle_duration_ms signal from GetClusterResourceState is being corrupted by unrelated nodes' lease events\n\nVersions / Dependencies\nRay version: 2.54.0\nOS: Linux (GCP)\nPython version: Python 3.10.12\nGPU: 4x nodes × 2x V100\nAutoscaler: v2",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Medium",
+  "distributed": "Yes",
+  "contains_analysis": "Yes",
+  "analysis_removed": "No",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": ""
+}

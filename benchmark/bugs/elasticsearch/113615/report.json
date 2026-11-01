@@ -1,0 +1,20 @@
+{
+    "id": "113615",
+    "system": "elasticsearch",
+    "issue_creation_date": "2024-09-26",
+    "issue_link": "https://github.com/elastic/elasticsearch/issues/113615",
+    "fix_link": "https://github.com/elastic/elasticsearch/pull/113697",
+    "branch": "b2a69b54e1f28711d423926d9261a8346fd22c76",
+    "title": "Elasticsearch accepts script processors that are strings and not map",
+    "description": "When creating an Ingest Pipeline, it's currently possible to create a processor, which is not a map:\nPUT _ingest/pipeline/test\n{\n  \"processors\": [\n    {\n      \"script\": \"\"\"ctx.test=2;\"\"\"\n    }\n  ]\n}\nThis is accepted by Elasticsearch, however, the expected syntax should be:\n\nPUT _ingest/pipeline/test\n{\n  \"processors\": [\n    {\n      \"script\": {\n        \"source\": \"ctx.test=2;\"\n      }\n    }\n  ]\n}\nThis causes API GET _ml/trained_models/_stats (which iterates over all processors and verify that they are maps) to fail with the error:\n\n[2024-09-26T09:55:24,326][WARN ][o.e.x.m.MachineLearningUsageTransportAction] [node-1] Failed to get inference usage to include in ML usage\njava.lang.ClassCastException: class java.lang.String cannot be cast to class java.util.Map (java.lang.String and java.util.Map are in module java.base of loader 'bootstrap')\nI would expected Elasticsearch to refuse processors that are not Maps.",
+    "severity": "Major",
+    "root_cause_type": "Error handling",
+    "bug_complexity": "Easy",
+    "distributed": "No",
+    "contains_analysis": "No",
+    "analysis_removed": "N/A",
+    "contains_logs": "No",
+    "contains_stack_traces": "Yes",
+    "bug_cause_description": "",
+    "artifact_dir": "artifact_dir"
+}

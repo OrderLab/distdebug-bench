@@ -1,0 +1,14 @@
+[
+  {
+    "file": "cassandra/store/src/main/java/org/apache/ignite/cache/store/cassandra/CassandraCacheStore.java",
+    "function": "CassandraCacheStore.loadCache",
+    "start_line": 112,
+    "end_line": 113
+  },
+  {
+    "file": "core/src/main/java/org/apache/ignite/cache/store/jdbc/CacheAbstractJdbcStore.java",
+    "function": "CacheAbstractJdbcStore.loadCache",
+    "start_line": 683,
+    "end_line": 684
+  }
+]

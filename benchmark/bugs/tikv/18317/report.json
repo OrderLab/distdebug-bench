@@ -1,0 +1,20 @@
+{
+  "id": "18317",
+  "system": "tikv",
+  "issue_creation_date": "2025-3-18",
+  "issue_link": "https://github.com/tikv/tikv/issues/18317",
+  "fix_link": "https://github.com/tikv/tikv/pull/18321",
+  "branch": "71aecc2",
+  "title": "There is a 15.4% performance regression in ycsb after PR#18248",
+  "description": "Bug Report\nWhat version of TiKV are you using?\n\n71aecc2\nWhat operating system and CPU are you using?\n\nK8S, x86\nSteps to reproduce\n\n    Deploy a cluster with 3 TiDB and 3 Tikv.\n    Run benchmark ycsb (workloada).\n\nWhat did you expect?\n\nNo performance regression.\nWhat did happened?\n\nDuration regression in benchmark ycsb (workloada) compared to baseline 169.00 after #18248.\ndescription \ttidb \ttikv \tpd \tDuration\nlast success \tpingcap/tidb@db15d43 \t3035868 \ttikv/pd@a695261 \t168.00, 162.00\nfirst regression \tpingcap/tidb@db15d43 \t71aecc2 \ttikv/pd@a695261 \t195.00, 190.00",
+  "severity": "Major",
+  "root_cause_type": "Performance",
+  "bug_complexity": "Easy",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "N/A",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": ""
+}

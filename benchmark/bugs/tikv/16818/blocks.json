@@ -1,0 +1,8 @@
+[
+  {
+    "file": "src/storage/mvcc/reader/reader.rs",
+    "function": "MvccReader::scan_locks",
+    "start_line": 353,
+    "end_line": 373
+  }
+]

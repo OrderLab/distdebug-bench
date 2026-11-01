@@ -1,0 +1,26 @@
+[
+  {
+    "file": "sql-engine/src/main/java/org/apache/ignite/internal/sql/engine/util/TypeUtils.java",
+    "function": "TypeUtils.isConvertableType",
+    "start_line": 286,
+    "end_line": 298
+  },
+  {
+    "file": "sql-engine/src/main/java/org/apache/ignite/internal/sql/engine/util/TypeUtils.java",
+    "function": "TypeUtils.hasConvertableFields",
+    "start_line": 286,
+    "end_line": 298
+  },
+  {
+    "file": "sql-engine/src/main/java/org/apache/ignite/internal/sql/engine/util/TypeUtils.java",
+    "function": "TypeUtils.toInternal",
+    "start_line": 309,
+    "end_line": 329
+  },
+  {
+    "file": "sql-engine/src/main/java/org/apache/ignite/internal/sql/engine/util/TypeUtils.java",
+    "function": "TypeUtils.fromInternal",
+    "start_line": 340,
+    "end_line": 350
+  }
+]

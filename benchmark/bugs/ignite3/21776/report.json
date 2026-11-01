@@ -1,0 +1,20 @@
+{
+  "id": "21776",
+  "system": "ignite3",
+  "issue_creation_date": "2024-3-18",
+  "issue_link": "https://issues.apache.org/jira/browse/IGNITE-21776",
+  "fix_link": "",
+  "branch": "b08fbb60872f5c88209152992bce392f92109f87",
+  "title": "",
+  "description": "\"Create table if not exists\" not a thread safe : In two parallel clients:\n\n1) Run DDL (using two clients):\n\n```\n\ncreate table if not exists parallelCreateTable0\n\n(id INTEGER not null,\n\nval VARCHAR not null,\n\nprimary key (id))\n\n```\n\n2) Get parallelCreateTable0 using ignite.tables() API or select from jdbc\n\nExpected result:\n\n    One client creates the table, second one - wait table created\n    Both client can use the table\n\nActual result:\n\n    One client creates the table, second one return control immediatly\n    Second client fails to use the table, the first one works as expected after the table creating finished.\n\n",
+  "severity": "Major",
+  "root_cause_type": "Logic",
+  "bug_complexity": "Medium",
+  "distributed": "No",
+  "contains_analysis": "No",
+  "analysis_removed": "",
+  "contains_logs": "No",
+  "contains_stack_traces": "No",
+  "bug_cause_description": "",
+  "artifact_dir": "artifact_dir"
+}

@@ -1,0 +1,10 @@
+# Mini-SWE-Agent 2.2.8 with Kimi K2.6 (paper Table 1).
+# The paper served this model through an Azure endpoint; this config uses OpenRouter.
+name: mini-swe-agent-kimi-k2.6
+model_name: moonshotai/kimi-k2.6
+model_class: openrouter
+model_kwargs:
+  drop_params: true
+cost_limit: 3.0
+env:
+  MSWEA_COST_TRACKING: ignore_errors
