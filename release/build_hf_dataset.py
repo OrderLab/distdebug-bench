@@ -27,7 +27,7 @@ from pathlib import Path
 VERSION = "1.0.0"
 DEFAULT_HF_REPO = "OrderLab/distdebug-bench"
 GITHUB_URL = "https://github.com/OrderLab/distdebug-bench"
-WEBSITE_URL = "https://orderlab.io/distdebug-bench/"
+WEBSITE_URL = "https://distdebug.com"
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 BENCHMARK_DIR = REPO_ROOT / "benchmark"

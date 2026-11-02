@@ -1,49 +1,55 @@
 # DistDebug-Bench
 
 **DistDebug-Bench: Can LLM Agents Diagnose Bugs in Distributed Systems?**\
-NeurIPS 2026, Evaluations and Datasets Track
+NeurIPS 2026, Track on Evaluations and Datasets
 
 Yuxuan Jiang, Chenglin Liu, John Rose, Mason Miller, Ruthesh Thavamani,
 Juntao Wu, Yinwei Huang, Jiahao Xu, Peng Huang\
 University of Michigan
 
-[Website](https://orderlab.io/distdebug-bench/)
+[Website](https://distdebug.com) ·
+[Leaderboard](https://distdebug.com/leaderboard/) ·
+[Paper](https://distdebug.com/assets/paper.pdf) ·
+[Dataset](https://huggingface.co/datasets/OrderLab/distdebug-bench) ·
+[Agent traces](https://huggingface.co/datasets/OrderLab/distdebug-bench-traces) ·
+[Submit results](https://distdebug.com/submit/)
 
-DistDebug-Bench is a benchmark for evaluating LLM agents on real-world
-distributed-systems debugging. It contains 120 high-quality bugs curated
-from 11 popular distributed systems, covering 5 programming languages
-and 10 failure patterns. The benchmark targets the gap between existing
-agent benchmarks, which focus on small self-contained Python modules,
-and the diagnosis of representative complex system failures such as
-concurrency races, leader-election faults, replication inconsistencies,
-and resource leaks.
+DistDebug-Bench measures whether coding agents can diagnose real failures in
+distributed systems. Given an incident report, its logs or stack traces, and the
+repository as it stood before the fix, the agent must name the source code
+blocks that caused the failure. Diagnoses are scored against human-labeled
+root-cause code, not by whether a patch makes a test pass.
 
-## Repository structure
+The benchmark contains 120 real bugs from 11 widely used distributed systems,
+covering 5 programming languages and 10 failure patterns, such as concurrency
+races, leader-election faults, replication inconsistencies, and resource leaks.
+Across the 17 agent configurations in the paper, the strongest reaches the right
+file 84% of the time but only 68% of the root-cause code blocks. See the
+[leaderboard](https://distdebug.com/leaderboard/) for every configuration.
 
+## Quick start: diagnose one incident
+
+You need Linux with [bubblewrap](https://github.com/containers/bubblewrap),
+Python 3.10 or later, and an API key for your model provider. This runs
+Mini-SWE-Agent with GPT-5.4 on ZooKeeper-2845 once and scores the diagnosis:
+
+```bash
+git clone https://github.com/OrderLab/distdebug-bench.git
+cd distdebug-bench
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e ".[agent]"
+export OPENAI_API_KEY=...        # or the provider key the config needs
+
+python -m distdebug_bench.run --config configs/mini-swe-agent/gpt-5.4.yaml \
+    --bug zookeeper-2845 --runs 1
+python -m distdebug_bench.score results/mini-swe-agent-gpt-5.4 --attempts 1
 ```
-.
-├── benchmark/
-│   ├── systems.json
-│   ├── partition.json
-│   ├── bug_classifications.json
-│   ├── bug_difficulty_characterizations.json
-│   ├── lite.txt                           # DistDebug-Bench Lite: 34-bug subset
-│   └── bugs/<system>/<bug-id>/
-│       ├── report.json
-│       ├── blocks.json
-│       └── artifact_dir/                  # optional supporting logs and traces
-│
-├── distdebug_bench/                       # Loader, evaluator, and agent runner
-├── configs/mini-swe-agent/                # The paper's model configurations
-├── paper/                                 # Rebuilds the paper's Table 1 and Figures 2-3 from the traces
-├── submissions/                           # Leaderboard submissions
-├── release/                               # Hugging Face export and Croissant metadata
-├── tests/
-├── collection-pipeline/                   # Pipeline used to construct the benchmark
-└── utils/
-```
 
-## Running an agent on the benchmark
+The attempt is saved under `results/mini-swe-agent-gpt-5.4/zookeeper-2845/`.
+`configs/mini-swe-agent/` has a config for each model in the paper.
+
+## Running the full benchmark
 
 The runner reproduces the paper's Mini-SWE-Agent evaluation. One config per
 model in the paper's Table 1 is in `configs/mini-swe-agent/`.
@@ -90,27 +96,25 @@ Each attempt is saved under `results/<config>/<bug>/run-NN/` as
 `trajectory.json`, `diagnosis.json`, `session_stats.json` (API calls, tokens,
 cost), and, after scoring, `diagnosis_scores.json`.
 
-## Reproducing the paper's results
+## Evaluating your own agent
 
-The traces behind the paper's Table 1 are on Hugging Face at
-[OrderLab/distdebug-bench-traces](https://huggingface.co/datasets/OrderLab/distdebug-bench-traces):
-17 configurations, 120 bugs, and the three scored attempts per bug, for 6,120
-attempts. `paper/reproduce.py` rescores every diagnosis with
-`distdebug_bench.score` and aggregates the scores with the paper's scripts. It
-rebuilds Table 1 and Figures 2 and 3 in `paper/out/` and checks them against
-`paper/reference/`:
+Any agent or harness can be evaluated. Give it what the runner gives
+Mini-SWE-Agent: the issue title and description, the issue's attachments, and
+the system's source at the pre-fix snapshot, with no internet access. For each
+attempt, have it write `<bug>/run-NN/diagnosis.json` in the benchmark schema
+(checked by `distdebug_bench/validate_diagnosis.py`) and a human-readable
+`<bug>/run-NN/trajectory.json`. Then run the leakage guard and the scorer on the
+results directory, as above.
 
-```bash
-pip install -e ".[paper]"
-hf download OrderLab/distdebug-bench-traces --repo-type dataset --local-dir traces
-python paper/reproduce.py traces
-```
-
-It prints whether each configuration's scores, token use, and confidence
-intervals match the paper. Pass `--use-released-scores` to aggregate the
-stored `diagnosis_scores.json` files instead of rescoring.
+The [Python API](#python-api) loads a bug and its task prompt, checks out the
+pre-fix snapshot so that the fix is unreachable, and scores a single
+diagnosis.
 
 ## Submitting results to the leaderboard
+
+The [leaderboard](https://distdebug.com/leaderboard/) lists every evaluated
+configuration, and the [submission guide](https://distdebug.com/submit/)
+summarizes the steps below.
 
 1. Run every bug in the full benchmark (or in Lite) until it has three valid
    attempts. Use `distdebug_bench.run`, or your own agent writing the same layout:
@@ -140,19 +144,67 @@ stored `diagnosis_scores.json` files instead of rescoring.
 Rules:
 
 - Every bug in the chosen subset needs three valid attempts; scores are
-  aggregated by `distdebug_bench.score`. Lite results are listed separately.
+  aggregated by `distdebug_bench.score`. Report Lite results separately; the
+  [leaderboard](https://distdebug.com/leaderboard/) currently lists full-benchmark runs.
 - The agent must not access the original issues, their fixes, or this
   benchmark's repository or website. We rerun the leakage guard and review
   trajectories.
 - Describe the system in a paper, technical report, or blog post (`report_url`).
 - We rescore every submission from its diagnoses before listing it.
 
-## Per-bug file layout under `benchmark/bugs/`
+## Reproducing the paper's results
 
-Each bug directory at `benchmark/bugs/<system>/<id>/` contains three JSON
+The traces behind the paper's Table 1 are on Hugging Face at
+[OrderLab/distdebug-bench-traces](https://huggingface.co/datasets/OrderLab/distdebug-bench-traces):
+17 configurations, 120 bugs, and the three scored attempts per bug, for 6,120
+attempts. `paper/reproduce.py` rescores every diagnosis with
+`distdebug_bench.score` and aggregates the scores with the paper's scripts. It
+rebuilds Table 1 and Figures 2 and 3 in `paper/out/` and checks them against
+`paper/reference/`:
+
+```bash
+pip install -e ".[paper]"
+hf download OrderLab/distdebug-bench-traces --repo-type dataset --local-dir traces
+python paper/reproduce.py traces
+```
+
+It prints whether each configuration's scores, token use, and confidence
+intervals match the paper. Pass `--use-released-scores` to aggregate the
+stored `diagnosis_scores.json` files instead of rescoring.
+
+## Reference
+
+### Repository structure
+
+```
+.
+├── benchmark/
+│   ├── systems.json
+│   ├── partition.json
+│   ├── bug_classifications.json
+│   ├── bug_difficulty_characterizations.json
+│   ├── lite.txt                           # DistDebug-Bench Lite: 34-bug subset
+│   └── bugs/<system>/<bug-id>/
+│       ├── report.json
+│       ├── blocks.json
+│       └── artifact_dir/                  # optional supporting logs and traces
+│
+├── distdebug_bench/                       # Loader, evaluator, and agent runner
+├── configs/mini-swe-agent/                # The paper's model configurations
+├── paper/                                 # Rebuilds the paper's Table 1 and Figures 2-3 from the traces
+├── submissions/                           # Leaderboard submissions
+├── release/                               # Hugging Face export and Croissant metadata
+├── tests/
+├── collection-pipeline/                   # Pipeline used to construct the benchmark
+└── utils/
+```
+
+### Per-bug file layout under `benchmark/bugs/`
+
+Each bug directory at `benchmark/bugs/<system>/<id>/` contains two JSON
 files and an optional artifacts directory.
 
-### `report.json`
+#### `report.json`
 
 Bug metadata and natural-language description.
 
@@ -180,7 +232,7 @@ Bug metadata and natural-language description.
 `artifact_dir`, when present, is a relative path to supporting logs and
 traces.
 
-### `blocks.json`
+#### `blocks.json`
 
 The ground-truth root-cause code blocks. A bug may have one or more blocks
 spanning multiple files.
@@ -199,7 +251,7 @@ spanning multiple files.
 Line numbers may appear as strings or integers depending on the curator's
 tooling; the loader coerces both to `int`.
 
-## Installing the loader and evaluator
+### Python API
 
 Python 3.10 or later is required. We recommend installing into a
 virtual environment so that subsequent `python` invocations resolve to
@@ -213,9 +265,7 @@ source .venv/bin/activate
 pip install -e .
 ```
 
-## Using the benchmark
-
-### Loading a bug from the benchmark
+#### Loading a bug from the benchmark
 
 ```python
 from distdebug_bench import load_benchmark, get_bug
@@ -233,14 +283,14 @@ for bug in bench.iter_bugs("all"):  # or "lite"
     print(bug.name, len(bug.ground_truth_blocks))
 ```
 
-### Subsets
+#### Subsets
 
 | Subset | Bugs | Use |
 | ------ | ---: | --- |
 | `all`  | 120  | The full benchmark, as evaluated in the paper. |
 | `lite` | 34   | DistDebug-Bench Lite: a subset selected for report and label quality and lower evaluation cost. Report Lite results separately. |
 
-### Checking out the buggy revision of the upstream system
+#### Checking out the buggy revision of the upstream system
 
 ```python
 from distdebug_bench import ensure_system_repo, temporary_checkout
@@ -254,7 +304,7 @@ with temporary_checkout(bug, cache, "./.cache/workspaces") as workdir:
     ...
 ```
 
-### Scoring an agent's predicted root-cause blocks
+#### Scoring an agent's predicted root-cause blocks
 
 ```python
 from distdebug_bench import compute_correctness_report
@@ -271,7 +321,7 @@ report = compute_correctness_report(bug.ground_truth_blocks, predicted)
 print(report)
 ```
 
-## Evaluation metrics produced by `compute_correctness_report`
+### Evaluation metrics produced by `compute_correctness_report`
 
 This is the scorer behind the paper's results: rescoring every attempt in
 the paper reproduces its stored scores and Table 1 exactly. Line ranges are
@@ -300,7 +350,7 @@ remain subject to their terms; upstream source code referenced by
 @inproceedings{jiang2026distdebugbench,
   title     = {{DistDebug-Bench}: Can {LLM} Agents Diagnose Bugs in Distributed Systems?},
   author    = {Jiang, Yuxuan and Liu, Chenglin and Rose, John and Miller, Mason and Thavamani, Ruthesh and Wu, Juntao and Huang, Yinwei and Xu, Jiahao and Huang, Peng},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS), Evaluations and Datasets Track},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS), Track on Evaluations and Datasets},
   year      = {2026}
 }
 ```
