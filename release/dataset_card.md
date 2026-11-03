@@ -38,7 +38,7 @@ source at the pre-fix snapshot. It must name the responsible files, functions,
 and line ranges. Diagnoses are scored against expert-annotated root-cause
 blocks.
 
-- Paper: *DistDebug-Bench: Can LLM Agents Diagnose Bugs in Distributed Systems?* (NeurIPS 2026, Evaluations and Datasets Track)
+- Paper: *DistDebug-Bench: Can LLM Agents Diagnose Bugs in Distributed Systems?* (NeurIPS 2026, Track on Evaluations and Datasets)
 - Code, harness, and evaluator: {{GITHUB_URL}}
 - Website and leaderboard: {{WEBSITE_URL}}
 - Agent traces behind the paper's Table 1: https://huggingface.co/datasets/OrderLab/distdebug-bench-traces
