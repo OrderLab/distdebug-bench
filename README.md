@@ -1,43 +1,136 @@
-# DistDebug-Bench
+<p align="center">
+  <a href="https://distdebug.com">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/logo/logo-dark.svg">
+      <img src="assets/logo/logo.svg" alt="DistDebug-Bench" width="520">
+    </picture>
+  </a>
+</p>
 
-**DistDebug-Bench: Can LLM Agents Diagnose Bugs in Distributed Systems?**\
-NeurIPS 2026, Track on Evaluations and Datasets
+<h3 align="center">Can LLM agents diagnose bugs in distributed systems?</h3>
 
-Yuxuan Jiang, Chenglin Liu, John Rose, Mason Miller, Ruthesh Thavamani,
-Juntao Wu, Yinwei Huang, Jiahao Xu, Peng Huang\
-University of Michigan
+<p align="center">
+  <a href="https://distdebug.com/leaderboard/"><img src="https://img.shields.io/badge/leaderboard-live-FF4F2E?style=flat-square" alt="Leaderboard"></a>
+  <a href="https://distdebug.com/assets/paper.pdf"><img src="https://img.shields.io/badge/paper-PDF-B31B1B?style=flat-square" alt="Paper"></a>
+  <a href="https://huggingface.co/datasets/OrderLab/distdebug-bench"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20dataset-distdebug--bench-FFD21E?style=flat-square" alt="Hugging Face dataset"></a>
+  <a href="https://huggingface.co/datasets/OrderLab/distdebug-bench-traces"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20traces-6%2C120%20attempts-FFD21E?style=flat-square" alt="Agent traces"></a>
+  <img src="https://img.shields.io/badge/python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.10+">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-22C55E?style=flat-square" alt="MIT license"></a>
+  <a href="https://github.com/OrderLab/distdebug-bench/stargazers"><img src="https://img.shields.io/github/stars/OrderLab/distdebug-bench?style=flat-square&color=0B1220" alt="GitHub stars"></a>
+</p>
 
-[Website](https://distdebug.com) ·
-[Leaderboard](https://distdebug.com/leaderboard/) ·
-[Paper](https://distdebug.com/assets/paper.pdf) ·
-[Dataset](https://huggingface.co/datasets/OrderLab/distdebug-bench) ·
-[Agent traces](https://huggingface.co/datasets/OrderLab/distdebug-bench-traces) ·
-[Submit results](https://distdebug.com/submit/)
+<p align="center">
+  <a href="https://distdebug.com"><b>Website</b></a> ·
+  <a href="https://distdebug.com/leaderboard/"><b>Leaderboard</b></a> ·
+  <a href="https://distdebug.com/assets/paper.pdf"><b>Paper</b></a> ·
+  <a href="https://huggingface.co/datasets/OrderLab/distdebug-bench"><b>Dataset</b></a> ·
+  <a href="https://huggingface.co/datasets/OrderLab/distdebug-bench-traces"><b>Traces</b></a> ·
+  <a href="https://distdebug.com/submit/"><b>Submit</b></a>
+</p>
 
-DistDebug-Bench measures whether coding agents can diagnose real failures in
-distributed systems. Given an incident report, its logs or stack traces, and the
-repository as it stood before the fix, the agent must name the source code
-blocks that caused the failure. Diagnoses are scored against human-labeled
-root-cause code, not by whether a patch makes a test pass.
+---
 
-The benchmark contains 120 real bugs from 11 widely used distributed systems,
-covering 5 programming languages and 10 failure patterns, such as concurrency
-races, leader-election faults, replication inconsistencies, and resource leaks.
-Across the 17 agent configurations in the paper, the strongest reaches the right
-file 84% of the time but only 68% of the root-cause code blocks. See the
-[leaderboard](https://distdebug.com/leaderboard/) for every configuration.
+DistDebug-Bench is a benchmark for evaluating whether LLM agents can diagnose
+real-world failures in distributed systems. Each task gives the agent a bug report
+from the system's issue tracker, the logs and stack traces attached to it, and the
+source code as it was before the fix. The agent has to find the code that caused
+the failure. We score its diagnosis against human-labeled root-cause code blocks,
+rather than by whether a patch passes tests.
 
-## Quick start: diagnose one incident
+Bugs in distributed systems are hard to diagnose. They depend on timing, message
+ordering, and partial failures across nodes, are often difficult to reproduce, and
+rarely come with a failing test. In our evaluation of 17 agent configurations, the
+best agents find the right files 84% of the time but cover at most 68% of the
+root-cause code blocks. Results also vary between runs: on 12–29% of bugs, block
+coverage differs by more than 20 points across three attempts.
+
+## ✨ Highlights
+
+- **120 real bugs** from the issue trackers of 11 distributed systems, including
+  ZooKeeper, Kafka, HDFS, etcd, Kubernetes, Ray, and TiKV. They cover 5 languages
+  and 10 failure patterns, such as concurrency races, leader-election faults,
+  replication inconsistencies, and resource leaks.
+- **Human-labeled root causes.** Each bug comes with the code blocks that caused it,
+  so a diagnosis is scored at the file, function, line, and block level.
+- **No access to the fix.** The agent's workspace contains only the pre-fix snapshot
+  (no later commits, branches, tags, or remotes), and its commands run offline in a
+  [bubblewrap](https://github.com/containers/bubblewrap) sandbox. A leakage check
+  flags attempts that mention the original issue.
+- **Works with any agent.** We include Mini-SWE-Agent configs for 13 models in
+  [`configs/`](configs/mini-swe-agent/). Other agents only need to write a
+  `diagnosis.json`.
+- **Reproducible results.** All 6,120 scored attempts from the paper are on Hugging
+  Face, and `paper/reproduce.py` rebuilds the paper's main table and figures from them.
+- **A Lite subset** of 34 bugs for cheaper runs.
+
+## 🏆 Leaderboard
+
+Top configurations on the full benchmark (120 bugs, Mini-SWE-Agent, mean of three
+attempts per bug). **Block coverage** is the primary metric.
+
+| # | Model | Block coverage | File coverage | Tokens / run |
+| :-: | :-- | :-: | :-: | --: |
+| 1 | GPT-6 Astra | **67.7** <sub>[60.4, 74.9]</sub> | 83.9 | 132K |
+| 2 | Claude Opus 5.5 | **66.4** <sub>[59.2, 73.6]</sub> | 82.0 | 193K |
+| 3 | GPT-5.5 | **65.1** <sub>[57.8, 72.3]</sub> | 84.0 | 468K |
+| 4 | GPT-5.4 | 63.1 <sub>[56.0, 70.2]</sub> | 79.8 | 690K |
+| 5 | GPT-5.3-Codex | 59.7 <sub>[52.2, 67.2]</sub> | 79.1 | 416K |
+
+<sub>Brackets are 95% bug-bootstrap confidence intervals.</sub>
+
+The [leaderboard](https://distdebug.com/leaderboard/) lists all 17 configurations.
+To add yours, see [Submitting to the leaderboard](#-submitting-to-the-leaderboard).
+
+## 🧩 The task
+
+**Input.** The issue title and description, its attachments (logs, stack traces,
+analyses), and the system's source code at the pre-fix snapshot. The agent works in
+a sandboxed shell with no network access.
+
+**Output.** A `diagnosis.json` that describes the cause of the failure and lists the
+code blocks responsible:
+
+```json
+{
+  "bug_cause_description": "Leader election retains a stale ZKDatabase ...",
+  "buggy_blocks": [
+    {
+      "file": "src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java",
+      "function": "ZooKeeperServer.shutdown",
+      "start_line": 555,
+      "end_line": 558,
+      "bug_contribution": "...",
+      "patch": "..."
+    }
+  ]
+}
+```
+
+The scorer compares the predicted blocks with the labeled ones and reports
+precision and coverage at four levels (see
+[metrics](#evaluation-metrics-produced-by-compute_correctness_report)).
+
+### Systems
+
+| System | Language | Bugs | | System | Language | Bugs |
+| :-- | :-- | --: | - | :-- | :-- | --: |
+| [Ray](https://github.com/ray-project/ray) | Python, C++ | 21 | | [Kafka](https://github.com/apache/kafka) | Java | 8 |
+| [Elasticsearch](https://github.com/elastic/elasticsearch) | Java | 19 | | [etcd](https://github.com/etcd-io/etcd) | Go | 8 |
+| [ZooKeeper](https://github.com/apache/zookeeper) | Java | 18 | | [Ignite 3](https://github.com/apache/ignite-3) | Java | 7 |
+| [TiKV](https://github.com/tikv/tikv) | Rust | 11 | | [HBase](https://github.com/apache/hbase) | Java | 5 |
+| [HDFS](https://github.com/apache/hadoop) | Java | 10 | | [Ignite](https://github.com/apache/ignite) | Java | 3 |
+| [Kubernetes](https://github.com/kubernetes/kubernetes) | Go | 10 | | | | |
+
+## 🚀 Quick start
 
 You need Linux with [bubblewrap](https://github.com/containers/bubblewrap),
-Python 3.10 or later, and an API key for your model provider. This runs
-Mini-SWE-Agent with GPT-5.4 on ZooKeeper-2845 once and scores the diagnosis:
+Python 3.10 or later, and an API key for your model provider. The commands below
+run Mini-SWE-Agent with GPT-5.4 on one bug, ZooKeeper-2845, and score the result:
 
 ```bash
 git clone https://github.com/OrderLab/distdebug-bench.git
 cd distdebug-bench
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[agent]"
 export OPENAI_API_KEY=...        # or the provider key the config needs
 
@@ -49,7 +142,18 @@ python -m distdebug_bench.score results/mini-swe-agent-gpt-5.4 --attempts 1
 The attempt is saved under `results/mini-swe-agent-gpt-5.4/zookeeper-2845/`.
 `configs/mini-swe-agent/` has a config for each model in the paper.
 
-## Running the full benchmark
+To load the data without running an agent, `pip install -e .` is enough. It has
+no dependencies:
+
+```python
+from distdebug_bench import get_bug
+
+bug = get_bug(".", "zookeeper-2845")
+print(bug.title)                # Data inconsistency issue due to retain database in leader election
+print(bug.ground_truth_blocks)  # the labeled root-cause code blocks
+```
+
+## 🧪 Running the full benchmark
 
 The runner reproduces the paper's Mini-SWE-Agent evaluation. One config per
 model in the paper's Table 1 is in `configs/mini-swe-agent/`.
@@ -96,7 +200,7 @@ Each attempt is saved under `results/<config>/<bug>/run-NN/` as
 `trajectory.json`, `diagnosis.json`, `session_stats.json` (API calls, tokens,
 cost), and, after scoring, `diagnosis_scores.json`.
 
-## Evaluating your own agent
+## 🛠️ Evaluating your own agent
 
 Any agent or harness can be evaluated. Give it what the runner gives
 Mini-SWE-Agent: the issue title and description, the issue's attachments, and
@@ -110,7 +214,7 @@ The [Python API](#python-api) loads a bug and its task prompt, checks out the
 pre-fix snapshot so that the fix is unreachable, and scores a single
 diagnosis.
 
-## Submitting results to the leaderboard
+## 📤 Submitting to the leaderboard
 
 The [leaderboard](https://distdebug.com/leaderboard/) lists every evaluated
 configuration, and the [submission guide](https://distdebug.com/submit/)
@@ -152,7 +256,7 @@ Rules:
 - Describe the system in a paper, technical report, or blog post (`report_url`).
 - We rescore every submission from its diagnoses before listing it.
 
-## Reproducing the paper's results
+## 🔬 Reproducing the paper's results
 
 The traces behind the paper's Table 1 are on Hugging Face at
 [OrderLab/distdebug-bench-traces](https://huggingface.co/datasets/OrderLab/distdebug-bench-traces):
@@ -172,7 +276,7 @@ It prints whether each configuration's scores, token use, and confidence
 intervals match the paper. Pass `--use-released-scores` to aggregate the
 stored `diagnosis_scores.json` files instead of rescoring.
 
-## Reference
+## 📚 Reference
 
 ### Repository structure
 
@@ -190,6 +294,7 @@ stored `diagnosis_scores.json` files instead of rescoring.
 │       └── artifact_dir/                  # optional supporting logs and traces
 │
 ├── distdebug_bench/                       # Loader, evaluator, and agent runner
+├── assets/logo/                           # Logo files (SVG and PNG)
 ├── configs/mini-swe-agent/                # The paper's model configurations
 ├── paper/                                 # Rebuilds the paper's Table 1 and Figures 2-3 from the traces
 ├── submissions/                           # Leaderboard submissions
@@ -339,18 +444,32 @@ half-open, `[start_line, end_line)`.
 Precision divides by predicted files, functions, lines, or blocks; coverage
 divides by ground-truth ones. `block_coverage` is the paper's main metric.
 
-## License and citation
+## 🤝 Contributing
 
-See `LICENSE`. The benchmark annotations and code are released under the MIT
-license. Issue reports and attachments come from public issue trackers and
-remain subject to their terms; upstream source code referenced by
-`report.json` and `blocks.json` is governed by each project's own license.
+To suggest a bug for the benchmark, open an issue with the
+[Bug Entry template](https://github.com/OrderLab/distdebug-bench/issues/new?template=bug-entry.md).
+We also welcome pull requests, including scorer fixes and configs for new agents.
+
+## 📄 License
+
+The benchmark annotations and code are released under the [MIT license](LICENSE).
+Issue reports and attachments come from public issue trackers and remain subject
+to their terms; upstream source code referenced by `report.json` and `blocks.json`
+is governed by each project's own license.
+
+## 📝 Citation
+
+If you use DistDebug-Bench in your research, please cite:
 
 ```bibtex
 @inproceedings{jiang2026distdebugbench,
   title     = {{DistDebug-Bench}: Can {LLM} Agents Diagnose Bugs in Distributed Systems?},
   author    = {Jiang, Yuxuan and Liu, Chenglin and Rose, John and Miller, Mason and Thavamani, Ruthesh and Wu, Juntao and Huang, Yinwei and Xu, Jiahao and Huang, Peng},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS), Track on Evaluations and Datasets},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
   year      = {2026}
 }
 ```
+
+<p align="center">
+  <sub>If DistDebug-Bench is useful to you, a ⭐ helps others find it.</sub>
+</p>
