@@ -4,7 +4,7 @@
   "issue_creation_date": "2023-02-06",
   "issue_link": "https://github.com/etcd-io/etcd/issues/15247",
   "fix_link": "https://github.com/etcd-io/etcd/pull/16822",
-  "branch": "v3.4.3",
+  "branch": "2f03bbc5dd34b4250c9baece58754e8180786bd4",
   "title": "All leases are revoked when the etcd leader is stuck in handling raft Ready due to slow fdatasync or high CPU",
   "description": "We have 3 etcd nodes which are running on k8s, the etcd pod use portworx storage for db saving, we've found when rebooting the portworx node, it will cause etcd to be stuck in fdatasync, if this etcd node is leader, then it will cause below 2 lease keep alive issues. 1, the old leader still revokes lease after it steped to follower. 2, the old leader still handle lease keep alive request from the connected client.",
   "severity": "Critical",

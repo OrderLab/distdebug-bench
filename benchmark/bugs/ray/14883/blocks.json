@@ -1,7 +1,7 @@
 [
   {
     "file": "src/ray/raylet/scheduling/cluster_resource_scheduler.cc",
-    "function": "ClusterResourceScheduler::AddLocalResourceInstances",
+    "function": "ClusterResourceScheduler::AddLocalResource",
     "start_line": 407,
     "end_line": 435
   },
