@@ -87,13 +87,13 @@ EXPERIMENT_LABELS = {
         "label": "MiniSWE MiMo v2.5",
         "short_label": "M-SWE MiMo",
     },
-    "mini-swe-agent__deepseek-v4-flash": {
-        "label": "MiniSWE DeepSeek V4 Flash",
-        "short_label": "M-SWE DS Flash",
-    },
     "mini-swe-agent__gpt-5.2-codex": {
         "label": "MiniSWE GPT-5.2-Codex",
         "short_label": "M-SWE 5.2",
+    },
+    "mini-swe-agent__deepseek-v4-flash": {
+        "label": "MiniSWE DeepSeek V4 Flash",
+        "short_label": "M-SWE DS Flash",
     },
     "mini-swe-agent__hy3": {
         "label": "MiniSWE HY3",

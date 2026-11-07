@@ -1,8 +1,14 @@
 [
   {
-    "file": "components/raftstore/src/coprocessor/dispatcher.rs",
-    "function": "CoprocessorHost::new_split_checker_host",
-    "start_line": 835,
-    "end_line": 839
+    "file": "components/raftstore/src/store/worker/split_check.rs",
+    "function": "Runner::check_split_and_bucket",
+    "start_line": 613,
+    "end_line": 614
+  },
+  {
+    "file": "components/raftstore/src/coprocessor/split_check/half.rs",
+    "function": "HalfCheckObserver::add_checker",
+    "start_line": 89,
+    "end_line": 92
   }
 ]

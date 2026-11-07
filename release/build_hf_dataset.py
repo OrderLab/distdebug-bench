@@ -24,7 +24,7 @@ import re
 import shutil
 from pathlib import Path
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 DEFAULT_HF_REPO = "OrderLab/distdebug-bench"
 GITHUB_URL = "https://github.com/OrderLab/distdebug-bench"
 WEBSITE_URL = "https://distdebug.com"
