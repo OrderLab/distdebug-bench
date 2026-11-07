@@ -1,5 +1,7 @@
-"""Run Mini-SWE-Agent over the benchmark, as in the paper.
+"""Run an agent harness over the benchmark, as in the paper.
 
+The config picks the harness: Mini-SWE-Agent (``configs/mini-swe-agent/``),
+Codex CLI (``configs/codex/``) or OpenCode (``configs/opencode/``).
 Each bug is attempted until it has ``--runs`` successful attempts (3 in the paper)
 or ``--max-attempts`` attempts in total. Attempts that already have a diagnosis
 are kept, so an interrupted sweep resumes where it stopped.
@@ -7,6 +9,7 @@ are kept, so an interrupted sweep resumes where it stopped.
 Usage:
     pip install -e ".[agent]"
     python -m distdebug_bench.run --config configs/mini-swe-agent/gpt-5.4.yaml --subset lite
+    python -m distdebug_bench.run --config configs/codex/gpt-5.2-codex.yaml --bug zookeeper-2845
     python -m distdebug_bench.score results/mini-swe-agent-gpt-5.4
 """
 
@@ -21,8 +24,10 @@ import sys
 from contextlib import contextmanager
 from pathlib import Path
 
-from distdebug_bench.agent import DIAGNOSIS_NAME, AgentConfig, run_attempt
+from distdebug_bench.agent import DIAGNOSIS_NAME
 from distdebug_bench.benchmark import load_benchmark
+from distdebug_bench.harnesses import load_config, run_attempt
+from distdebug_bench.leakage import TRACE_FILES
 from distdebug_bench.models import BugReport
 from distdebug_bench.repos import ensure_system_repo, temporary_checkout
 
@@ -58,7 +63,7 @@ def _redirect_output(path: Path):
 def run_bug(
     bug: BugReport,
     system_repo: Path,
-    config: AgentConfig,
+    config,
     output: Path,
     workspaces: Path,
     runs: int,
@@ -70,7 +75,7 @@ def run_bug(
         if successes >= runs:
             break
         run_dir = output / bug.name / f"run-{index:02d}"
-        if (run_dir / DIAGNOSIS_NAME).exists() and (run_dir / "trajectory.json").exists():
+        if (run_dir / DIAGNOSIS_NAME).exists() and any((run_dir / name).exists() for name in TRACE_FILES):
             successes += 1
             continue
         with temporary_checkout(bug, system_repo, workspaces) as workspace:
@@ -90,7 +95,7 @@ def _run_bug_logged(log_path: Path, *args) -> dict:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--config", type=Path, required=True, help="Model config, e.g. configs/mini-swe-agent/gpt-5.4.yaml")
+    parser.add_argument("--config", type=Path, required=True, help="Model config, e.g. configs/mini-swe-agent/gpt-5.4.yaml or configs/codex/gpt-5.2-codex.yaml")
     parser.add_argument("--benchmark", type=Path, default=Path("."), help="Repository root containing benchmark/")
     parser.add_argument("--subset", choices=("all", "lite"), default="all")
     parser.add_argument("--bug", dest="bugs", action="append", help="Run only these bugs (repeatable)")
@@ -103,7 +108,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--workspaces", type=Path, default=Path(".cache/workspaces"), help="Where to create workspaces")
     args = parser.parse_args(argv)
 
-    config = AgentConfig.from_yaml(args.config)
+    config = load_config(args.config)
+    if hasattr(config, "harness"):  # Codex CLI / OpenCode: check the CLI, API key and bwrap up front
+        from distdebug_bench.harnesses.cli import check_ready
+
+        check_ready(config)
     bench = load_benchmark(args.benchmark)
     bugs = select_bugs(bench, args.subset, args.bugs, args.systems)
     output = (args.output or Path("results") / config.name).resolve()
@@ -111,7 +120,7 @@ def main(argv: list[str] | None = None) -> int:
     workspaces = args.workspaces.resolve()
     # Clone each system once, before any workers start.
     repos = {s: ensure_system_repo(bench.systems[s], args.cache).resolve() for s in sorted({b.system for b in bugs})}
-    print(f"[run] {config.name}: {len(bugs)} bugs, {args.runs} successful attempts each -> {output}")
+    print(f"[run] {config.name} ({getattr(config, 'harness', 'mini-swe-agent')}): {len(bugs)} bugs, {args.runs} successful attempts each -> {output}")
 
     jobs = [(bug, repos[bug.system], config, output, workspaces, args.runs, args.max_attempts) for bug in bugs]
     if args.parallel <= 1:

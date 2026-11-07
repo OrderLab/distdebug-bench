@@ -55,10 +55,10 @@ coverage differs by more than 20 points across three attempts.
 - **No access to the fix.** The agent's workspace contains only the pre-fix snapshot
   (no later commits, branches, tags, or remotes), and its commands run offline in a
   [bubblewrap](https://github.com/containers/bubblewrap) sandbox. A leakage check
-  flags attempts that mention the original issue.
+  flags attempts that mention the original issue, its fix pull request, or its fix commit.
 - **Works with any agent.** We include Mini-SWE-Agent configs for 13 models in
-  [`configs/`](configs/mini-swe-agent/). Other agents only need to write a
-  `diagnosis.json`.
+  [`configs/`](configs/mini-swe-agent/), plus Codex CLI and OpenCode harnesses.
+  Other agents only need to write a `diagnosis.json`.
 - **Reproducible results.** All 6,120 scored attempts from the paper are on Hugging
   Face, and `paper/reproduce.py` rebuilds the paper's main table and figures from them.
 - **A Lite subset** of 34 bugs for cheaper runs.
@@ -190,15 +190,77 @@ The protocol, as in the paper:
 - **Leakage controls.** Each workspace has a random name and contains only the
   snapshot and its ancestors: no branches, tags, remotes, reflog, or later
   commits, so the fix is unreachable. `chafa` and `img2txt` are disabled in the
-  sandbox. `distdebug_bench.leakage` flags attempts whose model-visible text
-  names the original issue; the paper discards and reruns them.
+  sandbox. `distdebug_bench.leakage` flags attempts in which the agent saw or
+  typed the original issue or its fix (see [Leakage check](#leakage-check));
+  flagged attempts are discarded and rerun.
 - **Attempts.** Each bug is attempted until it has three schema-valid
   diagnoses. Scoring takes the first three in run order, averages them within
   the bug, then averages equally over bugs.
 
-Each attempt is saved under `results/<config>/<bug>/run-NN/` as
-`trajectory.json`, `diagnosis.json`, `session_stats.json` (API calls, tokens,
-cost), and, after scoring, `diagnosis_scores.json`.
+Each attempt is saved under `results/<config>/<bug>/run-NN/` as the agent's
+trace (`trajectory.json`, `codex_exec.log`, or `opencode_cli.log`),
+`diagnosis.json`, `session_stats.json` (API calls, tokens, cost), and, after
+scoring, `diagnosis_scores.json`.
+
+### Harnesses
+
+The config selects the harness. All three give the agent the same task text,
+attachments, validator, and instructions, in the same anonymized workspace.
+
+| Harness | Configs | Trace | Tested version |
+| --- | --- | --- | --- |
+| Mini-SWE-Agent | `configs/mini-swe-agent/` | `trajectory.json` | 2.2.8 |
+| Codex CLI | `configs/codex/` | `codex_exec.log` | 0.117.0 |
+| OpenCode | `configs/opencode/` | `opencode_cli.log` | 1.4.6 |
+
+```bash
+npm install -g @openai/codex@0.117.0   # or set `executable:` in the config
+python -m distdebug_bench.run --config configs/codex/gpt-5.2-codex.yaml --bug zookeeper-2845 --runs 1
+```
+
+A Codex CLI or OpenCode config names the model, an OpenAI-compatible endpoint
+(`base_url`), and the environment variable that holds its key (`api_key_env`).
+
+### Isolation
+
+- **Mini-SWE-Agent.** The model is called from the host. Every command the agent
+  runs executes in bubblewrap with its own network namespace, which has only
+  loopback. At startup the sandbox tries an outbound connection and refuses to
+  run if it succeeds.
+- **Codex CLI and OpenCode.** The whole CLI runs in bubblewrap without network
+  access. Its only way out is a gateway on the host that forwards model API
+  requests (Responses, Chat Completions, model list) to `base_url`. The CLI holds
+  a placeholder key, and the gateway adds the real one, so the key never enters
+  the sandbox. The gateway serves only the configured model and rejects requests
+  that enable hosted tools such as web search, file search, code interpreter, or
+  remote MCP. It answers proxy requests
+  for any other host with `403`, and direct connections have no route. Every
+  decision is logged to `proxy.log` in the run directory.
+- **No user configuration.** Each CLI starts from an empty home directory, so no
+  user settings, MCP servers, hooks, plugins, skills, or credentials load. Codex
+  runs with `web_search = "disabled"` and its `workspace-write` sandbox for the
+  commands it runs. OpenCode runs with `webfetch`, `websearch`, and `codesearch`
+  disabled and its model declared explicitly.
+- **Nothing else is visible.** The sandbox sees the workspace, the temporary
+  home, the CLI's install directory, and system directories such as `/usr` and
+  `/etc`. The user's home directory and the benchmark's labels are not visible.
+
+### Leakage check
+
+`python -m distdebug_bench.leakage <results>` scans what the agent wrote and
+read, meaning its reasoning, commands, and tool output, in all three trace
+formats. It flags an attempt when it finds any of these:
+
+- the issue key, such as `KAFKA-13407`, outside file paths;
+- the issue or fix-PR number in a reference, such as `#11563`, `issues/13407`,
+  `pull/11563`, or `PR 11563`;
+- the bare issue or fix-PR number typed in a command or in the model's own text,
+  unless it reads as a line number, range, or offset;
+- the fix commit hash.
+
+The task prompt is not scanned. Numbers that appear in the task are ignored, and
+so are line numbers in source listings. The check writes `leakage.json`, and
+`--quarantine` moves flagged runs aside so that the runner replaces them.
 
 ## 🛠️ Evaluating your own agent
 
@@ -296,6 +358,7 @@ stored `diagnosis_scores.json` files instead of rescoring.
 ├── distdebug_bench/                       # Loader, evaluator, and agent runner
 ├── assets/logo/                           # Logo files (SVG and PNG)
 ├── configs/mini-swe-agent/                # The paper's model configurations
+├── configs/codex/, configs/opencode/      # Codex CLI and OpenCode configurations
 ├── paper/                                 # Rebuilds the paper's Table 1 and Figures 2-3 from the traces
 ├── submissions/                           # Leaderboard submissions
 ├── release/                               # Hugging Face export and Croissant metadata
