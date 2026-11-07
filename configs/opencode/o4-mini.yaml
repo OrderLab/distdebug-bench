@@ -1,0 +1,9 @@
+# OpenCode with o4-mini (paper Table 1).
+name: opencode-o4-mini
+harness: opencode
+model: o4-mini
+base_url: https://api.openai.com/v1
+api_key_env: OPENAI_API_KEY
+reasoning_effort: medium
+timeout_seconds: 3600
+pricing: {input: 1.1, cached_input: 0.275, output: 4.4}  # USD per 1M tokens

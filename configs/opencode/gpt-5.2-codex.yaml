@@ -1,0 +1,11 @@
+# OpenCode with GPT-5.2-Codex (paper Table 1). Tested with OpenCode 1.4.6.
+# Point base_url at any OpenAI-compatible Responses API endpoint (https only);
+# the sandbox lets the agent reach that host and nothing else.
+name: opencode-gpt-5.2-codex
+harness: opencode
+model: gpt-5.2-codex
+base_url: https://api.openai.com/v1
+api_key_env: OPENAI_API_KEY
+reasoning_effort: medium
+timeout_seconds: 3600
+pricing: {input: 1.75, cached_input: 0.175, output: 14.0}  # USD per 1M tokens

@@ -3,7 +3,8 @@
 Same as mini-swe-agent's ``BubblewrapEnvironment``, plus:
 
 - ``allow_network`` (default false): commands run in their own network namespace
-  with only loopback, so the agent cannot reach the internet.
+  with only loopback, so the agent cannot reach the internet. On startup the
+  sandbox tries an outbound connection and refuses to run if it succeeds.
 - ``blocked_commands``: each listed command is shadowed by a stub that fails with
   exit code 127. The paper blocks ``chafa`` (crashes runs) and ``img2txt`` (hangs
   them). Commands can also be listed in ``MSWEA_BLOCKED_COMMANDS`` (comma-separated).
@@ -17,6 +18,17 @@ from minisweagent.environments.extra.bubblewrap import BubblewrapEnvironment, Bu
 
 STUB_MOUNT = "/.mswea-blocked-bin"
 DEFAULT_PATH = "/usr/local/bin:/usr/sbin:/usr/bin:/bin"
+# Prints "reachable <target>" if any well-known public address accepts a TCP connection.
+NETWORK_PROBE = r"""
+for target in 1.1.1.1/443 8.8.8.8/53; do
+  if timeout 3 bash -c "exec 3<>/dev/tcp/$target" 2>/dev/null; then echo "reachable $target"; exit 0; fi
+done
+echo unreachable
+"""
+
+
+class NetworkIsolationError(RuntimeError):
+    """The sandbox can reach the network although ``allow_network`` is false."""
 
 
 class SandboxEnvironmentConfig(BubblewrapEnvironmentConfig):
@@ -31,6 +43,22 @@ class SandboxEnvironment(BubblewrapEnvironment):
         super().__init__(config_class=SandboxEnvironmentConfig, **kwargs)
         if not self.config.allow_network:
             self.config.wrapper_args = [*self.config.wrapper_args, "--unshare-net"]
+        self._install_command_stubs()
+        if not self.config.allow_network:
+            self.check_network_isolation()
+
+    def check_network_isolation(self) -> None:
+        """Raise ``NetworkIsolationError`` if a command in the sandbox can open an outbound connection."""
+        result = self.execute({"command": NETWORK_PROBE}, cwd=str(self.working_dir), timeout=30)
+        if "reachable" not in result["output"]:
+            raise NetworkIsolationError(f"Network self-check did not complete: {result['output'][-500:]!r}")
+        if not result["output"].strip().endswith("unreachable"):
+            raise NetworkIsolationError(
+                f"Sandboxed commands can reach the network ({result['output'].strip()}); refusing to run. "
+                "Check that bwrap supports --unshare-net on this host."
+            )
+
+    def _install_command_stubs(self) -> None:
         commands = self._blocked_commands()
         if not commands:
             return
