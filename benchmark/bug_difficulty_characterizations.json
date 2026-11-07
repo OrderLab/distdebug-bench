@@ -2204,8 +2204,8 @@
       "catalog/src/main/java/org/apache/ignite/internal/catalog/CatalogManagerImpl.java"
     ],
     "gold_methods_considered": [
-      "CompletableFuture",
-      "saveUpdate"
+      "saveUpdate",
+      "saveUpdateAndWaitForActivation"
     ],
     "has_exact_method_anchor": false,
     "has_file_or_class_anchor": false,
@@ -2267,7 +2267,8 @@
       "raft/src/main/java/org/apache/ignite/raft/jraft/rpc/impl/ActionRequestProcessor.java"
     ],
     "gold_methods_considered": [
-      "RpcProcessor"
+      "applyRead",
+      "applyWrite"
     ],
     "has_exact_method_anchor": false,
     "has_file_or_class_anchor": false,
@@ -3129,7 +3130,9 @@
     "gold_files": [
       "src/ray/object_manager/pull_manager.cc"
     ],
-    "gold_methods_considered": [],
+    "gold_methods_considered": [
+      "DeactivatePullBundleRequest"
+    ],
     "has_exact_method_anchor": false,
     "has_file_or_class_anchor": false,
     "matched_file_or_class": [],
@@ -3236,7 +3239,9 @@
     "crash_context": "/databricks/python/lib/python3.9/site-packages/ray/dashboard/modules/reporter",
     "crash_site": "reporter_agent.py",
     "crash_to_fix_distance": "co_located",
-    "gold_classes_considered": [],
+    "gold_classes_considered": [
+      "ReporterAgent"
+    ],
     "gold_file_stems_considered": [
       "reporter_agent"
     ],
@@ -3244,14 +3249,16 @@
       "dashboard/modules/reporter/reporter_agent.py"
     ],
     "gold_methods_considered": [
-      "_get_disk_usage"
+      "_get_disk_io_stats"
     ],
-    "has_exact_method_anchor": false,
+    "has_exact_method_anchor": true,
     "has_file_or_class_anchor": true,
     "matched_file_or_class": [
       "reporter_agent"
     ],
-    "matched_methods": [],
+    "matched_methods": [
+      "_get_disk_io_stats"
+    ],
     "name": "ray-30229",
     "num_gold_files": 1,
     "root_cause_type": "Error Handling",
@@ -3263,7 +3270,7 @@
       }
     ],
     "system": "ray",
-    "textual_anchor": "file_class"
+    "textual_anchor": "method"
   },
   "ray-38591": {
     "bug_id": "38591",

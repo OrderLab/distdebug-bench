@@ -75,25 +75,25 @@ EXPERIMENT_LABELS = {
         "label": "MiniSWE GPT-5.3-Codex",
         "short_label": "M-SWE 5.3",
     },
-    "mini-swe-agent__kimi-k2.6": {
-        "label": "MiniSWE Kimi K2.6",
-        "short_label": "M-SWE Kimi",
-    },
     "mini-swe-agent__mimo-v2.5-pro": {
         "label": "MiniSWE MiMo v2.5 Pro",
         "short_label": "M-SWE MiMo Pro",
+    },
+    "mini-swe-agent__kimi-k2.6": {
+        "label": "MiniSWE Kimi K2.6",
+        "short_label": "M-SWE Kimi",
     },
     "mini-swe-agent__mimo-v2.5": {
         "label": "MiniSWE MiMo v2.5",
         "short_label": "M-SWE MiMo",
     },
-    "mini-swe-agent__deepseek-v4-flash": {
-        "label": "MiniSWE DeepSeek V4 Flash",
-        "short_label": "M-SWE DS Flash",
-    },
     "mini-swe-agent__gpt-5.2-codex": {
         "label": "MiniSWE GPT-5.2-Codex",
         "short_label": "M-SWE 5.2",
+    },
+    "mini-swe-agent__deepseek-v4-flash": {
+        "label": "MiniSWE DeepSeek V4 Flash",
+        "short_label": "M-SWE DS Flash",
     },
     "mini-swe-agent__hy3": {
         "label": "MiniSWE HY3",

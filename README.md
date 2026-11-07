@@ -40,8 +40,8 @@ rather than by whether a patch passes tests.
 Bugs in distributed systems are hard to diagnose. They depend on timing, message
 ordering, and partial failures across nodes, are often difficult to reproduce, and
 rarely come with a failing test. In our evaluation of 17 agent configurations, the
-best agents find the right files 84% of the time but cover at most 68% of the
-root-cause code blocks. Results also vary between runs: on 12–29% of bugs, block
+best agents find the right files 86% of the time but cover at most 73% of the
+root-cause code blocks. Results also vary between runs: on 12–30% of bugs, block
 coverage differs by more than 20 points across three attempts.
 
 ## ✨ Highlights
@@ -70,11 +70,11 @@ of three attempts per bug). **Block coverage** is the primary metric.
 
 | # | Model | Block coverage | File coverage | Tokens / run |
 | :-: | :-- | :-: | :-: | --: |
-| 1 | GPT-6 Astra | **71.8** <sub>[64.8, 78.6]</sub> | 86.1 | 130K |
-| 2 | Claude Opus 5.5 | **71.0** <sub>[64.3, 77.5]</sub> | 84.5 | 149K |
-| 3 | GPT-5.5 | **69.5** <sub>[62.6, 76.2]</sub> | 86.2 | 474K |
-| 4 | GPT-5.4 | 66.3 <sub>[59.4, 73.1]</sub> | 81.0 | 687K |
-| 5 | GPT-5.3-Codex | 62.4 <sub>[55.0, 69.6]</sub> | 79.9 | 417K |
+| 1 | GPT-6 Astra | **72.6** <sub>[65.7, 79.3]</sub> | 86.1 | 130K |
+| 2 | Claude Opus 5.5 | **71.8** <sub>[65.2, 78.2]</sub> | 84.5 | 149K |
+| 3 | GPT-5.5 | **70.0** <sub>[63.1, 76.7]</sub> | 86.2 | 474K |
+| 4 | GPT-5.4 | 66.6 <sub>[59.7, 73.4]</sub> | 81.0 | 687K |
+| 5 | GPT-5.3-Codex | 63.2 <sub>[55.9, 70.4]</sub> | 79.9 | 417K |
 
 <sub>Brackets are 95% bug-bootstrap confidence intervals.</sub>
 
@@ -446,8 +446,8 @@ divides by ground-truth ones. `block_coverage` is the paper's main metric.
 
 ## 🗒️ Changelog
 
-- **v1.1 (2026-11-07).** Fixes the gold labels of eight bugs reported in
-  [#2](https://github.com/OrderLab/distdebug-bench/issues/2).
+- **v1.1 (2026-11-07).** Fixes the gold labels of the eight bugs reported in
+  [#2](https://github.com/OrderLab/distdebug-bench/issues/2) and corrects five more labels.
   - The blocks of etcd-14110, etcd-14325, etcd-14382, etcd-15247, hbase-28830 and
     ray-14883 had been labeled against the fix's base branch. They are now mapped
     onto each bug's pinned revision.
@@ -456,8 +456,11 @@ divides by ground-truth ones. `block_coverage` is the paper's main metric.
   - tikv-19220 pointed to a commit outside the TiKV repository. It is re-pinned to
     the parent of the fix on master (`6bb8ff37`), and its block now marks the two
     lines that cause the failure.
+  - tikv-18498's block is moved onto its pinned v8.5.1 lines.
+  - ray-15990, ray-30229, ignite3-21776 and ignite3-22597 name the function that
+    contains each labeled block. Their line ranges are unchanged.
   - ignite3-22597 and hbase-28830 gain fix links.
-  - The leaderboard and the paper use v1.1. Block coverage rises by 0.7 to 4.6 points
+  - The leaderboard and the paper use v1.1. Block coverage rises by 1.4 to 5.4 points
     per configuration.
 - **v1.0 (2026-11-01).** Initial release.
 

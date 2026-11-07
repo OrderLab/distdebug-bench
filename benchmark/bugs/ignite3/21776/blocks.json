@@ -1,7 +1,7 @@
 [
   {
     "file": "catalog/src/main/java/org/apache/ignite/internal/catalog/CatalogManagerImpl.java",
-    "function": "CatalogManagerImpl.CompletableFuture",
+    "function": "CatalogManagerImpl.saveUpdateAndWaitForActivation",
     "start_line": 376,
     "end_line": 388
   },

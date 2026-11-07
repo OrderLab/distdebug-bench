@@ -1,7 +1,7 @@
 [
   {
     "file": "src/ray/object_manager/pull_manager.cc",
-    "function": "PullManager::Pull",
+    "function": "PullManager::DeactivatePullBundleRequest",
     "start_line": "128",
     "end_line": "128"
   }
