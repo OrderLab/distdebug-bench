@@ -2,19 +2,19 @@
   {
     "file": "server/etcdserver/server.go",
     "function": "EtcdServer.applyEntryNormal",
-    "start_line": 1843,
-    "end_line": 1844
+    "start_line": 2169,
+    "end_line": 2170
   },
   {
     "file": "server/etcdserver/server.go",
     "function": "EtcdServer.applyEntryNormal",
-    "start_line": 1850,
-    "end_line": 1856
+    "start_line": 2176,
+    "end_line": 2182
   },
   {
     "file": "server/etcdserver/server.go",
     "function": "EtcdServer.applyEntryNormal",
-    "start_line": 1906,
-    "end_line": 1907
+    "start_line": 2229,
+    "end_line": 2230
   }
 ]

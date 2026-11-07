@@ -682,18 +682,25 @@
     "contains_analysis": "No",
     "crash_context": "etcdserver",
     "crash_site": "apply.go",
-    "crash_to_fix_distance": "cross_component",
-    "gold_classes_considered": [],
-    "gold_file_stems_considered": [],
+    "crash_to_fix_distance": "co_located",
+    "gold_classes_considered": [
+      "applierV3backend"
+    ],
+    "gold_file_stems_considered": [
+      "apply"
+    ],
     "gold_files": [
-      "server/etcdserver/txn/txn.go"
+      "server/etcdserver/apply.go"
     ],
     "gold_methods_considered": [
       "applyTxn"
     ],
     "has_exact_method_anchor": true,
-    "has_file_or_class_anchor": false,
-    "matched_file_or_class": [],
+    "has_file_or_class_anchor": true,
+    "matched_file_or_class": [
+      "applierV3backend",
+      "apply"
+    ],
     "matched_methods": [
       "applyTxn"
     ],
@@ -788,10 +795,10 @@
       "kvstore"
     ],
     "gold_files": [
-      "server/storage/mvcc/kvstore.go"
+      "server/mvcc/kvstore.go"
     ],
     "gold_methods_considered": [
-      "hashByRev"
+      "HashByRev"
     ],
     "has_exact_method_anchor": false,
     "has_file_or_class_anchor": false,
@@ -997,6 +1004,7 @@
     "crash_site": null,
     "crash_to_fix_distance": "no_stack_trace",
     "gold_classes_considered": [
+      "EtcdServer",
       "lessor"
     ],
     "gold_file_stems_considered": [
@@ -1005,14 +1013,13 @@
       "v3_server"
     ],
     "gold_files": [
-      "server/etcdserver/v3_server.go",
-      "server/etcdserver/server.go",
-      "server/lease/lessor.go"
+      "etcdserver/v3_server.go",
+      "etcdserver/server.go",
+      "lease/lessor.go"
     ],
     "gold_methods_considered": [
       "LeaseRenew",
-      "checkpointScheduledLeases()",
-      "revokeExpiredLeases"
+      "checkpointScheduledLeases"
     ],
     "has_exact_method_anchor": false,
     "has_file_or_class_anchor": false,
@@ -1215,7 +1222,7 @@
     ],
     "gold_methods_considered": [
       "completionCleanup",
-      "executeProcedure"
+      "updateStoreOnExec"
     ],
     "has_exact_method_anchor": false,
     "has_file_or_class_anchor": false,
@@ -3093,7 +3100,7 @@
       "src/ray/raylet/placement_group_resource_manager.cc"
     ],
     "gold_methods_considered": [
-      "AddLocalResourceInstances",
+      "AddLocalResource",
       "CommitBundle"
     ],
     "has_exact_method_anchor": false,
@@ -4676,23 +4683,27 @@
     "crash_site": "client.go",
     "crash_to_fix_distance": "cross_component",
     "gold_classes_considered": [
-      "CoprocessorHost"
+      "HalfCheckObserver",
+      "Runner"
     ],
     "gold_file_stems_considered": [
-      "dispatcher"
+      "half",
+      "split_check"
     ],
     "gold_files": [
-      "components/raftstore/src/coprocessor/dispatcher.rs"
+      "components/raftstore/src/store/worker/split_check.rs",
+      "components/raftstore/src/coprocessor/split_check/half.rs"
     ],
     "gold_methods_considered": [
-      "new_split_checker_host"
+      "add_checker",
+      "check_split_and_bucket"
     ],
     "has_exact_method_anchor": false,
     "has_file_or_class_anchor": false,
     "matched_file_or_class": [],
     "matched_methods": [],
     "name": "tikv-19220",
-    "num_gold_files": 1,
+    "num_gold_files": 2,
     "root_cause_type": "Logic",
     "stack_frames": [
       {

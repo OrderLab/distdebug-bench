@@ -65,16 +65,16 @@ coverage differs by more than 20 points across three attempts.
 
 ## 🏆 Leaderboard
 
-Top configurations on the full benchmark (120 bugs, Mini-SWE-Agent, mean of three
-attempts per bug). **Block coverage** is the primary metric.
+Top configurations on the full benchmark (v1.1 labels, 120 bugs, Mini-SWE-Agent, mean
+of three attempts per bug). **Block coverage** is the primary metric.
 
 | # | Model | Block coverage | File coverage | Tokens / run |
 | :-: | :-- | :-: | :-: | --: |
-| 1 | GPT-6 Astra | **67.7** <sub>[60.4, 74.9]</sub> | 83.9 | 132K |
-| 2 | Claude Opus 5.5 | **66.4** <sub>[59.2, 73.6]</sub> | 82.0 | 193K |
-| 3 | GPT-5.5 | **65.1** <sub>[57.8, 72.3]</sub> | 84.0 | 468K |
-| 4 | GPT-5.4 | 63.1 <sub>[56.0, 70.2]</sub> | 79.8 | 690K |
-| 5 | GPT-5.3-Codex | 59.7 <sub>[52.2, 67.2]</sub> | 79.1 | 416K |
+| 1 | GPT-6 Astra | **71.8** <sub>[64.8, 78.6]</sub> | 86.1 | 130K |
+| 2 | Claude Opus 5.5 | **71.0** <sub>[64.3, 77.5]</sub> | 84.5 | 149K |
+| 3 | GPT-5.5 | **69.5** <sub>[62.6, 76.2]</sub> | 86.2 | 474K |
+| 4 | GPT-5.4 | 66.3 <sub>[59.4, 73.1]</sub> | 81.0 | 687K |
+| 5 | GPT-5.3-Codex | 62.4 <sub>[55.0, 69.6]</sub> | 79.9 | 417K |
 
 <sub>Brackets are 95% bug-bootstrap confidence intervals.</sub>
 
@@ -443,6 +443,23 @@ half-open, `[start_line, end_line)`.
 
 Precision divides by predicted files, functions, lines, or blocks; coverage
 divides by ground-truth ones. `block_coverage` is the paper's main metric.
+
+## 🗒️ Changelog
+
+- **v1.1 (2026-11-07).** Fixes the gold labels of eight bugs reported in
+  [#2](https://github.com/OrderLab/distdebug-bench/issues/2).
+  - The blocks of etcd-14110, etcd-14325, etcd-14382, etcd-15247, hbase-28830 and
+    ray-14883 had been labeled against the fix's base branch. They are now mapped
+    onto each bug's pinned revision.
+  - tikv-17830's pinned tag already contained the fix. It is re-pinned to the parent
+    of the fix on release-7.1 (`b00db656`).
+  - tikv-19220 pointed to a commit outside the TiKV repository. It is re-pinned to
+    the parent of the fix on master (`6bb8ff37`), and its block now marks the two
+    lines that cause the failure.
+  - ignite3-22597 and hbase-28830 gain fix links.
+  - The leaderboard and the paper use v1.1. Block coverage rises by 0.7 to 4.6 points
+    per configuration.
+- **v1.0 (2026-11-01).** Initial release.
 
 ## 🤝 Contributing
 

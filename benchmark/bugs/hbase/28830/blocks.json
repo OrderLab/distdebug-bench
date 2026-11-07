@@ -1,14 +1,14 @@
 [
   {
     "file": "hbase-procedure/src/main/java/org/apache/hadoop/hbase/procedure2/ProcedureExecutor.java",
-    "function": "ProcedureExecutor.executeProcedure",
-    "start_line": 2031,
-    "end_line": 2032
+    "function": "ProcedureExecutor.updateStoreOnExec",
+    "start_line": 2011,
+    "end_line": 2012
   },
   {
     "file": "hbase-server/src/main/java/org/apache/hadoop/hbase/master/procedure/MasterProcedureScheduler.java",
     "function": "MasterProcedureScheduler.completionCleanup",
-    "start_line": 406,
-    "end_line": 409
+    "start_line": 349,
+    "end_line": 352
   }
 ]
